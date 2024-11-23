@@ -3,19 +3,111 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgba(255, 255, 255, 1);
+  --foreground: rgba(46, 46, 46, 1);
+  --gray2: rgba(0, 0, 0, 1);
+  --gray1: rgba(123, 123, 123, 1);
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 100 900; /* Supports variable weights from 100 to 900 */
+  src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-display: swap; /* Improves performance by swapping the font */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: rgba(255, 255, 255, 1);
+    --foreground: rgba(46, 46, 46, 1);
+    --gray2: rgba(0, 0, 0, 1);
+    --gray1: rgba(123, 123, 123, 1);
   }
 }
+p {
+  color: var(--gray2);
+  @apply text-base font-light;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Montserrat";
+  padding: 0;
+}
+.container {
+  width: 100%;
+  max-width: 108rem;
+  /* max-width: 1728px; */
 
+  padding: 0 12rem;
+  margin: 0 auto;
+}
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  direction: ltr;
+}
+.ExperienceCard h3::after,
+.header a::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  background: var(--foreground);
+  height: 2px;
+  color: #ecf0f1dc;
+  bottom: -5;
+  left: 0;
+  transition: all 500ms;
+  width: 100%;
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+}
+.header .active::after,
+.ExperienceCard:hover h3:after,
+.header a:hover::after {
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+}
+
+.header a:hover,
+.header .active {
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  /* background-color: red; */
+  width: 0;
+}
+.header a {
+  opacity: 0.6;
+  @apply text-base font-light text-foreground;
+}
+
+.aboutme img {
+  filter: drop-shadow(1px 4px 8px var(--foreground));
+}
+.designedShadow {
+  box-shadow: none;
+  transition: all 450ms;
+  border-radius: 4px;
+}
+
+.ExperienceCard:hover .designedShadow {
+  box-shadow: 0px 4px 13.2px 0px rgba(148, 138, 138, 0.27) !important;
+}
+.designedShadow img {
+  transition: all 400ms;
+
+  transform: scale(1.05);
+}
+.ExperienceCard:hover .designedShadow img {
+  transform: scale(1);
 }
