@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --background: rgba(255, 255, 255, 1);
   --foreground: rgba(46, 46, 46, 1);
@@ -37,12 +36,9 @@ p {
 }
 .container {
   width: 100%;
-  max-width: 108rem;
-  /* max-width: 1728px; */
-
-  padding: 0 12rem;
-  margin: 0 auto;
+  @apply max-w-[108rem] mx-auto px-[2rem] md:px-[2rem] lg:px-[4rem] xl:px-[10rem] 2xl:px-[12rem];
 }
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -83,16 +79,16 @@ body {
 }
 
 ::-webkit-scrollbar {
-  /* background-color: red; */
   width: 0;
 }
 .header a {
   opacity: 0.6;
-  @apply text-base font-light text-foreground;
+  @apply font-light text-foreground  text-xs md:text-sm xl:text-base;
 }
 
 .aboutme img {
   filter: drop-shadow(1px 4px 8px var(--foreground));
+  -webkit-filter: drop-shadow(1px 4px 8px var(--foreground));
 }
 .designedShadow {
   box-shadow: none;
@@ -110,4 +106,20 @@ body {
 }
 .ExperienceCard:hover .designedShadow img {
   transform: scale(1);
+}
+ul {
+  list-style-type: disc;
+  /* list-style-type: "."; */
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+.myCcollapse {
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
 }

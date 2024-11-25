@@ -10,7 +10,7 @@ const SVGMail = ({
     <svg
       width={width}
       height={height}
-      onClick={onClick}
+      // onClick={onClick}
       className={className}
       viewBox="0 0 24 18"
       fill="none"
