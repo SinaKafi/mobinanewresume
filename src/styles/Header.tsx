@@ -27,12 +27,12 @@ const Header = () => {
         </div>
         <div className="flex mb-10 justify-between items-center gap-6">
           <Link
-            href={"/aboutme"}
-            className={`relative !text-lg cursor-pointer ${
-              path === "/aboutme" && "active"
+            href={"/design"}
+            className={`relative !text-lg cursor-pointer  ${
+              path.includes("design") && "active"
             }`}
           >
-            ABOUT ME
+            MY DESIGNED
           </Link>
           <Link
             href={"/experience"}
@@ -43,12 +43,12 @@ const Header = () => {
             EXPERIENCE
           </Link>
           <Link
-            href={"/design"}
-            className={`relative !text-lg cursor-pointer  ${
-              path.includes("design") && "active"
+            href={"/aboutme"}
+            className={`relative !text-lg cursor-pointer ${
+              path === "/aboutme" && "active"
             }`}
           >
-            MY DESIGNED
+            ABOUT ME
           </Link>
           <button
             className="bg-foreground px-4 py-2 xl:px-8 xl:py-2 rounded-[4px] text-background text-sm xl:text-base font-light"
