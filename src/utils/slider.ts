@@ -1,4 +1,4 @@
-export var sliderSettings = {
+export const sliderSettings = {
   infinite: true,
   autoplay: true,
   slidesToShow: 2.5,

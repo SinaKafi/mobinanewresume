@@ -86,12 +86,12 @@
 // };
 
 // export default JobCard;
-import React, { useState } from "react";
+import React from "react";
 
 interface IJobCard {
   name: string;
   role: string;
-  description: any;
+  description: string;
   fromDate: string;
   toDate: string;
   setIsOpen: (_: string) => void;

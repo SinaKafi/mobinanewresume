@@ -3,7 +3,7 @@ import { sliderSettings } from "@/utils/slider";
 import Image from "next/image";
 import Slider from "react-slick";
 
-const ImageSlider = ({ array }: { array: any }) => {
+const ImageSlider = ({ array = [] }: { array?: string[] }) => {
   const totalImages = array.length;
 
   const dynamicSliderSettings = {
@@ -17,7 +17,7 @@ const ImageSlider = ({ array }: { array: any }) => {
   return (
     <div>
       <Slider {...dynamicSliderSettings}>
-        {array?.map((image: any) => (
+        {array?.map((image) => (
           <div className="!appearance-none p-2 outline-none   " key={image}>
             <Image
               src={image}

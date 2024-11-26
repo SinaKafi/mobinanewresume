@@ -135,13 +135,6 @@
 import ImageSlider from "@/components/carosel/Slider";
 import ExperienceCard from "@/components/GalleryCard";
 import { DESIGNED } from "@/utils/datas";
-import Image from "next/image";
-
-interface PageProps {
-  params: {
-    name: string; // Matches the dynamic route segment in the URL
-  };
-}
 
 export default async function Page() {
   return (

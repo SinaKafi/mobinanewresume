@@ -3,7 +3,7 @@ import JobCard from "@/components/experience/JobCard";
 import { EXPERIENCE } from "@/utils/datas";
 import React, { useState } from "react";
 
-export default function experience() {
+export default function Experience() {
   const [isOpen, setIsOpen] = useState("");
 
   return (

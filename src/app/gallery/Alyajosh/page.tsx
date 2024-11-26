@@ -104,9 +104,6 @@ import ExperienceCard from "@/components/GalleryCard";
 //         </ol>
 
 import { DESIGNED } from "@/utils/datas";
-import { sliderSettings } from "@/utils/slider";
-import Image from "next/image";
-import Slider from "react-slick";
 
 //         <h1 className="text-lg font-medium text-gray2">
 //           Key Features of the Task Manager App:{" "}

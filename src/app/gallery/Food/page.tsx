@@ -84,7 +84,6 @@
 import ImageSlider from "@/components/carosel/Slider";
 import ExperienceCard from "@/components/GalleryCard";
 import { DESIGNED } from "@/utils/datas";
-import Image from "next/image";
 import React from "react";
 
 function Page() {

@@ -1,16 +1,10 @@
 import React from "react";
 
-const SVGDrible = ({
-  width = "24",
-  height = "24",
-  onClick = () => {},
-  className = "",
-}) => {
+const SVGDrible = ({ width = "24", height = "24", className = "" }) => {
   return (
     <svg
       width={width}
       height={height}
-      // onClick={onClick}
       className={className}
       viewBox="0 0 24 24"
       fill="none"

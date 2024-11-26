@@ -74,9 +74,9 @@ export const EXPERIENCE = [
 export const DESIGNED: {
   title: string;
   cover: string;
-  id: number;
+  id: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
   route: string;
-  images: string[];
+  images: Required<string[]>;
 }[] = [
   {
     title: "Tractor Fan Club App",
