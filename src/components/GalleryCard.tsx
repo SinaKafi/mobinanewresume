@@ -6,9 +6,15 @@ interface IExperienceCard {
   title: string;
   cover: string;
   route: string; // Changed to lowercase 'string'
+  hideTitle?: true;
 }
 
-const ExperienceCard: React.FC<IExperienceCard> = ({ cover, title, route }) => {
+const ExperienceCard: React.FC<IExperienceCard> = ({
+  cover,
+  title,
+  route,
+  hideTitle,
+}) => {
   return (
     <Link
       href={`/gallery/${route}`}
@@ -26,11 +32,13 @@ const ExperienceCard: React.FC<IExperienceCard> = ({ cover, title, route }) => {
           />
         </div>
         {/* Title */}
-        <div>
-          <h3 className="relative text-center text-lg font-light text-gray2">
-            {title}
-          </h3>
-        </div>
+        {!hideTitle && (
+          <div>
+            <h3 className="relative text-center text-lg font-light text-gray2">
+              {title}
+            </h3>
+          </div>
+        )}
       </div>
     </Link>
   );

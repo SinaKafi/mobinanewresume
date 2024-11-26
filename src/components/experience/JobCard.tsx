@@ -60,7 +60,7 @@
 //         className="flex justify-between items-center cursor-pointer"
 //         onClick={() => setIsOpen(!isOpen)}
 //       >
-//         <h1 className="font-medium text-lg text-gray-800">{name}</h1>
+//         <h1 className="font-medium text-lg text-gray2">{name}</h1>
 //         <button
 //           className="text-gray-500 focus:outline-none"
 //           aria-label="Toggle details"
@@ -72,11 +72,11 @@
 //       {/* Accordion Body */}
 //       {isOpen && (
 //         <div className="mt-4">
-//           <h3 className="text-md font-light text-gray-700">{role}</h3>
+//           <h3 className="text-md font-light text-gray2">{role}</h3>
 //           <p className="text-gray-500 text-sm font-normal">
 //             {fromDate} - {toDate}
 //           </p>
-//           <p className="mt-2 text-justify text-sm font-light text-gray-600 leading-6">
+//           <p className="mt-2 text-justify text-sm font-light text-gray2 leading-6">
 //             {description}
 //           </p>
 //         </div>
@@ -150,7 +150,7 @@ const JobCard: React.FC<IJobCard> = ({
             handleClick();
           }}
         >
-          <h1 className="font-medium text-lg text-gray-800">{name}</h1>
+          <h1 className="font-medium text-lg text-gray2">{name}</h1>
           <div className="flex justify-between items-center w-full">
             <h3 className="text-base font-light text-foreground whitespace-pre-line">
               {role}

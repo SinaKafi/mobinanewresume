@@ -22,13 +22,15 @@ const Header = () => {
         <div className="flex mb-10 justify-between items-center gap-6">
           <Link
             href={"/"}
-            className={`relative cursor-pointer ${path === "/" && "active"}`}
+            className={`relative !text-lg cursor-pointer ${
+              path === "/" && "active"
+            }`}
           >
             ABOUT ME
           </Link>
           <Link
             href={"/experience"}
-            className={`relative cursor-pointer ${
+            className={`relative cursor-pointer !text-lg ${
               path === "/experience" && "active"
             }`}
           >
@@ -36,7 +38,7 @@ const Header = () => {
           </Link>
           <Link
             href={"/gallery"}
-            className={`relative cursor-pointer ${
+            className={`relative !text-lg cursor-pointer ${
               path.includes("gallery") && "active"
             }`}
           >
@@ -89,14 +91,16 @@ const Header = () => {
         <div className="flex flex-col gap-6">
           <Link
             href={"/"}
-            className={`relative cursor-pointer ${path === "/" && "active"}`}
+            className={`relative  text-center cursor-pointer ${
+              path === "/" && "active"
+            }`}
             onClick={() => setIsSidebarOpen(false)} // Close sidebar
           >
             ABOUT ME
           </Link>
           <Link
             href={"/experience"}
-            className={`relative cursor-pointer ${
+            className={`relative text-center  cursor-pointer ${
               path === "/experience" && "active"
             }`}
             onClick={() => setIsSidebarOpen(false)}
@@ -105,7 +109,7 @@ const Header = () => {
           </Link>
           <Link
             href={"/gallery"}
-            className={`relative cursor-pointer ${
+            className={`relative text-center  cursor-pointer ${
               path.includes("gallery") && "active"
             }`}
             onClick={() => setIsSidebarOpen(false)}
@@ -113,7 +117,7 @@ const Header = () => {
             GALLERY
           </Link>
           <button
-            className="bg-foreground px-4 py-2 rounded-[4px] text-background text-sm font-light"
+            className="bg-foreground px-4 py-2 rounded-[4px] text-center  text-background text-sm font-light"
             onClick={() => setIsSidebarOpen(false)}
           >
             contact me

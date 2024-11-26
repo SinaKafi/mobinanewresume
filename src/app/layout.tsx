@@ -54,7 +54,7 @@ export default function RootLayout({
               </a>
             </div>
 
-            <p className="text-sm font-light text-center text-gray-600">
+            <p className="text-sm font-light text-center text-gray2">
               Looking forward to connecting with you!
             </p>
           </div>
