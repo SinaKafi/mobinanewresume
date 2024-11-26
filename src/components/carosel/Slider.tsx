@@ -1,34 +1,34 @@
 "use client";
+import { sliderSettings } from "@/utils/slider";
 import Image from "next/image";
-// components/ImageSlider.js
-import React, { useRef, useEffect } from "react";
+import Slider from "react-slick";
 
-const ImageSlider = ({ children }: { children: any }) => {
-  //   const sliderRef = useRef(null);
+const ImageSlider = ({ array }: { array: any }) => {
+  const totalImages = array.length;
 
-  //   const handleScroll = () => {
-  //     const slider = sliderRef.current;
-  //     if (slider) {
-  //       const { scrollLeft, scrollWidth, clientWidth } = slider;
-  //       if (scrollLeft + clientWidth >= scrollWidth) {
-  //         (slider as any).scrollTo({ left: 0, behavior: "smooth" });
-  //       }
-  //     }
-  //   };
+  const dynamicSliderSettings = {
+    ...sliderSettings,
+    infinite: totalImages > 1, // Disable infinite loop when there's only one image
+    swip: totalImages > 1,
+    slidesToShow: totalImages == 3 ? 2.5 : totalImages, // Adjust dynamically based on the number of images
+    centerMode: totalImages == 1,
+  };
 
   return (
-    <div
-      //   ref={sliderRef}
-      //   onScroll={handleScroll}
-      className="flex items-start justify-center "
-      style={{
-        display: "flex",
-        overflowX: "scroll",
-        scrollBehavior: "smooth",
-        whiteSpace: "nowrap",
-      }}
-    >
-      {children}
+    <div>
+      <Slider {...dynamicSliderSettings}>
+        {array?.map((image: any) => (
+          <div className="!appearance-none p-2 outline-none   " key={image}>
+            <Image
+              src={image}
+              alt="Image Description"
+              className="mx-auto aspect-square object-fill"
+              width={550}
+              height={550}
+            />
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/styles/Header";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
+// import "react-slideshow-image/dist/styles.css";
 import SVGMail from "@/components/SVGS/SVGMail";
 import SVGDrible from "@/components/SVGS/SVGDrible";
 import SVGLinkdin from "@/components/SVGS/SVGLinkdin";

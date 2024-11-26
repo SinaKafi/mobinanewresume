@@ -71,16 +71,22 @@ export const EXPERIENCE = [
   },
 ];
 
-export const DESIGNED = [
+export const DESIGNED: {
+  title: string;
+  cover: string;
+  id: number;
+  route: string;
+  images: string[];
+}[] = [
   {
     title: "Tractor Fan Club App",
     cover: "/designed/TractorFanClubApp.png",
-    id: 10,
+    id: 9,
     route: "TractorApp",
     images: [
-      "/works/tractor app/tractor app 1.png",
-      "/works/tractor app/tractor app 2.png",
-      "/works/tractor app/tractor app 3.png",
+      "/works/tractor app/1.png",
+      "/works/tractor app/2.png",
+      "/works/tractor app/3.png",
     ],
   },
   {
@@ -89,9 +95,9 @@ export const DESIGNED = [
     id: 8,
     route: "TractorWeb",
     images: [
-      "/works/tractor site/tractor ticket site 1.png",
-      "/works/tractor site/tractor ticket site 2.png",
-      "/works/tractor site/tractor ticket site 3.png",
+      "/works/tractor web/1.png",
+      "/works/tractor web/2.png",
+      "/works/tractor web/3.png",
     ],
   },
   {
@@ -99,30 +105,27 @@ export const DESIGNED = [
     cover: "/designed/NamikhodroE-commerceWebsite.png",
     id: 7,
     route: "NamikhodroWeb",
-    images: ["/works/nami khodro.png"],
+    images: ["/works/namikhodro website/1.png"],
   },
   {
     title: "Wellowork Health App",
     cover: "/designed/WelloworkHealthApp.png",
     id: 6,
     route: "WelloworkApp",
-    images: [
-      "/works/wellowork app/wello work app 1.png",
-      "/works/wellowork app/wello work app 2.png",
-    ],
+    images: ["/works/wellowork app/1.png", "/works/wellowork app/2.png"],
   },
   {
     title: "Wellowork Website",
     route: "WelloworkWeb",
     cover: "/designed/WelloworkWebsite.png",
-    images: ["/works/wello work website.png"],
+    images: ["/works/wellowork website/1.png"],
     id: 5,
   },
   {
     title: "Irankhodro Health Dashboard",
     route: "IrankhodroHealth",
     cover: "/designed/IrankhodroHealthDashboard.png",
-    images: ["/works/irankhodro health dashboard.png"],
+    images: ["/works/irankhodro health dashboared/1.png"],
     id: 4,
   },
   {
@@ -139,14 +142,14 @@ export const DESIGNED = [
     title: "Moeinkhodro E-commerce Website",
     route: "Moeinkhodro",
     cover: "/designed/MoeinkhodroE-commerceWebsite.png",
-    images: ["/works/moin khodro web site.png"],
+    images: ["/works/moein khodro website/1.png"],
     id: 2,
   },
   {
     title: "Food E-commerce Landing",
     route: "Food",
     cover: "/designed/FoodE-commerceLanding.png",
-    images: ["/works/food ecommerce landing.png/food ecommerce landing.png"],
+    images: ["/works/food eccommece/1.png"],
     id: 1,
   },
 ];

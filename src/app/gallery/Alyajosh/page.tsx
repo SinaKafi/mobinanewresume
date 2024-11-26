@@ -1,3 +1,6 @@
+"use client";
+import ImageSlider from "@/components/carosel/Slider";
+import ExperienceCard from "@/components/GalleryCard";
 // export default async function Page() {
 //   return (
 //     <>
@@ -101,7 +104,9 @@
 //         </ol>
 
 import { DESIGNED } from "@/utils/datas";
+import { sliderSettings } from "@/utils/slider";
 import Image from "next/image";
+import Slider from "react-slick";
 
 //         <h1 className="text-lg font-medium text-gray2">
 //           Key Features of the Task Manager App:{" "}
@@ -172,20 +177,14 @@ import Image from "next/image";
 //     </>
 //   );
 // }
-export default async function Page() {
+export default function Page() {
   return (
-    <div className="">
-      <div className="w-full overflow-x-scroll overflow-y-hidden flex items-center justify-center space-x-5">
-        {DESIGNED.find((item) => item.id == 3)?.images?.map((imaged) => (
-          <Image
-            src={imaged}
-            alt="asd"
-            width={300}
-            height={300}
-            className="inline-block items-center"
-          />
-        ))}
-      </div>
+    <div className="flex flex-col justify-between space-y-8">
+      <ImageSlider
+        array={DESIGNED.find((item) => item.id == 3)?.images.map(
+          (item) => item
+        )}
+      />
       <div className="flex flex-col gap-8">
         <h1 className="text-2xl font-medium text-gray2 sm:text-3xl lg:text-4xl">
           Alyajosh Task Manager App
@@ -290,6 +289,11 @@ export default async function Page() {
             collaborative and efficient work environment.
           </p>
         </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto border-t-2 border-gray-200">
+        {DESIGNED.filter((item) => item.id !== 3)?.map((item) => (
+          <ExperienceCard {...item} key={item.title + item.id} hideTitle />
+        ))}
       </div>
     </div>
   );

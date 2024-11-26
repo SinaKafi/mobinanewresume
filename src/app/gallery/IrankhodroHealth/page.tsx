@@ -113,11 +113,21 @@
 // }
 
 // export default page;
+import ImageSlider from "@/components/carosel/Slider";
+import ExperienceCard from "@/components/GalleryCard";
+import { DESIGNED } from "@/utils/datas";
+import Image from "next/image";
 import React from "react";
 
 function Page() {
   return (
-    <div className="">
+    <div className="flex flex-col justify-between space-y-8">
+      <ImageSlider
+        array={DESIGNED.find((item) => item.id == 4)?.images.map(
+          (item) => item
+        )}
+      />
+
       <div className="flex flex-col gap-8">
         <h1 className="text-2xl md:text-3xl font-medium text-gray2">
           Irankhodro Health Dashboard
@@ -223,6 +233,11 @@ function Page() {
             work environment.
           </p>
         </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto border-t-2 border-gray-200">
+        {DESIGNED.filter((item) => item.id !== 4)?.map((item) => (
+          <ExperienceCard {...item} key={item.title + item.id} hideTitle />
+        ))}
       </div>
     </div>
   );

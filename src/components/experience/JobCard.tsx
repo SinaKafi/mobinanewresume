@@ -62,7 +62,7 @@
 //       >
 //         <h1 className="font-medium text-lg text-gray2">{name}</h1>
 //         <button
-//           className="text-gray-500 focus:outline-none"
+//           className="text-gray2500 focus:outline-none"
 //           aria-label="Toggle details"
 //         >
 //           {isOpen ? "▲" : "▼"}
@@ -73,7 +73,7 @@
 //       {isOpen && (
 //         <div className="mt-4">
 //           <h3 className="text-md font-light text-gray2">{role}</h3>
-//           <p className="text-gray-500 text-sm font-normal">
+//           <p className="text-gray2500 text-sm font-normal">
 //             {fromDate} - {toDate}
 //           </p>
 //           <p className="mt-2 text-justify text-sm font-light text-gray2 leading-6">
@@ -173,7 +173,7 @@ const JobCard: React.FC<IJobCard> = ({
         </div>
         <div className="w-full flex items-center justify-center">
           <button
-            className="text-gray-500 focus:outline-none"
+            className="text-gray2500 focus:outline-none"
             aria-label="Toggle details"
           >
             {isOpen === name ? "▲" : "▼"}

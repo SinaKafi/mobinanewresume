@@ -352,12 +352,18 @@
 //     </div>
 //   );
 // }
+import ImageSlider from "@/components/carosel/Slider";
 import ExperienceCard from "@/components/GalleryCard";
 import { DESIGNED } from "@/utils/datas";
 
 export default async function Page() {
   return (
     <div className="flex flex-col justify-between gap-y-11">
+      <ImageSlider
+        array={DESIGNED.find((item) => item.id == 8)?.images.map(
+          (item) => item
+        )}
+      />
       <div className="flex flex-col space-y-16">
         <h1 className="text-2xl font-medium text-gray2">
           Tractor Fan Club Website
@@ -651,7 +657,7 @@ export default async function Page() {
           forefront.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto border-t-2 border-gray2 mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto border-t-2 border-gray-200">
         {DESIGNED.filter((item) => item.id !== 8)?.map((item) => (
           <ExperienceCard {...item} key={item.title + item.id} hideTitle />
         ))}
