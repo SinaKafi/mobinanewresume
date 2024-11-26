@@ -1,17 +1,23 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+// import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar toggle state
-  const path = usePathname();
+  const [isModal, setIsModal] = useState(false); // Sidebar toggle state
 
+  const path = usePathname();
+  const router = useRouter();
   return (
     <div className="sticky top-0 w-full bg-background z-50">
       {/* Desktop Header */}
       <div className="container header h-52 hidden md:flex justify-between items-end gap-4">
-        <div className="flex flex-col mb-10">
+        <div
+          onClick={() => router.push("/design")}
+          className="donthave flex flex-col mb-10"
+        >
           <h1 className="relative cursor-pointer font-medium text-base md:text-lg xl:text-2xl text-foreground leading-10">
             MOBINA'S 2024 PORTFOLIO
           </h1>
@@ -21,9 +27,9 @@ const Header = () => {
         </div>
         <div className="flex mb-10 justify-between items-center gap-6">
           <Link
-            href={"/"}
+            href={"/aboutme"}
             className={`relative !text-lg cursor-pointer ${
-              path === "/" && "active"
+              path === "/aboutme" && "active"
             }`}
           >
             ABOUT ME
@@ -37,14 +43,21 @@ const Header = () => {
             EXPERIENCE
           </Link>
           <Link
-            href={"/gallery"}
-            className={`relative !text-lg cursor-pointer ${
-              path.includes("gallery") && "active"
+            href={"/design"}
+            className={`relative !text-lg cursor-pointer  ${
+              path.includes("design") && "active"
             }`}
           >
-            GALLERY
+            MY DESIGNED
           </Link>
-          <button className="bg-foreground px-4 py-2 xl:px-8 xl:py-2 rounded-[4px] text-background text-sm xl:text-base font-light">
+          <button
+            className="bg-foreground px-4 py-2 xl:px-8 xl:py-2 rounded-[4px] text-background text-sm xl:text-base font-light"
+            onClick={() => {
+              setIsModal(true);
+
+              setIsSidebarOpen(false);
+            }}
+          >
             contact me
           </button>
         </div>
@@ -90,9 +103,9 @@ const Header = () => {
       >
         <div className="flex flex-col gap-6">
           <Link
-            href={"/"}
+            href={"/aboutme"}
             className={`relative  text-center cursor-pointer ${
-              path === "/" && "active"
+              path === "/aboutme  " && "active"
             }`}
             onClick={() => setIsSidebarOpen(false)} // Close sidebar
           >
@@ -108,23 +121,33 @@ const Header = () => {
             EXPERIENCE
           </Link>
           <Link
-            href={"/gallery"}
+            href={"/design"}
             className={`relative text-center  cursor-pointer ${
-              path.includes("gallery") && "active"
+              path.includes("design") && "active"
             }`}
             onClick={() => setIsSidebarOpen(false)}
           >
-            GALLERY
+            MY DESIGNED
           </Link>
           <button
             className="bg-foreground px-4 py-2 rounded-[4px] text-center  text-background text-sm font-light"
-            onClick={() => setIsSidebarOpen(false)}
+            onClick={() => {
+              setIsModal(true);
+
+              setIsSidebarOpen(false);
+            }}
           >
             contact me
           </button>
         </div>
       </div>
-
+      <Modal
+        isOpen={isModal}
+        onClose={() => {
+          setIsModal(false);
+          setIsSidebarOpen(false);
+        }}
+      />
       {/* Sidebar Backdrop */}
       {isSidebarOpen && (
         <div
@@ -137,6 +160,45 @@ const Header = () => {
 };
 
 export default Header;
+
+const Modal = ({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) => {
+  return (
+    <div
+      className={`fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center duration-300 transition-opacity backdrop-blur-sm ${
+        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+      onClick={onClose}
+    >
+      <div className="container">
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          className={`bg-white bg-opacity-100 backdrop-blur-0 max-w-2xl mx-auto flex flex-col space-y-11 p-5 !backdrop-opacity-100 p-6 rounded-lg shadow-lg transition-all transform duration-300 ${
+            isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
+          }`}
+        >
+          <h2 className="text-xl font-bold mb-4">contact me</h2>
+          <p className="mb-4">
+            If you're interested in collaboration or want to learn more about my
+            projects, I’d be happy to connect with you.{" "}
+          </p>
+          <div>
+            <h2>Phone: 09223693919</h2>
+            <h2>Email: mmoghadam376@gmail.com</h2>
+          </div>
+          <p>Looking forward to hearing from you!</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 /***************** */
 
 // "use client";

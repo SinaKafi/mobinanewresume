@@ -17,7 +17,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
 }) => {
   return (
     <Link
-      href={`/gallery/${route}`}
+      href={`/design/${route}`}
       className="w-full ExperienceCard cursor-pointer"
     >
       <div className="flex flex-col items-center justify-between gap-6">
