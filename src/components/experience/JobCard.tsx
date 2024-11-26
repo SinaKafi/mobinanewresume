@@ -119,7 +119,7 @@ const JobCard: React.FC<IJobCard> = ({
   };
 
   return (
-    <div className="border-b border-gray-200 py-4">
+    <div className=" py-4">
       {/* Desktop View */}
       <div className="hidden md:grid grid-cols-3 hover:!text-blue-600">
         <div className="col-span-1 flex flex-col items-start justify-start gap-4">
@@ -139,8 +139,8 @@ const JobCard: React.FC<IJobCard> = ({
       {/* Mobile View */}
       <div
         id={name}
-        data-icon={isOpen === name ? "▲" : "▼"}
-        className="relative md:hidden border-b-2 border-gray1 collapsible"
+        // data-icon={isOpen === name ? "▲" : "▼"}
+        className="relative md:hidden border-b border-gray1 collapsible"
       >
         {/* Accordion Header */}
         <div

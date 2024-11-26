@@ -30,14 +30,14 @@ export default function RootLayout({
           <div className="flex flex-col items-center gap-4">
             <div className="flex gap-4">
               <a
-                href="mailto:your-email@example.com"
+                href="mailto:mmoghadam376@gmail.com"
                 aria-label="Email"
                 className="cursor-pointer p-2 hover:text-blue-500"
               >
                 <SVGMail />
               </a>
               <a
-                href="https://dribbble.com/yourprofile"
+                href="https://dribbble.com/mobinadesign"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Dribbble Profile"
@@ -46,7 +46,7 @@ export default function RootLayout({
                 <SVGDrible />
               </a>
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://www.linkedin.com/in/mobina-moghadam-1424aa209/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"

@@ -101,15 +101,15 @@ const Header = () => {
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out shadow-lg`}
       >
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 mobileHeader">
           <Link
-            href={"/aboutme"}
-            className={`relative  text-center cursor-pointer ${
-              path === "/aboutme  " && "active"
+            href={"/design"}
+            className={`relative text-center  cursor-pointer ${
+              path.includes("design") && "active"
             }`}
-            onClick={() => setIsSidebarOpen(false)} // Close sidebar
+            onClick={() => setIsSidebarOpen(false)}
           >
-            ABOUT ME
+            MY DESIGNED
           </Link>
           <Link
             href={"/experience"}
@@ -120,14 +120,15 @@ const Header = () => {
           >
             EXPERIENCE
           </Link>
+
           <Link
-            href={"/design"}
+            onClick={() => setIsSidebarOpen(false)} // Close sidebar
+            href={"/aboutme"}
             className={`relative text-center  cursor-pointer ${
-              path.includes("design") && "active"
+              path === "/aboutme" && "active"
             }`}
-            onClick={() => setIsSidebarOpen(false)}
           >
-            MY DESIGNED
+            ABOUT ME
           </Link>
           <button
             className="bg-foreground px-4 py-2 rounded-[4px] text-center  text-background text-sm font-light"

@@ -78,9 +78,15 @@ body {
   opacity: 1;
 }
 
+.mobileHeader a:hover,
+.mobileHeader .active {
+  opacity: 1;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
+.mobileHeader a,
 .header a {
   opacity: 0.6;
   @apply font-light text-foreground  text-xs md:text-sm xl:text-base;
