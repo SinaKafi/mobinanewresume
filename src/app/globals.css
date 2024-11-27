@@ -93,8 +93,8 @@ body {
 }
 
 .aboutme img {
-  filter: drop-shadow(1px 4px 8px var(--foreground));
-  -webkit-filter: drop-shadow(1px 4px 8px var(--foreground));
+  filter: drop-shadow(0px 0px 2px var(--foreground));
+  /* -webkit-filter: drop-shadow(1px 4px 8px var(--foreground)); */
 }
 .designedShadow {
   box-shadow: none;

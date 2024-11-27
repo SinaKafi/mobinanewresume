@@ -109,7 +109,7 @@ const JobCard: React.FC<IJobCard> = ({
 }) => {
   const scrollToElement = (id: string) => {
     const element = document.getElementById(id);
-    const headerOffset = 70; // ارتفاع هدر یا فاصله از بالا
+    const headerOffset = 85; // ارتفاع هدر یا فاصله از بالا
     const elementPosition = element?.getBoundingClientRect().top || 0;
     const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -125,7 +125,7 @@ const JobCard: React.FC<IJobCard> = ({
       setIsOpen(name);
       setTimeout(() => {
         scrollToElement(name);
-      }, 0);
+      }, 100);
     }
   };
 
@@ -134,15 +134,15 @@ const JobCard: React.FC<IJobCard> = ({
       {/* Desktop View */}
       <div className="hidden md:grid grid-cols-3 hover:!text-blue-600">
         <div className="col-span-1 flex flex-col items-start justify-start gap-4">
-          <h1 className="font-medium text-2xl text-gray2">{name}</h1>
-          <h3 className="text-xl font-light text-foreground whitespace-pre-line">
+          <h1 className="designHeading text-gray2">{name}</h1>
+          <h3 className="designHeading2 !font-light text-foreground whitespace-pre-line">
             {role}
           </h3>
-          <p className="text-gray1 text-lg font-normal">
+          <p className="designHeading2 !text-gray1 !font-normal">
             {fromDate} - {toDate}
           </p>
         </div>
-        <div className="col-span-2 text-left whitespace-pre-line text-lg font-light leading-8 text-foreground">
+        <div className="col-span-2  whitespace-pre-line designTitle leading-8 text-foreground">
           {description}
         </div>
       </div>
@@ -157,8 +157,6 @@ const JobCard: React.FC<IJobCard> = ({
         <div
           className={`flex justify-between items-start cursor-pointer flex-col `} // Disable clicks during transitions
           onClick={(e) => {
-            scrollToElement(name);
-
             e.stopPropagation();
             handleClick();
           }}
@@ -177,14 +175,20 @@ const JobCard: React.FC<IJobCard> = ({
         {/* Accordion Body */}
         <div
           className={`mt-4 max-h-0 overflow-hidden transition-all  duration-0 ${
-            isOpen === name && "!duration-500 max-h-[400vh]"
+            isOpen === name && "!duration-[1s] max-h-[400vh]"
           } `}
         >
-          <div className="text-left whitespace-pre-line text-lg font-light leading-8 text-foreground">
+          <div className="text-left whitespace-pre-line  designTitle leading-8 text-foreground">
             {description}
           </div>
         </div>
-        <div className="w-full flex items-center justify-center">
+        <div
+          className="w-full flex items-center justify-center "
+          onClick={(e) => {
+            e.stopPropagation();
+            handleClick();
+          }}
+        >
           <button
             className="text-gray2500 focus:outline-none"
             aria-label="Toggle details"

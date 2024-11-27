@@ -47,7 +47,7 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
     infinite: totalImages > 1, // Disable infinite loop when there's only one image
     swip: totalImages > 1,
     slidesToShow: totalImages === 3 ? 2.5 : totalImages, // Adjust dynamically based on the number of images
-    centerMode: totalImages === 1,
+    centerMode: false,
   };
 
   return (
@@ -55,14 +55,14 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
       <Slider {...dynamicSliderSettings}>
         {array?.map((image) => (
           <div
-            className="xw-full !appearance-none p-2 outline-none "
+            className="w-full !appearance-none p-2 outline-none "
             key={image}
           >
-            <div className="max-w-[50rem] max-h-[50rem] mx-auto relative  aspect-square w-full mx-auto bg-gray-200 overflow-hidden rounded-lg">
+            <div className="max-w-[25rem] max-h-[25rem] relative  aspect-square w-full mx-auto bg-gray-200 overflow-hidden rounded-lg">
               <Image
                 src={image}
                 alt="Image Description"
-                className="object-cover !mx-auto"
+                className="object-cover !mx-auto w-full"
                 fill // Makes it responsive within its container
                 priority
               />

@@ -21,18 +21,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased flex flex-col w-full relative min-h-screen gap-16 bg-background  ">
+      <body className="antialiased  flex flex-col w-full  min-h-screen  bg-background  ">
+        <div className="hidden md:block md:w-full md:h-14 xl:h-20"></div>
         <Header />
 
-        <main className="container min-h-screen flex-grow">{children}</main>
+        <main className="container min-h-screen flex-grow my-11">
+          {children}
+        </main>
 
-        <footer className="container h-auto py-8 flex items-center justify-center bg-background  ">
+        <footer className="container h-auto py-8 flex items-center my-6 justify-center bg-background  ">
           <div className="flex flex-col items-center gap-4">
             <div className="flex gap-4">
               <a
                 href="mailto:mmoghadam376@gmail.com"
                 aria-label="Email"
-                className="cursor-pointer p-2 hover:text-blue-500"
+                className="cursor-pointer p-2  transition-all scale-90 hover:scale-110"
               >
                 <SVGMail />
               </a>
@@ -41,7 +44,7 @@ export default function RootLayout({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Dribbble Profile"
-                className="cursor-pointer p-2 hover:text-pink-500"
+                className="cursor-pointer p-2 transition-all scale-90 hover:scale-110"
               >
                 <SVGDrible />
               </a>
@@ -50,7 +53,7 @@ export default function RootLayout({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
-                className="cursor-pointer p-2 hover:text-blue-700"
+                className="cursor-pointer p-2  transition-all scale-90 hover:scale-110"
               >
                 <SVGLinkdin />
               </a>
