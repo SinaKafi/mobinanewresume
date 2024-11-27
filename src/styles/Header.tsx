@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -13,16 +14,27 @@ const Header = () => {
     <div className="sticky top-0 w-full bg-background z-50">
       {/* Desktop Header */}
       <div className="container header h-24 hidden md:flex justify-between items-center gap-4 ">
-        <div
-          onClick={() => router.push("/portfolio")}
-          className="donthave flex flex-col cursor-pointer"
-        >
-          <h1 className=" font-medium text-sm lg:text-lg xl:text-xl text-foreground leading-10">
-            MOBINA'S 2024 PORTFOLIO
-          </h1>
-          <h2 className="text-xs md:text-sm xl:text-base font-light text-gray2">
-            PRODUCT DESIGNER
-          </h2>
+        <div className="flex items-center justify-center gap-2">
+          <div>
+            <Image
+              src={"/vector.svg"}
+              alt=""
+              width={50}
+              height={50}
+              className="block"
+            />
+          </div>
+          <div
+            onClick={() => router.push("/portfolio")}
+            className="donthave flex flex-col cursor-pointer"
+          >
+            <h1 className=" font-medium text-sm lg:text-lg xl:text-xl text-foreground leading-10">
+              MOBINA'S 2024 PORTFOLIO
+            </h1>
+            <h2 className="text-xs md:text-sm xl:text-base font-light text-gray2">
+              PRODUCT DESIGNER
+            </h2>
+          </div>
         </div>
         <div className="flex  justify-between items-center gap-6">
           <Link
@@ -64,14 +76,28 @@ const Header = () => {
 
       {/* Mobile Header */}
       <div className="flex md:hidden items-center justify-between p-4 bg-background">
-        <div
-          className="flex flex-col"
-          onClick={() => router.push("/portfolio")}
-        >
-          <h1 className="text-base font-medium text-foreground">
-            MOBINA'S PORTFOLIO
-          </h1>
-          <h2 className="text-sm font-light text-gray2">PRODUCT DESIGNER</h2>
+        {/* added */}
+
+        <div className="flex items-center justify-center gap-2">
+          <div>
+            <Image
+              src={"/vector.svg"}
+              alt=""
+              width={50}
+              height={50}
+              className="block"
+            />
+          </div>
+          <div
+            className="flex flex-col"
+            onClick={() => router.push("/portfolio")}
+          >
+            <h1 className="text-base font-medium text-foreground">
+              MOBINA'S PORTFOLIO
+            </h1>
+            <h2 className="text-sm font-light text-gray2">PRODUCT DESIGNER</h2>
+            {/* added */}
+          </div>
         </div>
         {/* Hamburger Icon */}
         <button

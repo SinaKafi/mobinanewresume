@@ -22,6 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased  flex flex-col w-full  min-h-screen  bg-background  ">
+        <link rel="icon" type="image/x-icon" href="/vector.svg" />
+
         <div className="hidden md:block md:w-full md:h-14 xl:h-20"></div>
         <Header />
 
