@@ -64,7 +64,7 @@ const Header = () => {
 
       {/* Mobile Header */}
       <div className="flex md:hidden items-center justify-between p-4 bg-background">
-        <div className="flex flex-col">
+        <div className="flex flex-col" onClick={() => router.push("/design")}>
           <h1 className="text-base font-medium text-foreground">
             MOBINA'S PORTFOLIO
           </h1>
