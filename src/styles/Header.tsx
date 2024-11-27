@@ -14,7 +14,10 @@ const Header = () => {
     <div className="sticky top-0 w-full bg-background z-50">
       {/* Desktop Header */}
       <div className="container header h-24 hidden md:flex justify-between items-center gap-4 ">
-        <div className="flex items-center justify-center gap-2">
+        <div
+          className="flex items-center justify-center gap-2 cursor-pointer"
+          onClick={() => router.push("/portfolio")}
+        >
           <div>
             <Image
               src={"/vector.svg"}
@@ -24,10 +27,7 @@ const Header = () => {
               className="block"
             />
           </div>
-          <div
-            onClick={() => router.push("/portfolio")}
-            className="donthave flex flex-col cursor-pointer"
-          >
+          <div className="donthave flex flex-col cursor-pointer">
             <h1 className=" font-medium text-sm lg:text-lg xl:text-xl text-foreground leading-10">
               MOBINA'S 2024 PORTFOLIO
             </h1>
@@ -77,8 +77,10 @@ const Header = () => {
       {/* Mobile Header */}
       <div className="flex md:hidden items-center justify-between p-4 bg-background">
         {/* added */}
-
-        <div className="flex items-center justify-center gap-2">
+        <div
+          className="flex items-center justify-center gap-2"
+          onClick={() => router.push("/portfolio")}
+        >
           <div>
             <Image
               src={"/vector.svg"}
@@ -88,10 +90,7 @@ const Header = () => {
               className="block"
             />
           </div>
-          <div
-            className="flex flex-col"
-            onClick={() => router.push("/portfolio")}
-          >
+          <div className="flex flex-col">
             <h1 className="text-base font-medium text-foreground">
               MOBINA'S PORTFOLIO
             </h1>
@@ -125,7 +124,7 @@ const Header = () => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-2/3 bg-background z-40 p-6 transform ${
+        className={`fixed top-0 md:hidden left-0 h-full w-2/3 bg-background z-40 p-6 transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out shadow-lg`}
       >
@@ -180,7 +179,7 @@ const Header = () => {
       {/* Sidebar Backdrop */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden "
           onClick={() => setIsSidebarOpen(false)}
         ></div>
       )}
@@ -242,7 +241,7 @@ const Modal = ({
         onClick={onClose}
       >
         <div
-          className={` absolute bottom-0 md:bottom-1/2 md:left-1/2 md:-translate-x-1/2 md:translate-y-1/2  w-full bg-white bg-opacity-100 backdrop-blur-0 md:max-w-2xl max-w-full flex flex-col space-y-6 items-start justify-between px-6 py-8 md:p-10 rounded-t-lg md:rounded-lg shadow-lg transition-transform transform duration-300 ${
+          className={` absolute bottom-0 md:bottom-1/2 md:left-1/2 md:-translate-x-1/2 md:translate-y-1/2  !pb-14  w-full bg-white bg-opacity-100 backdrop-blur-0 md:max-w-2xl max-w-full flex flex-col gap-y-10 md:space-y-12 items-start justify-between px-10 !py-20 rounded-t-lg md:rounded-lg shadow-lg transition-transform transform duration-300 ${
             isOpen
               ? "translate-y-0  md:scale-100 md:opacity-100 "
               : "translate-y-full  md:scale-90 md:opacity-0"
@@ -256,19 +255,24 @@ const Modal = ({
               CONTACT ME
             </h2>
           </div>
-          <p className="designTitle">
-            If you're interested in collaboration or want to learn more about my
-            projects, I’d be happy to connect with you.{" "}
-          </p>
-          <div className="flex flex-col space-y-2">
-            <a href="tel:09223693919" className="designTitleBold">
-              Phone: 09223693919
-            </a>
-            <a href="mailto:mmoghadam376@gmail.com" className="designTitleBold">
-              Email: mmoghadam376@gmail.com
-            </a>
+          <div className="space-y-6">
+            <p className="designTitle">
+              If you're interested in collaboration or want to learn more about
+              my projects, I’d be happy to connect with you.{" "}
+            </p>
+            <div className="flex flex-col space-y-2">
+              <a href="tel:09223693919" className="designTitleBold">
+                Phone: 09223693919
+              </a>
+              <a
+                href="mailto:mmoghadam376@gmail.com"
+                className="designTitleBold"
+              >
+                Email: mmoghadam376@gmail.com
+              </a>
+            </div>
+            <p className="designTitle">Looking forward to hearing from you!</p>
           </div>
-          <p className="designTitle">Looking forward to hearing from you!</p>
         </div>
       </div>
     </>

@@ -87,6 +87,7 @@
 
 // export default JobCard;
 import React from "react";
+import SVGArrowUp from "../SVGS/SVGArrowUp";
 
 interface IJobCard {
   name: string;
@@ -95,7 +96,7 @@ interface IJobCard {
   fromDate: string;
   toDate: string;
   setIsOpen: (_: string) => void;
-  isOpen: string;
+  isOpen: boolean;
 }
 
 const JobCard: React.FC<IJobCard> = ({
@@ -119,7 +120,7 @@ const JobCard: React.FC<IJobCard> = ({
     });
   };
   const handleClick = () => {
-    if (isOpen === name) {
+    if (isOpen) {
       setIsOpen("");
     } else {
       setIsOpen(name);
@@ -132,7 +133,7 @@ const JobCard: React.FC<IJobCard> = ({
   return (
     <div className=" py-4">
       {/* Desktop View */}
-      <div className="hidden md:grid grid-cols-3 hover:!text-blue-600">
+      <div className="hidden md:grid grid-cols-3">
         <div className="col-span-1 flex flex-col items-start justify-start gap-4">
           <h1 className="designHeading text-gray2">{name}</h1>
           <h3 className="designHeading2 !font-light text-foreground whitespace-pre-line">
@@ -150,8 +151,7 @@ const JobCard: React.FC<IJobCard> = ({
       {/* Mobile View */}
       <div
         id={name}
-        // data-icon={isOpen === name ? "▲" : "▼"}
-        className="relative md:hidden border-b border-gray1 collapsible"
+        className="relative md:hidden border-b border-gray-300 collapsible"
       >
         {/* Accordion Header */}
         <div
@@ -175,7 +175,7 @@ const JobCard: React.FC<IJobCard> = ({
         {/* Accordion Body */}
         <div
           className={`mt-4 max-h-0 overflow-hidden transition-all  duration-0 ${
-            isOpen === name && "!duration-[1s] max-h-[400vh]"
+            isOpen && "!duration-[1s] max-h-[400vh]"
           } `}
         >
           <div className="text-left whitespace-pre-line  designTitle leading-8 text-foreground">
@@ -189,11 +189,13 @@ const JobCard: React.FC<IJobCard> = ({
             handleClick();
           }}
         >
-          <button
-            className="text-gray2500 focus:outline-none"
-            aria-label="Toggle details"
-          >
-            {isOpen === name ? "▲" : "▼"}
+          <button className="focus:outline-none" aria-label="Toggle details">
+            <SVGArrowUp
+              className={`transition-all text-gray-300 my-2 rotate-0 ${
+                isOpen && "rotate-180"
+              }`}
+            />
+            {/* {isOpen === name ? "▲" : "▼"} */}
           </button>
         </div>
       </div>
