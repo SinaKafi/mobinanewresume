@@ -133,8 +133,8 @@ export const DESIGNED: {
     route: "Alyajosh",
     cover: "/designed/AlyajoshTaskManagerApp.png",
     images: [
-      "/works/arya joosh/arya joosh 1.png",
-      "/works/arya joosh/arya joosh 2.png",
+      "/works/aryajoosh task manager/1.png",
+      "/works/aryajoosh task manager/2.png",
     ],
     id: 3,
   },

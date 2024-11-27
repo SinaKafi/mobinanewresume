@@ -1,94 +1,53 @@
-// import Image from "next/image";
-
-// export default function Home() {
-//   return (
-//     <div className=" flex flex-col gap-56  ">
-//       <div className="aboutme  grid grid-cols-2 items-center justify-center ">
-//         <div className="">
-//           <Image
-//             src={"/mobi.png"}
-//             alt="mobi"
-//             width={1000}
-//             height={1000}
-//             className="block "
-//             loading={"lazy"}
-//           />
-//         </div>
-//         <div className="leading-8">
-//           <h1 className="relative cursor-pointer font-medium text-2xl text-foreground leading-10">
-//             I'm Mobina Moghadam
-//           </h1>
-//           <br />
-//           <p className="!text-lg !font-light !leading-8 text-foreground">
-//             I'm Mobina Moghadam I've been a designer for over 6 years, and all
-//             my interest in life is about creating and bringing order. Seeing
-//             better is one of the most important tools for humans to easily deal
-//             with issues. In this busy world, we need to see better to find the
-//             right path. Design allows me to accompany others on this journey.I
-//             am passionate about UI/UX design and have had the privilege of
-//             contributing to user communication and interaction in the products
-//             I've worked on. I continually seek to expand my knowledge in this
-//             field.
-//           </p>{" "}
-//           <br />
-//           <p className="!text-lg !font-light !leading-8 text-foreground">
-//             I've been a designer for over 6 years, and all my interest in life
-//             is about creating and bringing order. Seeing better is one of the
-//             most important tools for humans to easily deal with issues. In this
-//             busy world, we need to see better to find the right path. Design
-//             allows me to accompany others on this journey.I am passionate about
-//             UI/UX design and have had the privilege of contributing to user
-//             communication and interaction in the products I've worked on. I
-//             continually seek to expand my knowledge in this field.
-//           </p>
-//           <br />
-//           <p className="!text-lg !font-light !leading-8 text-foreground">
-//             I've been a designer for over 6 years, and all my interest in life
-//             is about creating and bringing order.
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-16 md:gap-28 lg:gap-56 px-4 md:px-8 lg:px-16 py-8">
-      {/* About Me Section */}
-      <div className="aboutme grid grid-cols-1 md:grid-cols-2 items-center gap-12 md:gap-16">
-        {/* Responsive Image Section */}
-        <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]">
+    <div className="flex flex-col gap-20 px-4 md:px-8 lg:px-16">
+      <div className="aboutme grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ">
+        {/* بخش تصویر */}
+        <div className="relative w-full lg:!w-full  aspect-square md:!w-[75%] mx-auto">
           <Image
             src="/mobi.png"
             alt="Mobina Moghadam - UI/UX Designer"
             fill
-            className="rounded-lg object-cover"
+            className="rounded-lg object-contain"
             priority
           />
         </div>
 
-        {/* Text Section */}
-        <div className="leading-relaxed">
-          <h1 className="font-medium text-2xl md:text-3xl lg:text-4xl text-foreground leading-snug">
+        {/* بخش متن */}
+        <div className="leading-relaxed text-sm sm:text-base lg:text-lg">
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary">
             I'm Mobina Moghadam
           </h1>
-          <p className="mt-4 text-base md:text-lg lg:text-xl font-light text-foreground">
-            I've been a designer for over 6 years, and my passion lies in
-            creating and bringing order. Seeing better is one of the most
-            important tools for humans to deal with challenges. In this busy
-            world, we need clarity to find the right path. Design enables me to
-            guide others on this journey.
+          <p className="mt-4 text-gray-700">
+            I'm a UI/UX designer, and I strongly believe that empathy is at the
+            core of creating meaningful and effective designs. To truly
+            understand and connect with users, a designer needs to develop a
+            habit of observing everything in their surroundings with care and
+            clarity, noticing the details that others might overlook. By
+            immersing myself in this mindset, I’ve learned to see the world
+            through the lens of the user, which helps me anticipate their needs
+            and challenges.
           </p>
-          <p className="mt-4 text-base md:text-lg lg:text-xl font-light text-foreground">
-            I am passionate about UI/UX design and have contributed to user
-            communication and interaction in various projects. I continuously
-            seek to expand my knowledge and skills in this field.
+          <p className="mt-4 text-gray-700">
+            I believe a great product designer anticipates user needs and
+            delivers intuitive solutions. By observing my surroundings, I fuel
+            creativity and design experiences that feel natural, engaging, and
+            user-friendly.
           </p>
-          <p className="mt-4 text-base md:text-lg lg:text-xl font-light text-foreground">
-            My interest in life revolves around creating order, and design
-            allows me to make a meaningful impact.
+          <p className="mt-4 text-gray-700">
+            I’ve been working in the design field for over 6 years. My journey
+            started with exciting graphic design projects, which eventually led
+            me to discover my passion for UI/UX design. For the past 3 years,
+            I’ve been gaining hands-on experience in this field, and I’m truly
+            passionate about creating intuitive and user-friendly interfaces.
+            I’ve also had the privilege of being closely involved in user
+            interactions and engagement for the products I’ve worked on, which
+            has been incredibly rewarding.
+          </p>
+          <p className="mt-4 text-gray-700">
+            I'm continuously seeking to expand my knowledge in this area.
           </p>
         </div>
       </div>

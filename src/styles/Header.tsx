@@ -1,34 +1,33 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const Header = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar toggle state
-  const [isModal, setIsModal] = useState(false); // Sidebar toggle state
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isModal, setIsModal] = useState(false);
 
   const path = usePathname();
   const router = useRouter();
   return (
     <div className="sticky top-0 w-full bg-background z-50">
       {/* Desktop Header */}
-      <div className="container header h-52 hidden md:flex justify-between items-end gap-4">
+      <div className="container header h-48 hidden md:flex justify-between items-end gap-4">
         <div
           onClick={() => router.push("/design")}
-          className="donthave flex flex-col mb-10"
+          className="donthave flex flex-col mb-10 cursor-pointer"
         >
-          <h1 className="relative cursor-pointer font-medium text-base md:text-lg xl:text-2xl text-foreground leading-10">
+          <h1 className="  font-medium text-sm lg:text-lg xl:text-xl text-foreground leading-10">
             MOBINA'S 2024 PORTFOLIO
           </h1>
-          <h2 className="text-sm md:text-base xl:text-xl font-light text-gray2">
+          <h2 className="text-xs md:text-sm xl:text-base font-light text-gray2">
             PRODUCT DESIGNER
           </h2>
         </div>
         <div className="flex mb-10 justify-between items-center gap-6">
           <Link
             href={"/design"}
-            className={`relative !text-lg cursor-pointer  ${
+            className={`relative text-sm md:text-base xl:text-lg cursor-pointer  ${
               path.includes("design") && "active"
             }`}
           >
@@ -36,7 +35,7 @@ const Header = () => {
           </Link>
           <Link
             href={"/experience"}
-            className={`relative cursor-pointer !text-lg ${
+            className={`relative cursor-pointer text-sm md:text-base xl:text-lg ${
               path === "/experience" && "active"
             }`}
           >
@@ -44,7 +43,7 @@ const Header = () => {
           </Link>
           <Link
             href={"/aboutme"}
-            className={`relative !text-lg cursor-pointer ${
+            className={`relative text-sm md:text-base xl:text-lg cursor-pointer ${
               path === "/aboutme" && "active"
             }`}
           >
@@ -170,34 +169,80 @@ const Modal = ({
   onClose: () => void;
 }) => {
   return (
-    <div
-      className={`fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center duration-300 transition-opacity backdrop-blur-sm ${
-        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
-      onClick={onClose}
-    >
-      <div className="container">
+    // <div
+    //   className={`fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center duration-300 transition-opacity backdrop-blur-sm ${
+    //     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+    //   }`}
+    //   onClick={onClose}
+    // >
+    //   <div className="container">
+    //     <div
+    //       onClick={(e) => {
+    //         e.stopPropagation();
+    //       }}
+    //       className={`bg-white bg-opacity-100 backdrop-blur-0 max-w-2xl mx-auto flex flex-col space-y-11 items-start justify-between !backdrop-opacity-100 px-8 py-10 md:p-16 rounded-lg shadow-lg transition-all transform duration-300 ${
+    //         isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
+    //       }`}
+    //     >
+    //       <div>
+    //         <h2 className="inline  designHeading contactMe !relative">
+    //           contact me
+    //         </h2>
+    //       </div>
+    //       <p className="designTitle">
+    //         If you're interested in collaboration or want to learn more about my
+    //         projects, I’d be happy to connect with you.{" "}
+    //       </p>
+    //       <div className="flex flex-col space-y-2">
+    //         <a href="tel:09223693919" className="designTitleBold">
+    //           Phone: 09223693919
+    //         </a>
+    //         <a href="mailto:mmoghadam376@gmail.com" className="designTitleBold">
+    //           Email: mmoghadam376@gmail.com
+    //         </a>
+    //       </div>
+    //       <p className="designTitle">Looking forward to hearing from you!</p>
+    //     </div>
+    //   </div>
+    // </div>
+    <>
+      <div
+        className={`fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center duration-300 transition-opacity backdrop-blur-sm z-50 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={onClose}
+      >
         <div
+          className={` absolute bottom-0 md:bottom-1/2 md:left-1/2 md:-translate-x-1/2 md:translate-y-1/2  w-full bg-white bg-opacity-100 backdrop-blur-0 md:max-w-2xl max-w-full flex flex-col space-y-6 items-start justify-between px-6 py-8 md:p-10 rounded-t-lg md:rounded-lg shadow-lg transition-transform transform duration-300 ${
+            isOpen
+              ? "translate-y-0  md:scale-100 md:opacity-100 "
+              : "translate-y-full  md:scale-90 md:opacity-0"
+          }`}
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className={`bg-white bg-opacity-100 backdrop-blur-0 max-w-2xl mx-auto flex flex-col space-y-11 p-5 !backdrop-opacity-100 p-6 rounded-lg shadow-lg transition-all transform duration-300 ${
-            isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
-          }`}
         >
-          <h2 className="text-xl font-bold mb-4">contact me</h2>
-          <p className="mb-4">
+          <div>
+            <h2 className="inline  designHeading contactMe !relative">
+              contact me
+            </h2>
+          </div>
+          <p className="designTitle">
             If you're interested in collaboration or want to learn more about my
             projects, I’d be happy to connect with you.{" "}
           </p>
-          <div>
-            <h2>Phone: 09223693919</h2>
-            <h2>Email: mmoghadam376@gmail.com</h2>
+          <div className="flex flex-col space-y-2">
+            <a href="tel:09223693919" className="designTitleBold">
+              Phone: 09223693919
+            </a>
+            <a href="mailto:mmoghadam376@gmail.com" className="designTitleBold">
+              Email: mmoghadam376@gmail.com
+            </a>
           </div>
-          <p>Looking forward to hearing from you!</p>
+          <p className="designTitle">Looking forward to hearing from you!</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 /***************** */

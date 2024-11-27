@@ -107,14 +107,25 @@ const JobCard: React.FC<IJobCard> = ({
   setIsOpen = () => {},
   isOpen,
 }) => {
-  // const [transitioning, setTransitioning] = useState(false); // Tracks if a transition is happening
+  const scrollToElement = (id: string) => {
+    const element = document.getElementById(id);
+    const headerOffset = 70; // ارتفاع هدر یا فاصله از بالا
+    const elementPosition = element?.getBoundingClientRect().top || 0;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
   const handleClick = () => {
     if (isOpen === name) {
-      // Close the current accordion
       setIsOpen("");
     } else {
       setIsOpen(name);
+      setTimeout(() => {
+        scrollToElement(name);
+      }, 0);
     }
   };
 
@@ -131,7 +142,7 @@ const JobCard: React.FC<IJobCard> = ({
             {fromDate} - {toDate}
           </p>
         </div>
-        <div className="col-span-2 text-justify whitespace-pre-line text-lg font-light leading-8 text-foreground">
+        <div className="col-span-2 text-left whitespace-pre-line text-lg font-light leading-8 text-foreground">
           {description}
         </div>
       </div>
@@ -146,6 +157,8 @@ const JobCard: React.FC<IJobCard> = ({
         <div
           className={`flex justify-between items-start cursor-pointer flex-col `} // Disable clicks during transitions
           onClick={(e) => {
+            scrollToElement(name);
+
             e.stopPropagation();
             handleClick();
           }}
@@ -167,7 +180,7 @@ const JobCard: React.FC<IJobCard> = ({
             isOpen === name && "!duration-500 max-h-[400vh]"
           } `}
         >
-          <div className="text-justify whitespace-pre-line text-lg font-light leading-8 text-foreground">
+          <div className="text-left whitespace-pre-line text-lg font-light leading-8 text-foreground">
             {description}
           </div>
         </div>
