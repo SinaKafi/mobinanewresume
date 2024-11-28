@@ -84,9 +84,7 @@ export default function Home() {
           <Image
             src="/mobi.png"
             alt="Mobina Moghadam - UI/UX Designer"
-            // fill
             className="rounded-lg aspect-square"
-            // priority
             width={1000}
             height={1000}
           />
@@ -130,9 +128,11 @@ export default function Home() {
         <div className="h-full flex flex-col gap-2">
           <h1 className="designHeading">Courses I took</h1>
           <p className="designTitle">
-            Comprehensive product design course (userx academy) Comprehensive
-            user interface design course (sevenlearn academy) Digital paintings
-            (invers school) Stop motion (invers school)
+            Comprehensive product design course (userx academy)
+            <br />
+            Comprehensive user interface design course (sevenlearn academy)
+            <br />
+            Digital paintings (invers school) Stop motion (invers school)
           </p>
         </div>
         <div className="h-full flex flex-col gap-2 ">
