@@ -28,17 +28,17 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <meta charSet="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="theme-color" content="#7b7b7b" />
 
         <meta
-          http-equiv="Cache-Control"
+          httpEquiv="Cache-Control"
           content="no-cache, no-store, must-revalidate"
         />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
       </head>
       <body className="antialiased  flex flex-col w-full  min-h-screen  bg-background  ">
         <link rel="icon" type="image/x-icon" href="/vector.svg" />

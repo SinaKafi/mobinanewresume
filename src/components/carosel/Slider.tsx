@@ -22,11 +22,11 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
             className="w-full !appearance-none p-2 outline-none "
             key={image}
           >
-            <div className="max-w-[20rem] max-h-[20rem] relative  aspect-square w-full mx-auto bg-gray-200 overflow-hidden rounded-lg">
+            <div className="max-w-[23rem] max-h-[23rem] relative  aspect-square w-full mx-auto bg-gray-200 overflow-hidden rounded-lg">
               <Image
                 src={image}
                 alt="Image Description"
-                className="object-cover !mx-auto w-full"
+                className="object-cover !mx-auto w-full h-full"
                 fill // Makes it responsive within its container
                 priority
               />
