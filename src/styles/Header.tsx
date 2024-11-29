@@ -1,8 +1,10 @@
 "use client";
+import SVGCopied from "@/components/SVGS/SVGCopied";
+import SVGCopy from "@/components/SVGS/SVGCopy";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -197,43 +199,24 @@ const Modal = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const [isCopied, setIsCopied] = useState({
+    mobile: false,
+    email: false,
+  });
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      setIsCopied((prev) => ({ ...prev, email: false }));
+      clearTimeout(timeOut);
+    }, 1500);
+  }, [isCopied.email]);
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      setIsCopied((prev) => ({ ...prev, mobile: false }));
+      clearTimeout(timeOut);
+    }, 1500);
+  }, [isCopied.mobile]);
   return (
-    // <div
-    //   className={`fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center duration-300 transition-opacity backdrop-blur-sm ${
-    //     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-    //   }`}
-    //   onClick={onClose}
-    // >
-    //   <div className="container">
-    //     <div
-    //       onClick={(e) => {
-    //         e.stopPropagation();
-    //       }}
-    //       className={`bg-white bg-opacity-100 backdrop-blur-0 max-w-2xl mx-auto flex flex-col space-y-11 items-start justify-between !backdrop-opacity-100 px-8 py-10 md:p-16 rounded-lg shadow-lg transition-all transform duration-300 ${
-    //         isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
-    //       }`}
-    //     >
-    //       <div>
-    //         <h2 className="inline  designHeading contactMe !relative">
-    //           contact me
-    //         </h2>
-    //       </div>
-    //       <p className="designTitle">
-    //         If you're interested in collaboration or want to learn more about my
-    //         projects, I’d be happy to connect with you.{" "}
-    //       </p>
-    //       <div className="flex flex-col space-y-2">
-    //         <a href="tel:09223693919" className="designTitleBold">
-    //           Phone: 09223693919
-    //         </a>
-    //         <a href="mailto:mmoghadam376@gmail.com" className="designTitleBold">
-    //           Email: mmoghadam376@gmail.com
-    //         </a>
-    //       </div>
-    //       <p className="designTitle">Looking forward to hearing from you!</p>
-    //     </div>
-    //   </div>
-    // </div>
     <>
       <div
         className={`fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center duration-300 transition-opacity backdrop-blur-sm z-50 ${
@@ -262,15 +245,54 @@ const Modal = ({
               my projects, I’d be happy to connect with you.{" "}
             </p>
             <div className="flex flex-col space-y-2">
-              <a href="tel:09223693919" className="designTitleBold">
-                Phone: 09223693919
-              </a>
-              <a
-                href="mailto:mmoghadam376@gmail.com"
-                className="designTitleBold"
-              >
-                Email: mmoghadam376@gmail.com
-              </a>
+              <div className="flex gap-1 items-center">
+                <p>Phone:</p>
+                <a href="tel:09223693919" className="designTitleBold">
+                  09223693919
+                </a>
+                <div
+                  className=" ml-2 cursor-pointer"
+                  onClick={() => {
+                    navigator.clipboard.writeText("09223693919");
+                    setIsCopied((prev) => ({ ...prev, mobile: true }));
+                  }}
+                >
+                  {isCopied.mobile ? <SVGCopied /> : <SVGCopy />}
+                  <div
+                    className={`tooltip absolute z-50 mt-1 whitespace-normal break-words rounded-lg bg-foreground py-1.5 px-3 scale-0 font-sans text-sm font-normal text-white focus:outline-none transition-all opacity-0 ${
+                      isCopied.mobile && "opacity-100 scale-100"
+                    }`}
+                  >
+                    copied
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-1 items-center">
+                <p> Email:</p>
+                <a
+                  href="mailto:mmoghadam376@gmail.com"
+                  className="designTitleBold"
+                >
+                  mmoghadam376@gmail.com
+                </a>
+                <div
+                  className=" ml-2 cursor-pointer"
+                  onClick={() => {
+                    navigator.clipboard.writeText("mmoghadam376@gmail.com");
+
+                    setIsCopied((prev) => ({ ...prev, email: true }));
+                  }}
+                >
+                  {isCopied.email ? <SVGCopied /> : <SVGCopy />}
+                  <div
+                    className={`tooltip absolute z-50 mt-1 whitespace-normal break-words rounded-lg bg-foreground py-1.5 px-3 scale-0 font-sans text-sm font-normal text-white focus:outline-none transition-all opacity-0 ${
+                      isCopied.email && "opacity-100 scale-100"
+                    }`}
+                  >
+                    copied
+                  </div>
+                </div>
+              </div>
             </div>
             <p className="designTitle">Looking forward to hearing from you!</p>
           </div>
