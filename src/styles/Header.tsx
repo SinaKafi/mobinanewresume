@@ -259,7 +259,7 @@ const Modal = ({
                 >
                   {isCopied.mobile ? <SVGCopied /> : <SVGCopy />}
                   <div
-                    className={`tooltip absolute z-50 mt-1 whitespace-normal break-words rounded-lg bg-foreground py-1.5 px-3 scale-0 font-sans text-sm font-normal text-white focus:outline-none transition-all opacity-0 ${
+                    className={`tooltip absolute z-50 mt-1 whitespace-normal break-words rounded-lg bg-foreground duration-300 py-1.5 px-3 scale-0 font-sans text-sm font-normal text-white focus:outline-none transition-all opacity-0 ${
                       isCopied.mobile && "opacity-100 scale-100"
                     }`}
                   >
@@ -285,7 +285,7 @@ const Modal = ({
                 >
                   {isCopied.email ? <SVGCopied /> : <SVGCopy />}
                   <div
-                    className={`tooltip absolute z-50 mt-1 whitespace-normal break-words rounded-lg bg-foreground py-1.5 px-3 scale-0 font-sans text-sm font-normal text-white focus:outline-none transition-all opacity-0 ${
+                    className={`tooltip absolute z-50 mt-1 whitespace-normal break-words rounded-lg bg-foreground duration-300 py-1.5 px-3 scale-0 font-sans text-sm font-normal text-white focus:outline-none transition-all opacity-0 ${
                       isCopied.email && "opacity-100 scale-100"
                     }`}
                   >
