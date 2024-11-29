@@ -130,19 +130,21 @@ export default function Home() {
           <ul className="list-disc list-inside space-y-2">
             <li>
               <span className="designTitleBold">userx academy:</span>
-              <p className="designTitle">Comprehensive product design course</p>
+              <p className="designTitle pl-5">
+                Comprehensive product design course.
+              </p>
             </li>
             <li>
               <span className="designTitleBold">sevenlearn academy:</span>
-              <p className="designTitle">
-                Comprehensive user interface design course{" "}
+              <p className="designTitle pl-5">
+                Comprehensive user interface design course.
               </p>
             </li>{" "}
             <li>
               <span className="designTitleBold">invers school:</span>
-              <p className="designTitle">
-                Digital paintings (invers school) Stop motion{" "}
-              </p>
+              <p className="designTitle pl-5">Digital paintings. </p>
+              <p className="designTitle pl-5">Stop motion. </p>
+              {/* <p className="designTitle">Digital paintings , Stop motion </p> */}
             </li>
           </ul>
           {/* <p className="designTitle whitespace-nowrap">
