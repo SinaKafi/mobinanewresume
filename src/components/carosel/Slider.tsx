@@ -12,6 +12,12 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
     swip: totalImages > 1,
     slidesToShow: totalImages === 3 ? 2.5 : totalImages, // Adjust dynamically based on the number of images
     centerMode: false,
+    accessibility: true,
+    adaptiveHeight: true,
+    autoplaySpeed: 2000,
+    swipeToSlide: true,
+
+    pauseOnHover: false,
   };
 
   return (

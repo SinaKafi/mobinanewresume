@@ -1,5 +1,5 @@
 export const sliderSettings = {
-  infinite: true,
+  // infinite: true,
   autoplay: true,
   slidesToShow: 2.5,
   cssEase: "linear",
