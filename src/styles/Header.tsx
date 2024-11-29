@@ -179,7 +179,8 @@ const Header = () => {
       {/* Sidebar Backdrop */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden "
+          className="fixed inset-0  md:hidden bg-gray-900 bg-opacity-50 backdrop-blur-sm z-30"
+          // className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden "
           onClick={() => setIsSidebarOpen(false)}
         ></div>
       )}

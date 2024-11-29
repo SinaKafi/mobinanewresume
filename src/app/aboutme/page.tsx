@@ -127,7 +127,25 @@ export default function Home() {
 
         <div className="h-full flex flex-col gap-2">
           <h1 className="designHeading">Courses I took</h1>
-          <p className="designTitle whitespace-nowrap">
+          <ul className="list-disc list-inside space-y-2">
+            <li>
+              <span className="designTitleBold">userx academy:</span>
+              <p className="designTitle">Comprehensive product design course</p>
+            </li>
+            <li>
+              <span className="designTitleBold">sevenlearn academy:</span>
+              <p className="designTitle">
+                Comprehensive user interface design course{" "}
+              </p>
+            </li>{" "}
+            <li>
+              <span className="designTitleBold">invers school:</span>
+              <p className="designTitle">
+                Digital paintings (invers school) Stop motion{" "}
+              </p>
+            </li>
+          </ul>
+          {/* <p className="designTitle whitespace-nowrap">
             Comprehensive product design course (userx academy)
           </p>
 
@@ -137,7 +155,7 @@ export default function Home() {
 
           <p className="designTitle whitespace-nowrap">
             Digital paintings (invers school) Stop motion (invers school)
-          </p>
+          </p> */}
         </div>
         <div className="h-full flex flex-col gap-2 ">
           <h1 className="designHeading">University education</h1>
