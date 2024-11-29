@@ -19,7 +19,7 @@ const NotFound = () => {
         onClick={handleGoHome}
         className="bg-foreground px-4 py-2 xl:px-8 xl:py-2 rounded-[4px] text-background text-sm xl:text-base font-light"
       >
-        Go Back Home
+        Go Back Portfolio
       </button>
     </div>
   );
