@@ -12,6 +12,22 @@ import SVGLinkdin from "@/components/SVGS/SVGLinkdin";
 export const metadata: Metadata = {
   title: "Mobina Moghadam | Portfolio",
   description: "UI/UX Designer Portfolio - Mobina Moghadam",
+  openGraph: {
+    title: "Mobina Moghadam | Portfolio",
+    description: "Discover the creative UI/UX designs by Mobina Moghadam.",
+    url: "https://www.mobinamoghadam.art/",
+    type: "website",
+    images: [
+      {
+        url: "/mobi.png",
+        width: 1200,
+        height: 630,
+        alt: "Mobina Moghadam Portfolio",
+      },
+    ],
+  },
+
+  themeColor: "#7b7b7b",
 };
 
 export default function RootLayout({
@@ -40,12 +56,40 @@ export default function RootLayout({
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
       </head>
+
       <body className="antialiased  flex flex-col w-full  min-h-screen  bg-background  ">
         <link rel="icon" type="image/x-icon" href="/vector.svg" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        {/*  */}
+        <meta property="og:title" content="Mobina Moghadam | Portfolio" />
+        <meta
+          property="og:description"
+          content="Discover the creative UI/UX designs by Mobina Moghadam."
+        />
+        <meta property="og:url" content="https://www.mobinamoghadam.art" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.mobinamoghadam.art" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Mobina Moghadam Portfolio" />
+        {/*  */}
+        <meta
+          name="keywords"
+          content="Mobina Moghadam, UI/UX Designer, Portfolio, Creative Design, Web Design, User Experience"
+        />
+        <meta name="author" content="Mobina Moghadam" />
+        <meta
+          name="description"
+          content="UI/UX Designer Portfolio - Mobina Moghadam"
+        />
+        <meta
+          httpEquiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"
+        />
+        <meta name="robots" content="index, follow" />
 
         <div className="hidden md:block md:w-full md:h-14 xl:h-20"></div>
         <Header />
@@ -93,3 +137,4 @@ export default function RootLayout({
     </html>
   );
 }
+// google-site-verification=fNSWSj94G_IYsemjt3zPSzS1rXvlX826aER3jdhnDko
