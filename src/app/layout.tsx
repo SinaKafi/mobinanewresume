@@ -40,18 +40,20 @@ export default function RootLayout({
       <head>
         {/* Favicon */}
         <link rel="icon" type="image/x-icon" href="/vector.svg" />
-
         {/* Meta Tags for Basic Setup */}
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />{" "}
+        <meta
+          property="og:image"
+          content={"https://www.mobinamoghadam.art/mobi.png"}
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="theme-color" content="#dddddd" />
-
         {/* Cache Control (For better performance) */}
         <meta
           httpEquiv="Cache-Control"
@@ -59,7 +61,6 @@ export default function RootLayout({
         />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
-
         {/* SEO Meta Tags */}
         <meta
           name="description"
@@ -71,7 +72,6 @@ export default function RootLayout({
         />
         <meta name="author" content="Mobina Moghadam" />
         <meta name="robots" content="index, follow" />
-
         {/* Open Graph Meta Tags for Social Sharing */}
         <meta property="og:title" content="Mobina Moghadam | Portfolio" />
         <meta
@@ -87,7 +87,6 @@ export default function RootLayout({
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Mobina Moghadam Portfolio" />
-
         {/* Canonical Link for SEO */}
         <link rel="canonical" href="https://www.mobinamoghadam.art/portfolio" />
       </head>
