@@ -15,7 +15,7 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
     accessibility: true,
     adaptiveHeight: true,
     autoplaySpeed: 2000,
-    swipeToSlide: true,
+    // swipeToSlide: true,
 
     pauseOnHover: false,
   };
