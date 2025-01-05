@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  themeColor: "#dddddd",
+  themeColor: "#fff",
 };
 function Page() {
   return (

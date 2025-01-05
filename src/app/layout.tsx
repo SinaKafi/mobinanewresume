@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  themeColor: "#dddddd",
+  themeColor: "#fff",
 };
 
 export default function RootLayout({
@@ -53,7 +53,7 @@ export default function RootLayout({
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="theme-color" content="#dddddd" />
+        <meta name="theme-color" content="#fff" />
         {/* Cache Control (For better performance) */}
         <meta
           httpEquiv="Cache-Control"

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  themeColor: "#dddddd",
+  themeColor: "#fff",
 };
 export default function Gallery() {
   return (
