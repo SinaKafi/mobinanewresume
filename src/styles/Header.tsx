@@ -147,7 +147,7 @@ const Header = () => {
             }`}
             onClick={() => setIsSidebarOpen(false)}
           >
-            PORTFOLIO
+            WORK
           </Link>
           <Link
             href={"/experience"}
@@ -158,7 +158,15 @@ const Header = () => {
           >
             EXPERIENCE
           </Link>
-
+          <Link
+            href={"/project"}
+            className={`relative text-center  cursor-pointer ${
+              path === "/experience" && "active"
+            }`}
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            PROJECTS
+          </Link>
           <Link
             onClick={() => setIsSidebarOpen(false)} // Close sidebar
             href={"/aboutme"}
