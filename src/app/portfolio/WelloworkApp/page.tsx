@@ -14,16 +14,25 @@ export default function Page() {
       <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Wellowork Health App</h1>
         <p className="designTitle">
-          Employee Wellness App Design Project.
+          Employee Wellness App Design Project <br />
           <br />
-          One of my clients reached out to me with a project idea focused on
-          employee wellness in the workplace. The goal was to create an app that
-          would allow employees to easily address any physical or mental health
-          issues they might encounter during their workday. The app needed to
-          enable users to request counseling, report feelings of depression,
-          resolve conflicts with colleagues, or even request a doctor's visit
-          for any physical ailments—simply by uploading medical records and
-          requesting a consultation.
+          A client approached me with an idea for an app focused on improving
+          employee wellness in the workplace. The goal was to design a platform
+          that empowers employees to address their physical and mental health
+          concerns seamlessly during their workday.
+          <br />
+          The app enables users to:
+          <br />
+          Request counseling sessions for mental health support. Report feelings
+          of depression or stress. Seek conflict resolution assistance for
+          workplace issues. Schedule doctor visits for physical ailments by
+          uploading medical records and requesting consultations. This project
+          focused on creating a user-friendly and secure interface that would
+          encourage employees to actively engage with their well-being and
+          foster a healthier workplace environment.This app was successfully
+          selected among 250 applications at the{" "}
+          <b className="font-semibold">Plug and Play</b> event and has advanced
+          to the next stages.{" "}
         </p>
         <div>
           <h1 className="designHeading2">Project Challenges and Goals:</h1>

@@ -56,9 +56,12 @@ const JobCard: React.FC<IJobCard> = ({
             {fromDate} - {toDate}
           </p>
         </div>
-        <div className="col-span-2  whitespace-pre-line designTitle leading-8 text-foreground">
+        <p
+          className="col-span-2 designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
+          style={{ whiteSpace: "pre-line !important", wordWrap: "break-word" }}
+        >
           {description}
-        </div>
+        </p>
       </div>
 
       {/* Mobile View */}
@@ -91,7 +94,13 @@ const JobCard: React.FC<IJobCard> = ({
             isOpen && "!duration-[1s] max-h-[400vh]"
           } `}
         >
-          <div className="text-left whitespace-pre-line  designTitle leading-8 text-foreground">
+          <div
+            className="col-span-2 designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
+            style={{
+              whiteSpace: "pre-line !important",
+              wordWrap: "break-word",
+            }}
+          >
             {description}
           </div>
         </div>

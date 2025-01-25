@@ -20,8 +20,8 @@ export default function Home() {
             I'm Mobina Moghadam
           </h1>
           <p className="mt-4 text-gray-700">
-            I'm a UI/UX designer, and I strongly believe that empathy is at the
-            core of creating meaningful and effective designs. To truly
+            I'm a Product Designer, and I strongly believe that empathy is at
+            the core of creating meaningful and effective designs. To truly
             understand and connect with users, a designer needs to develop a
             habit of observing everything in their surroundings with care and
             clarity, noticing the details that others might overlook. By
@@ -53,6 +53,10 @@ export default function Home() {
         <div className="h-full flex flex-col gap-2">
           <h1 className="designHeading">Courses I took</h1>
           <ul className="list-disc list-inside space-y-2">
+            <li>
+              <span className="designTitleBold">amanjacademy:</span>
+              <p className="designTitle pl-5">Product Design Course.</p>
+            </li>
             <li>
               <span className="designTitleBold">userx academy:</span>
               <p className="designTitle pl-5">

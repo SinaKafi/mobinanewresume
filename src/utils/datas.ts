@@ -62,11 +62,15 @@ export const EXPERIENCE = [
   {
     name: "FREELANCE",
     role: "PRODUCT DESIGNER",
-    description: `My freelance journey began during university, where I worked on diverse artistic projects that helped shape my skills. I designed theater posters, crafted book illustrations, and took on various visual design tasks. 
-        These early experiences honed my artistic skills and taught valuable lessons in meeting deadlines, understanding client expectations, and adapting designs to different mediums.
-      `,
+    // description: `My freelance journey began during university, where I worked on diverse artistic projects that helped shape my skills. I designed theater posters, crafted book illustrations, and took on various visual design tasks.
+    //     These early experiences honed my artistic skills and taught valuable lessons in meeting deadlines, understanding client expectations, and adapting designs to different mediums.
+    //   `,
+    description: `My freelance journey began during my university years and even earlier, serving as the foundation of my passion for visual design and creative expression. During this period, I had the opportunity to work on a diverse range of artistic projects that helped shape my skills and creative approach.
+                  I designed visually compelling theater posters, crafted illustrations for books and magazines, and took on various visual design tasks that required a blend of creativity and technical expertise. 
+                  Each project allowed me to explore different styles and refine my understanding of composition, color, and storytelling through visuals.
+                  These early experiences not only honed my artistic skills but also taught me valuable lessons in meeting deadlines, understanding client expectations, and adapting designs to fit different mediums. This phase of my career played a crucial role in building my confidence as a designer and set the stage for my transition into more specialized roles in graphic and UI/UX design.`,
     fromDate: "2018",
-    toDate: "2020",
+    toDate: "NOW",
     id: 1,
   },
 ];
@@ -151,5 +155,41 @@ export const DESIGNED: {
     cover: "/designed/FoodE-commerceLanding.png",
     images: ["/works/food eccommece/1.png"],
     id: 1,
+  },
+];
+
+export const PROJECTS = [
+  {
+    id: 6,
+    title: `WoloWork Healthcare and Social Services Application and Website`,
+    description: `This project was selected as one of the top projects at the <b className="font-semibold !text-3xl">Plug and Play</b>  event and is currently under 
+review.`,
+  },
+  {
+    id: 5,
+    title: `E-commerce Websites for the Automotive Industry`,
+    description: `Projects include websites for notable companies such as Nami Khodro, Sperlos, Saipa, Kerman Khodro,`,
+  },
+  {
+    id: 4,
+    title: `Adrinnex Real Estate Blockchain Project`,
+    description: `A blockchain-based platform focused on tokenized real estate investments. The design for its app 
+version is planned to be launched soon.`,
+  },
+  {
+    id: 3,
+    title: `New and Used Car Sales Platform`,
+    description: `A platform designed for buying and selling new and used cars, initially launched as a website with plans
+for an app version in later phases.`,
+  },
+  {
+    id: 2,
+    title: `Organizational Task Manager Application`,
+    description: `An application designed to streamline task management within organizations.`,
+  },
+  {
+    id: 1,
+    title: `Doctor Appointment Booking Application`,
+    description: `An application designed for booking appointments with doctors efficiently.`,
   },
 ];

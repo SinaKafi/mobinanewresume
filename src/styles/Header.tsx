@@ -41,23 +41,32 @@ const Header = () => {
         <div className="flex  justify-between items-center gap-6">
           <Link
             href={"/portfolio"}
-            className={`relative text-sm md:text-base xl:text-lg cursor-pointer  ${
+            className={`leading-7 relative text-sm md:text-base cursor-pointer  ${
               path.includes("portfolio") && "active"
             }`}
           >
-            PORTFOLIO
+            WORK
           </Link>
           <Link
             href={"/experience"}
-            className={`relative cursor-pointer text-sm md:text-base xl:text-lg ${
+            className={`leading-7 relative cursor-pointer text-sm md:text-base ${
               path === "/experience" && "active"
             }`}
           >
             EXPERIENCE
           </Link>
           <Link
+            href={"/project"}
+            className={`leading-7 relative cursor-pointer text-sm md:text-base  ${
+              path === "/project" && "active"
+            }`}
+          >
+            PROJECT
+          </Link>
+
+          <Link
             href={"/aboutme"}
-            className={`relative text-sm md:text-base xl:text-lg cursor-pointer ${
+            className={`leading-7 relative text-sm md:text-base cursor-pointer ${
               path === "/aboutme" && "active"
             }`}
           >
@@ -225,7 +234,7 @@ const Modal = ({
         onClick={onClose}
       >
         <div
-          className={` absolute bottom-0 md:bottom-1/2 md:left-1/2 md:-translate-x-1/2 md:translate-y-1/2  !pb-14  w-full bg-white bg-opacity-100 backdrop-blur-0 md:max-w-2xl max-w-full flex flex-col gap-y-10 md:space-y-12 items-start justify-between px-10 !py-20 rounded-t-lg md:rounded-lg shadow-lg transition-transform transform duration-300 ${
+          className={` absolute bottom-0 md:bottom-1/2 md:left-1/2 md:-translate-x-1/2 md:translate-y-1/2  !pb-14  w-full bg-white bg-opacity-100 backdrop-blur-0 md:max-w-2xl max-w-full flex flex-col gap-y-8 md:space-y-12 items-start justify-between px-10 !py-20 rounded-t-lg md:rounded-lg shadow-lg transition-transform transform duration-300 ${
             isOpen
               ? "translate-y-0  md:scale-100 md:opacity-100 "
               : "translate-y-full  md:scale-90 md:opacity-0"
@@ -245,8 +254,8 @@ const Modal = ({
               my projects, I’d be happy to connect with you.{" "}
             </p>
             <div className="flex flex-col space-y-2">
-              <div className="flex gap-1 items-center">
-                <p>Phone:</p>
+              <div className="flex gap-1 items-center ">
+                <p className="designTitleBold">Phone:</p>
                 <a href="tel:09223693919" className="designTitleBold">
                   09223693919
                 </a>
@@ -267,8 +276,8 @@ const Modal = ({
                   </div>
                 </div>
               </div>
-              <div className="flex gap-1 items-center">
-                <p> Email:</p>
+              <div className="flex gap-1 items-center ">
+                <p className="designTitleBold"> Email:</p>
                 <a
                   href="mailto:mmoghadam376@gmail.com"
                   className="designTitleBold"
