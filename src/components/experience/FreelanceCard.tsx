@@ -70,9 +70,9 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
         >
           <img
             src={Icon}
-            width={27}
-            height={27}
-            className="inline-flex !mr-auto pr-1"
+            width={100}
+            height={100}
+            className="inline-flex !mr-auto pr-1 !w-7 !h-7"
           />
 
           <h1 className="font-medium text-lg text-gray2">{name}</h1>
