@@ -1,7 +1,6 @@
 "use client";
-import React, { ReactElement } from "react";
+import React from "react";
 import SVGArrowUp from "../SVGS/SVGArrowUp";
-import SVGFreelancerDoctor from "../SVGS/SVGFreelancerDoctor";
 
 interface IFreelanceCard {
   name: string;

@@ -1,8 +1,3 @@
-import SVGFreelancerCar from "@/components/SVGS/SVGFreelancerCar";
-import SVGFreelancerDoctor from "@/components/SVGS/SVGFreelancerDoctor";
-import SVGFreelancerHome from "@/components/SVGS/SVGFreelancerHome";
-import SVGFreelancerTask from "@/components/SVGS/SVGFreelancerTask";
-
 export const EXPERIENCE = [
   {
     name: "DARIC HOLDING",
