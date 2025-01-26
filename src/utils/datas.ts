@@ -1,3 +1,8 @@
+import SVGFreelancerCar from "@/components/SVGS/SVGFreelancerCar";
+import SVGFreelancerDoctor from "@/components/SVGS/SVGFreelancerDoctor";
+import SVGFreelancerHome from "@/components/SVGS/SVGFreelancerHome";
+import SVGFreelancerTask from "@/components/SVGS/SVGFreelancerTask";
+
 export const EXPERIENCE = [
   {
     name: "DARIC HOLDING",
@@ -158,38 +163,85 @@ export const DESIGNED: {
   },
 ];
 
+// export const PROJECTS = [
+//   {
+//     id: 6,
+//     title: `WoloWork Healthcare and Social Services Application and Website`,
+//     description: `This project was recognized as one of the top-performing initiatives at the prestigious <b>Plug and Play</b> event, showcasing its innovative approach and impact. Currently, it is under review for further development and potential collaboration opportunities, emphasizing its relevance and value in the industry.`,
+//   },
+//   {
+//     id: 5,
+//     title: `E-commerce Websites for the Automotive Industry`,
+//     description: `The projects include the design and development of websites for reputable and well-known companies such as Nami Khodro, Sperlos, Saipa, Kerman Khodro, and many others in the automotive industry. Each project was executed with a strong focus on delivering exceptional user experiences, professional visual design, and addressing the unique needs of each brand. These collaborations not only reflect the trust these companies placed in my skills and expertise but also provided valuable opportunities to gain deeper insights into the automotive industry and its users' demands.`,
+//   },
+//   {
+//     id: 4,
+//     title: `Adrinnex Real Estate Blockchain Project`,
+//     description: `A cutting-edge blockchain-based platform designed to revolutionize tokenized real estate investments. This platform enables users to seamlessly invest in property assets using blockchain technology, ensuring transparency, security, and accessibility. The app version of this platform, which focuses on providing a user-friendly and intuitive experience, is currently in the final stages of design and is set to launch soon, offering an innovative approach to real estate investment.`,
+//   },
+//   {
+//     id: 3,
+//     title: `New and Used Car Sales Platform`,
+//     description: `A dynamic platform designed for the buying and selling of both new and used cars, offering a seamless and efficient user experience. Initially launched as a comprehensive website, the platform allows users to easily browse, compare, and transact vehicles with confidence. Plans for an app version are already in place, aiming to enhance the accessibility and convenience of the platform in later phases, providing an even more streamlined experience on mobile devices`,
+//   },
+//   {
+//     id: 2,
+//     title: `Organizational Task Manager Application`,
+//     description: `An innovative app designed to simplify and optimize task management within organizations. It helps teams easily track tasks, prioritize them, and monitor progress in real-time. Its intuitive interface ensures easy use and efficient workflow management.`,
+//   },
+//   {
+//     id: 1,
+//     title: `Doctor Appointment Booking Application`,
+//     description: `An intuitive application designed to streamline the process of booking appointments with doctors, providing users with a fast and efficient way to schedule consultations. The app allows users to easily browse through available doctors, check their availability, and book appointments in just a few steps. With its user-friendly interface, the app aims to reduce wait times and enhance the overall healthcare experience.`,
+//   },
+// ];
 export const PROJECTS = [
   {
+    // Icon: SVGFreelancerDoctor,
+    Icon: "/freelance/freelanceIconHelth.svg",
+
     id: 6,
     title: `WoloWork Healthcare and Social Services Application and Website`,
-    description: `This project was selected as one of the top projects at the <b className="font-semibold !text-3xl">Plug and Play</b>  event and is currently under 
-review.`,
+    description: `This project was recognized as one of the top-performing initiatives at the prestigious <b className="!font-semibold">Plug and Play</b> event, showcasing its innovative approach and impact. Currently, it is under review for further development and potential collaboration opportunities, emphasizing its relevance and value in the industry.`,
   },
   {
+    // Icon: SVGFreelancerCar,
+    Icon: "/freelance/freelanceIconCar.svg",
+
     id: 5,
     title: `E-commerce Websites for the Automotive Industry`,
-    description: `Projects include websites for notable companies such as Nami Khodro, Sperlos, Saipa, Kerman Khodro,`,
+    description: `The projects include the design and development of websites for reputable and well-known companies such as Nami Khodro, Sperlos, Saipa, Kerman Khodro, and many others in the automotive industry. Each project was executed with a strong focus on delivering exceptional user experiences, professional visual design, and addressing the unique needs of each brand. These collaborations not only reflect the trust these companies placed in my skills and expertise but also provided valuable opportunities to gain deeper insights into the automotive industry and its users' demands.`,
   },
   {
+    // Icon: SVGFreelancerHome,
+    Icon: "/freelance/freelanceIconHome.svg",
+
     id: 4,
     title: `Adrinnex Real Estate Blockchain Project`,
-    description: `A blockchain-based platform focused on tokenized real estate investments. The design for its app 
-version is planned to be launched soon.`,
+    description: `A cutting-edge blockchain-based platform designed to revolutionize tokenized real estate investments. This platform enables users to seamlessly invest in property assets using blockchain technology, ensuring transparency, security, and accessibility. The app version of this platform, which focuses on providing a user-friendly and intuitive experience, is currently in the final stages of design and is set to launch soon, offering an innovative approach to real estate investment.`,
   },
   {
+    // Icon: SVGFreelancerCar,
+    Icon: "/freelance/freelanceIconCar.svg",
+
     id: 3,
     title: `New and Used Car Sales Platform`,
-    description: `A platform designed for buying and selling new and used cars, initially launched as a website with plans
-for an app version in later phases.`,
+    description: `A dynamic platform designed for the buying and selling of both new and used cars, offering a seamless and efficient user experience. Initially launched as a comprehensive website, the platform allows users to easily browse, compare, and transact vehicles with confidence. Plans for an app version are already in place, aiming to enhance the accessibility and convenience of the platform in later phases, providing an even more streamlined experience on mobile devices`,
   },
   {
+    // Icon: SVGFreelancerTask,
+    Icon: "/freelance/freelanceIconTask.svg",
+
     id: 2,
     title: `Organizational Task Manager Application`,
-    description: `An application designed to streamline task management within organizations.`,
+    description: `An innovative app designed to simplify and optimize task management within organizations. It helps teams easily track tasks, prioritize them, and monitor progress in real-time. Its intuitive interface ensures easy use and efficient workflow management.`,
   },
   {
+    // Icon: SVGFreelancerDoctor,
+    Icon: "/freelance/freelanceIconHelth.svg",
+
     id: 1,
     title: `Doctor Appointment Booking Application`,
-    description: `An application designed for booking appointments with doctors efficiently.`,
+    description: `An intuitive application designed to streamline the process of booking appointments with doctors, providing users with a fast and efficient way to schedule consultations. The app allows users to easily browse through available doctors, check their availability, and book appointments in just a few steps. With its user-friendly interface, the app aims to reduce wait times and enhance the overall healthcare experience.`,
   },
 ];

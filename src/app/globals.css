@@ -36,7 +36,7 @@ p {
 }
 .container {
   width: 100%;
-  @apply max-w-[108rem] mx-auto px-[2rem] md:px-[2rem] lg:px-[4rem] xl:px-[10rem] 2xl:px-[12rem];
+  @apply max-w-[108rem] mx-auto px-[1.5rem] md:px-[2rem] lg:px-[4rem] xl:px-[10rem] 2xl:px-[12rem];
 }
 
 body {
@@ -162,4 +162,7 @@ li {
   transform: translate(0%, -90%);
   left: 8px;
   border-bottom-color: var(--foreground);
+}
+.freelanceCard b {
+  font-weight: 500;
 }

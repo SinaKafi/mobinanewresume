@@ -135,7 +135,7 @@ function Page() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto border-t-2 border-gray-200">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto border-t-2 py-8 border-gray-200">
         {DESIGNED.filter((item) => item.id !== 5)?.map((item) => (
           <ExperienceCard {...item} key={item.title + item.id} hideTitle />
         ))}

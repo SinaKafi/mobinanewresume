@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20 px-4 md:px-8 lg:px-16">
+    <div className="flex flex-col gap-20 md:px-8 lg:px-16">
       <div className="grid lg:grid-cols-2 gap-10 items-center ">
         {/* grid grid-cols-1 lg:grid-cols-2 */}
         <div className="relative min-w-[50%] h-full w-full lg:!w-full mx-auto md:mb-16">

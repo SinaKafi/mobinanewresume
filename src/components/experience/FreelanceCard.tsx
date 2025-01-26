@@ -1,29 +1,28 @@
 "use client";
-import React from "react";
+import React, { ReactElement } from "react";
 import SVGArrowUp from "../SVGS/SVGArrowUp";
+import SVGFreelancerDoctor from "../SVGS/SVGFreelancerDoctor";
 
-interface IJobCard {
+interface IFreelanceCard {
   name: string;
-  role: string;
   description: string;
-  fromDate: string;
-  toDate: string;
   setIsOpen: (_: string) => void;
   isOpen: boolean;
+  Icon: string;
+  id: string;
 }
 
-const JobCard: React.FC<IJobCard> = ({
-  fromDate,
+const FreelanceCard: React.FC<IFreelanceCard> = ({
   name,
-  role,
-  toDate,
   description,
   setIsOpen = () => {},
   isOpen,
+  Icon,
+  id,
 }) => {
   const scrollToElement = (id: string) => {
     const element = document.getElementById(id);
-    const headerOffset = 85; // ارتفاع هدر یا فاصله از بالا
+    const headerOffset = 85;
     const elementPosition = element?.getBoundingClientRect().top || 0;
     const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -36,56 +35,49 @@ const JobCard: React.FC<IJobCard> = ({
     if (isOpen) {
       setIsOpen("");
     } else {
-      setIsOpen(name);
+      setIsOpen(id);
       setTimeout(() => {
-        scrollToElement(name);
+        scrollToElement(id);
       }, 100);
     }
   };
 
   return (
-    <div className=" py-4">
+    <div className="freelanceCard py-4">
       {/* Desktop View */}
-      <div className="hidden md:grid grid-cols-3">
-        <div className="col-span-1 flex flex-col items-start justify-start gap-4">
-          <h1 className="designHeading text-gray2">{name}</h1>
-          <h3 className="designHeading2 !font-light text-foreground whitespace-pre-line">
-            {role}
-          </h3>
-          <p className="designHeading2 !text-gray1 !font-normal">
-            {fromDate} - {toDate}
-          </p>
+      <div className="hidden md:flex  flex-col gap-2">
+        <div className="col-span-1 flex items-center justify-start gap-2">
+          <img src={Icon} className="!inline-flex" width={36} height={36} />
+          <h1 className="designHeading text-gray2 !text-xl">{name}</h1>
         </div>
         <p
           className="col-span-2 designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
           style={{ whiteSpace: "pre-line !important", wordWrap: "break-word" }}
-        >
-          {description}
-        </p>
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></p>
       </div>
 
       {/* Mobile View */}
       <div
-        id={name}
+        id={id}
         className="relative md:hidden border-b border-[#7B7B7B] collapsible"
       >
-        {/* Accordion Header */}
         <div
-          className={`flex justify-between items-start cursor-pointer flex-col gap-1`} // Disable clicks during transitions
+          className={`flex items-start flex-col cursor-pointer gap-1`} // Disable clicks during transitions
           onClick={(e) => {
             e.stopPropagation();
             handleClick();
           }}
         >
+          <img
+            src={Icon}
+            width={27}
+            height={27}
+            className="inline-flex !mr-auto pr-1"
+          />
+
           <h1 className="font-medium text-lg text-gray2">{name}</h1>
-          <div className="flex justify-between items-center w-full">
-            <h3 className="text-base font-light text-foreground whitespace-pre-line">
-              {role}
-            </h3>
-            <p className="text-gray1 text-sm font-normal">
-              {fromDate} - {toDate}
-            </p>
-          </div>
+          {/* <div className="flex justify-between items-center w-full"></div> */}
         </div>
 
         {/* Accordion Body */}
@@ -95,13 +87,14 @@ const JobCard: React.FC<IJobCard> = ({
           } `}
         >
           <div
-            className="col-span-2 designTitle leading-8 mt-2 text-foreground !whitespace-pre-line !break-words"
+            className="col-span-2 designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
             style={{
               whiteSpace: "pre-line !important",
               wordWrap: "break-word",
             }}
+            dangerouslySetInnerHTML={{ __html: description }}
           >
-            {description}
+            {/* {description} */}
           </div>
         </div>
         <div
@@ -125,4 +118,4 @@ const JobCard: React.FC<IJobCard> = ({
   );
 };
 
-export default JobCard;
+export default FreelanceCard;
