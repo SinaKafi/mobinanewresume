@@ -11,6 +11,7 @@ const Projects = () => {
       {PROJECTS.map((item) => (
         <FreelanceCard
           id={item.id.toString()}
+          key={item.description}
           Icon={item.Icon}
           description={item.description}
           name={item.title}
