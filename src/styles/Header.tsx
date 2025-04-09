@@ -72,6 +72,14 @@ const Header = () => {
           >
             ABOUT ME
           </Link>
+          <Link
+            href={"/caseStudy"}
+            className={`leading-7 relative text-sm md:text-base cursor-pointer ${
+              path === "/caseStudy" && "active"
+            }`}
+          >
+            CASE STUDY
+          </Link>
           <button
             className="bg-foreground px-4 py-2 xl:px-8 xl:py-2 rounded-[4px] text-background text-sm xl:text-base font-light"
             onClick={() => {
@@ -176,6 +184,16 @@ const Header = () => {
           >
             ABOUT ME
           </Link>
+          <Link
+            onClick={() => setIsSidebarOpen(false)} // Close sidebar
+            href={"/caseStudy"}
+            className={`relative text-center  cursor-pointer ${
+              path === "/caseStudy" && "active"
+            }`}
+          >
+            CASE STUDY
+          </Link>
+
           <button
             className="bg-foreground px-4 py-2 rounded-[4px] text-center  text-background text-sm font-light"
             onClick={() => {

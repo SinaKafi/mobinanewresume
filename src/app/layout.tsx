@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/styles/Header";
 import "slick-carousel/slick/slick.css";
@@ -29,6 +29,9 @@ export const metadata: Metadata = {
 
   themeColor: "#fff",
 };
+export const viewport: Viewport = {
+  themeColor: "white",
+};
 
 export default function RootLayout({
   children,
@@ -46,7 +49,7 @@ export default function RootLayout({
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />{" "}
+        />
         <meta
           property="og:image"
           content={"https://www.mobinamoghadam.art/mobi.png"}
@@ -91,7 +94,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://www.mobinamoghadam.art/portfolio" />
       </head>
 
-      <body className="antialiased  flex flex-col w-full  min-h-screen  bg-background  ">
+      <body className="antialiased flex flex-col w-full  min-h-screen  bg-background  ">
         <div className="hidden md:block md:w-full md:h-14 xl:h-20"></div>
         <Header />
 
