@@ -13,8 +13,8 @@ const caseStudy = () => {
         // fill
         // priority
 
-        width={100}
-        height={100}
+        width={1000}
+        height={1000}
         loading={"lazy"}
       />
     </div>
