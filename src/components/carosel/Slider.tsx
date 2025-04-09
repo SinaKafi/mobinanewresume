@@ -1,7 +1,9 @@
 "use client";
 import { sliderSettings } from "@/utils/slider";
 import Image from "next/image";
+import { ComponentType } from "react";
 import Slider from "react-slick";
+import { Settings } from "react-slick"; // Import the Settings type
 
 const ImageSlider = ({ array = [] }: { array?: string[] }) => {
   const totalImages = array.length;
@@ -19,11 +21,15 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
 
     pauseOnHover: false,
   };
+  type SliderProps = Settings & {
+    children?: React.ReactNode;
+    ref?: React.Ref<Slider>;
+  };
+  const ReactSlickSlider = Slider as unknown as ComponentType<SliderProps>;
 
   return (
     <div>
-      {/* @ts-ignore */}
-      <Slider {...dynamicSliderSettings}>
+      <ReactSlickSlider {...dynamicSliderSettings}>
         {array?.map((image) => (
           <div
             className="w-full !appearance-none p-2 outline-none "
@@ -40,7 +46,7 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
             </div>
           </div>
         ))}
-      </Slider>
+      </ReactSlickSlider>
     </div>
   );
 };
