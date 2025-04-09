@@ -22,6 +22,7 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
 
   return (
     <div>
+      {/* @ts-ignore */}
       <Slider {...dynamicSliderSettings}>
         {array?.map((image) => (
           <div
