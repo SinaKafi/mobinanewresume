@@ -18,7 +18,7 @@ const Header = () => {
       <div className="container header h-24 hidden md:flex justify-between items-center gap-4 ">
         <div
           className="flex items-center justify-center gap-2 cursor-pointer"
-          onClick={() => router.push("/portfolio")}
+          onClick={() => router.push("/")}
         >
           <div>
             <Image
@@ -98,7 +98,7 @@ const Header = () => {
         {/* added */}
         <div
           className="flex items-center justify-center gap-2"
-          onClick={() => router.push("/portfolio")}
+          onClick={() => router.push("/")}
         >
           <div>
             <Image

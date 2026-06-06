@@ -84,7 +84,7 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Mobina Moghadam Portfolio" />
         {/* Canonical Link for SEO */}
-        <link rel="canonical" href="https://www.mobinamoghadam.art/portfolio" />
+        <link rel="canonical" href="https://www.mobinamoghadam.art/" />
       </head>
 
       <body className="antialiased flex flex-col w-full  min-h-screen  bg-background  ">
