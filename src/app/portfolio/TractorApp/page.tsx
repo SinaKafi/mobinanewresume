@@ -5,13 +5,11 @@ import { DESIGNED } from "@/utils/datas";
 import React from "react";
 
 function Page() {
+  const project = DESIGNED.find((item) => item.id === 9);
+
   return (
     <div className="flex flex-col justify-between space-y-8">
-      <ImageSlider
-        array={DESIGNED.find((item) => item.id == 9)?.images.map(
-          (item) => item
-        )}
-      />
+      <ImageSlider array={project?.images} title={project?.title} />
       <div className="flex flex-col gap-6">
         <h1 className="designHeading">Tractor Fan Club App</h1>
         <p className="designTitle">

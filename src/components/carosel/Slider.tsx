@@ -5,7 +5,16 @@ import { ComponentType } from "react";
 import Slider from "react-slick";
 import { Settings } from "react-slick"; // Import the Settings type
 
-const ImageSlider = ({ array = [] }: { array?: string[] }) => {
+const SLIDE_SIZES =
+  "(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1024px) 40vw, 23rem";
+
+const ImageSlider = ({
+  array = [],
+  title,
+}: {
+  array?: string[];
+  title?: string;
+}) => {
   const totalImages = array.length;
 
   const dynamicSliderSettings = {
@@ -30,7 +39,7 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
   return (
     <div>
       <ReactSlickSlider {...dynamicSliderSettings}>
-        {array?.map((image) => (
+        {array?.map((image, index) => (
           <div
             className="w-full !appearance-none p-2 outline-none "
             key={image}
@@ -38,10 +47,15 @@ const ImageSlider = ({ array = [] }: { array?: string[] }) => {
             <div className="max-w-[23rem] max-h-[23rem] relative  aspect-square w-full mx-auto bg-gray-200 overflow-hidden rounded-lg">
               <Image
                 src={image}
-                alt="Image Description"
+                alt={
+                  title
+                    ? `${title} — screen ${index + 1}`
+                    : `Portfolio screen ${index + 1}`
+                }
                 className="object-cover !mx-auto w-full h-full"
-                fill // Makes it responsive within its container
-                priority
+                fill
+                sizes={SLIDE_SIZES}
+                priority={index === 0}
               />
             </div>
           </div>

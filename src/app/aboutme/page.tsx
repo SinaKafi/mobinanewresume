@@ -12,6 +12,8 @@ export default function Home() {
             className="rounded-lg aspect-square"
             width={1000}
             height={1000}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
           />
         </div>
 

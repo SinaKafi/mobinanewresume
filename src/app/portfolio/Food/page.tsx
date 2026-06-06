@@ -4,14 +4,12 @@ import { DESIGNED } from "@/utils/datas";
 import React from "react";
 
 function Page() {
+  const project = DESIGNED.find((item) => item.id === 1);
+
   return (
     <div className="flex flex-col justify-between space-y-8">
       <div className="">
-        <ImageSlider
-          array={DESIGNED.find((item) => item.id == 1)?.images.map(
-            (item) => item
-          )}
-        />
+        <ImageSlider array={project?.images} title={project?.title} />
       </div>
       <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Food E-commerce Landing</h1>

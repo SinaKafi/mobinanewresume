@@ -5,8 +5,9 @@ import React from "react";
 interface IExperienceCard {
   title: string;
   cover: string;
-  route: string; // Changed to lowercase 'string'
+  route: string;
   hideTitle?: true;
+  priority?: boolean;
 }
 
 const ExperienceCard: React.FC<IExperienceCard> = ({
@@ -14,6 +15,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
   title,
   route,
   hideTitle,
+  priority = false,
 }) => {
   return (
     <Link
@@ -28,7 +30,9 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
             alt={`Cover image for ${title}`}
             width={400}
             height={400}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
             className="block rounded-lg"
+            priority={priority}
           />
         </div>
         {/* Title */}

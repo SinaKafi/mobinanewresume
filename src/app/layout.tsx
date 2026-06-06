@@ -57,13 +57,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="theme-color" content="#fff" />
-        {/* Cache Control (For better performance) */}
-        <meta
-          httpEquiv="Cache-Control"
-          content="no-cache, no-store, must-revalidate"
-        />
-        <meta httpEquiv="Pragma" content="no-cache" />
-        <meta httpEquiv="Expires" content="0" />
         {/* SEO Meta Tags */}
         <meta
           name="description"
@@ -92,7 +85,6 @@ export default function RootLayout({
         <meta property="og:image:alt" content="Mobina Moghadam Portfolio" />
         {/* Canonical Link for SEO */}
         <link rel="canonical" href="https://www.mobinamoghadam.art/portfolio" />
-        <link rel="preload" href="/TractorAppCaseStudy.png" as="image" />
       </head>
 
       <body className="antialiased flex flex-col w-full  min-h-screen  bg-background  ">

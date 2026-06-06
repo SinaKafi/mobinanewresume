@@ -4,13 +4,11 @@ import { DESIGNED } from "@/utils/datas";
 import React from "react";
 
 export default function Page() {
+  const project = DESIGNED.find((item) => item.id === 7);
+
   return (
     <div className="flex flex-col justify-between space-y-8">
-      <ImageSlider
-        array={DESIGNED.find((item) => item.id == 7)?.images.map(
-          (item) => item
-        )}
-      />
+      <ImageSlider array={project?.images} title={project?.title} />
 
       <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Namikhodro E-commerce Website</h1>

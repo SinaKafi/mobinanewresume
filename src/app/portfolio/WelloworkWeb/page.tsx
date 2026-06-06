@@ -25,13 +25,11 @@ export const metadata: Metadata = {
   themeColor: "#fff",
 };
 function Page() {
+  const project = DESIGNED.find((item) => item.id === 5);
+
   return (
     <div className="flex flex-col justify-between space-y-8">
-      <ImageSlider
-        array={DESIGNED.find((item) => item.id == 5)?.images.map(
-          (item) => item
-        )}
-      />
+      <ImageSlider array={project?.images} title={project?.title} />
 
       <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Wellowork Website</h1>

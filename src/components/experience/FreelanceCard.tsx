@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import SVGArrowUp from "../SVGS/SVGArrowUp";
 
@@ -46,7 +47,14 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
       {/* Desktop View */}
       <div className="hidden md:flex  flex-col gap-2">
         <div className="col-span-1 flex items-center justify-start gap-2">
-          <img src={Icon} className="!inline-flex" width={36} height={36} />
+          <Image
+            src={Icon}
+            alt=""
+            aria-hidden
+            className="!inline-flex"
+            width={36}
+            height={36}
+          />
           <h1 className="designHeading text-gray2 !text-xl">{name}</h1>
         </div>
         <p
@@ -68,10 +76,12 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
             handleClick();
           }}
         >
-          <img
+          <Image
             src={Icon}
-            width={100}
-            height={100}
+            alt=""
+            aria-hidden
+            width={28}
+            height={28}
             className="inline-flex !mr-auto pr-1 !w-7 !h-7"
           />
 

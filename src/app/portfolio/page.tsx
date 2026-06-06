@@ -25,8 +25,12 @@ export const metadata: Metadata = {
 export default function Gallery() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto">
-      {DESIGNED.map((item) => (
-        <ExperienceCard {...item} key={item.title + item.id} />
+      {DESIGNED.map((item, index) => (
+        <ExperienceCard
+          {...item}
+          key={item.title + item.id}
+          priority={index < 3}
+        />
       ))}
     </div>
   );
