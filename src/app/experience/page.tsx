@@ -6,7 +6,7 @@ import { EXPERIENCE } from "@/utils/datas";
 import { useState } from "react";
 
 export default function Experience() {
-  const [isOpen, setIsOpen] = useState("DARIC HOLDING");
+  const [isOpen, setIsOpen] = useState("");
 
   return (
     <>
