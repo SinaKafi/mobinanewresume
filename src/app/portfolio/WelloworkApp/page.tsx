@@ -1,5 +1,4 @@
-import ImageSlider from "@/components/carosel/Slider";
-import ExperienceCard from "@/components/GalleryCard";
+import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
 import { DESIGNED } from "@/utils/datas";
 import React from "react";
 
@@ -7,9 +6,12 @@ export default function Page() {
   const project = DESIGNED.find((item) => item.id === 6);
 
   return (
-    <div className="flex flex-col justify-between space-y-8">
-      <ImageSlider array={project?.images} title={project?.title} />
-      <div className="flex flex-col space-y-8">
+    <PortfolioDetailLayout
+      projectId={6}
+      images={project?.images}
+      title={project?.title}
+    >
+<div className="flex flex-col space-y-8">
         <h1 className="designHeading">Wellowork Health App</h1>
         <p className="designTitle">
           Employee Wellness App Design Project <br />
@@ -176,11 +178,6 @@ export default function Page() {
           </p>
         </div>
       </div>
-      <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 w-full items-center mx-auto border-t-2 border-gray-200">
-        {DESIGNED.filter((item) => item.id !== 6)?.map((item) => (
-          <ExperienceCard {...item} key={item.title + item.id} hideTitle />
-        ))}
-      </div>
-    </div>
+    </PortfolioDetailLayout>
   );
 }

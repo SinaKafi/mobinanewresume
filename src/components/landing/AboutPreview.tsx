@@ -17,14 +17,22 @@ export default function AboutPreview() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["15%", "-18%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["8%", "-12%"]);
+  const bgX = useTransform(scrollYProgress, [0, 1], ["-5%", "10%"]);
 
   return (
     <section
       ref={ref}
-      className="py-24 md:py-32 border-t border-neutral-100"
+      className="py-24 md:py-32 border-t border-neutral-100 relative overflow-hidden"
     >
+      <motion.div
+        style={{ x: bgX }}
+        className="absolute top-1/2 -right-8 text-[clamp(3rem,8vw,6rem)] font-medium text-neutral-50 select-none pointer-events-none"
+        aria-hidden
+      >
+        EMPATHY
+      </motion.div>
       <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         <motion.div style={{ y: imageY }} className="relative">
           <div

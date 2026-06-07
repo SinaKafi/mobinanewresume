@@ -9,6 +9,7 @@ const LINKS = [
   { href: "/experience", label: "Experience" },
   { href: "/caseStudy", label: "Case Study" },
   { href: "/project", label: "Projects" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function CTASection() {

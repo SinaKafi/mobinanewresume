@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import AOSInit from "@/components/animations/AOSInit";
+import MotionProvider from "@/components/animations/MotionProvider";
 import Header from "@/styles/Header";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -88,12 +90,14 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased flex flex-col w-full  min-h-screen  bg-background  ">
-        <div className="hidden md:block md:w-full md:h-14 xl:h-20"></div>
-        <Header />
+        <MotionProvider>
+          <AOSInit />
+          <div className="hidden md:block md:w-full md:h-14 xl:h-20"></div>
+          <Header />
 
-        <main className="container min-h-screen flex-grow my-11">
-          {children}
-        </main>
+          <main className="container min-h-screen flex-grow my-11">
+            {children}
+          </main>
 
         <footer className="container h-auto py-8 flex items-center my-6 justify-center bg-background  ">
           <div className="flex flex-col items-center gap-4">
@@ -130,6 +134,7 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        </MotionProvider>
       </body>
     </html>
   );

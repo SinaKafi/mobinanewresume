@@ -2,21 +2,87 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 
-export default function HeroSection() {
+function HeroStatic() {
+  return (
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 -z-10" aria-hidden>
+        <div className="absolute top-[10%] -left-[10%] w-[45vw] h-[45vw] max-w-[520px] max-h-[520px] rounded-full bg-neutral-100 blur-3xl opacity-80" />
+        <div className="absolute bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] rounded-full bg-neutral-200/60 blur-3xl" />
+      </div>
+
+      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 md:py-28">
+        <div className="order-2 lg:order-1 space-y-8">
+          <p className="text-xs md:text-sm tracking-[0.35em] uppercase text-gray1 font-light">
+            Product Designer · UI/UX
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium text-foreground leading-[1.05] tracking-tight">
+            Mobina
+            <br />
+            <span className="font-light text-gray1">Moghadam</span>
+          </h1>
+          <p className="text-base md:text-lg font-light text-gray1 max-w-md leading-relaxed">
+            Crafting intuitive digital experiences with empathy at the
+            center—across apps, websites, and product ecosystems.
+          </p>
+          <div className="flex flex-wrap gap-4 pt-2">
+            <Link
+              href="/portfolio"
+              className="bg-foreground text-background px-8 py-3 rounded text-sm font-light hover:opacity-90 transition-opacity"
+            >
+              View Work
+            </Link>
+            <Link
+              href="/contact"
+              className="border border-foreground/20 px-8 py-3 rounded text-sm font-light hover:border-foreground/50 transition-colors"
+            >
+              Contact Me
+            </Link>
+          </div>
+        </div>
+
+        <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+          <div className="relative w-full max-w-[420px] aspect-square">
+            <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
+            <Image
+              src="/mobi.png"
+              alt="Mobina Moghadam"
+              width={800}
+              height={800}
+              priority
+              sizes="(max-width: 1024px) 80vw, 420px"
+              className="relative rounded-2xl object-cover w-full h-full drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HeroAnimated() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
+  const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], ["0%", "45%"]);
+  const lineY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, 6]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "75%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.88]);
 
   return (
     <section
@@ -28,9 +94,18 @@ export default function HeroSection() {
         className="absolute inset-0 -z-10"
         aria-hidden
       >
-        <div className="absolute top-[10%] -left-[10%] w-[45vw] h-[45vw] max-w-[520px] max-h-[520px] rounded-full bg-neutral-100 blur-3xl opacity-80" />
-        <div className="absolute bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] rounded-full bg-neutral-200/60 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[1px] bg-gradient-to-r from-transparent via-neutral-300/50 to-transparent" />
+        <motion.div
+          style={{ y: blob1Y }}
+          className="absolute top-[10%] -left-[10%] w-[45vw] h-[45vw] max-w-[520px] max-h-[520px] rounded-full bg-neutral-100 blur-3xl opacity-80"
+        />
+        <motion.div
+          style={{ y: blob2Y }}
+          className="absolute bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] rounded-full bg-neutral-200/60 blur-3xl"
+        />
+        <motion.div
+          style={{ y: lineY }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[1px] bg-gradient-to-r from-transparent via-neutral-300/50 to-transparent"
+        />
       </motion.div>
 
       <motion.div
@@ -46,7 +121,6 @@ export default function HeroSection() {
           >
             Product Designer · UI/UX
           </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,7 +131,6 @@ export default function HeroSection() {
             <br />
             <span className="font-light text-gray1">Moghadam</span>
           </motion.h1>
-
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +140,6 @@ export default function HeroSection() {
             Crafting intuitive digital experiences with empathy at the
             center—across apps, websites, and product ecosystems.
           </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,10 +153,10 @@ export default function HeroSection() {
               View Work
             </Link>
             <Link
-              href="/aboutme"
+              href="/contact"
               className="border border-foreground/20 px-8 py-3 rounded text-sm font-light hover:border-foreground/50 transition-colors"
             >
-              About Me
+              Contact Me
             </Link>
           </motion.div>
         </div>
@@ -94,6 +166,7 @@ export default function HeroSection() {
           className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
         >
           <motion.div
+            style={{ rotate: imageRotate }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -117,9 +190,6 @@ export default function HeroSection() {
         style={{ opacity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase text-gray1 font-light">
-          Scroll
-        </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
@@ -128,4 +198,9 @@ export default function HeroSection() {
       </motion.div>
     </section>
   );
+}
+
+export default function HeroSection() {
+  const reducedMotion = useReducedMotion();
+  return reducedMotion ? <HeroStatic /> : <HeroAnimated />;
 }

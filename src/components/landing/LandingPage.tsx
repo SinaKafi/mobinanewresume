@@ -1,6 +1,5 @@
 "use client";
 
-import AOSInit from "./AOSInit";
 import HeroSection from "./HeroSection";
 import FeaturedWork from "./FeaturedWork";
 import AboutPreview from "./AboutPreview";
@@ -16,7 +15,6 @@ type WorkItem = {
 export default function LandingPage({ featured }: { featured: WorkItem[] }) {
   return (
     <>
-      <AOSInit />
       <div className="landing-full-bleed -mt-11">
         <HeroSection />
         <div className="container">

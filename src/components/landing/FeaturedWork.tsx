@@ -18,12 +18,13 @@ export default function FeaturedWork({ items }: { items: WorkItem[] }) {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const labelX = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  const labelX = useTransform(scrollYProgress, [0, 1], ["-8%", "12%"]);
+  const labelY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
   return (
     <section ref={ref} className="py-24 md:py-32 relative">
       <motion.div
-        style={{ x: labelX }}
+        style={{ x: labelX, y: labelY }}
         className="absolute -top-4 left-0 text-[clamp(4rem,12vw,10rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none"
         aria-hidden
       >
