@@ -20,8 +20,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
-  themeColor: "#fff",
 };
 function Page() {
   const project = DESIGNED.find((item) => item.id === 5);
@@ -32,7 +30,7 @@ function Page() {
       images={project?.images}
       title={project?.title}
     >
-<div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Wellowork Website</h1>
         <p className="designTitle">
           Here’s a description for the landing page you designed for the

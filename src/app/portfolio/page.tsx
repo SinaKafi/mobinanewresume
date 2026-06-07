@@ -18,8 +18,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
-  themeColor: "#fff",
 };
 
 export default function Gallery() {

@@ -28,8 +28,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
-  themeColor: "#fff",
 };
 export const viewport: Viewport = {
   themeColor: "white",
@@ -99,41 +97,41 @@ export default function RootLayout({
             {children}
           </main>
 
-        <footer className="container h-auto py-8 flex items-center my-6 justify-center bg-background  ">
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex gap-4">
-              <a
-                href="mailto:mmoghadam376@gmail.com"
-                aria-label="Email"
-                className="cursor-pointer p-2  transition-all scale-90 hover:scale-110"
-              >
-                <SVGMail />
-              </a>
-              <a
-                href="https://dribbble.com/mobinadesign"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Dribbble Profile"
-                className="cursor-pointer p-2 transition-all scale-90 hover:scale-110"
-              >
-                <SVGDrible />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mobina-moghadam-1424aa209/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                className="cursor-pointer p-2  transition-all scale-90 hover:scale-110"
-              >
-                <SVGLinkdin />
-              </a>
-            </div>
+          <footer className="container h-auto py-8 flex items-center my-6 justify-center bg-background  ">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex gap-4">
+                <a
+                  href="mailto:mmoghadam376@gmail.com"
+                  aria-label="Email"
+                  className="cursor-pointer p-2  transition-all scale-90 hover:scale-110"
+                >
+                  <SVGMail />
+                </a>
+                <a
+                  href="https://dribbble.com/mobinadesign"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Dribbble Profile"
+                  className="cursor-pointer p-2 transition-all scale-90 hover:scale-110"
+                >
+                  <SVGDrible />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mobina-moghadam-1424aa209/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="cursor-pointer p-2  transition-all scale-90 hover:scale-110"
+                >
+                  <SVGLinkdin />
+                </a>
+              </div>
 
-            <p className="text-sm font-light text-center text-gray2">
-              Looking forward to connecting with you!
-            </p>
-          </div>
-        </footer>
+              <p className="text-sm font-light text-center text-gray2">
+                Looking forward to connecting with you!
+              </p>
+            </div>
+          </footer>
         </MotionProvider>
       </body>
     </html>

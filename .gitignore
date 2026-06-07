@@ -9,6 +9,9 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+# lockfiles - keep only the one for the package manager you use
+/yarn.lock
+/pnpm-lock.yaml
 
 # testing
 /coverage
@@ -34,6 +37,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# netlify
+.netlify
 
 # typescript
 *.tsbuildinfo
