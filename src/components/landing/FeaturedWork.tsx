@@ -2,7 +2,7 @@
 
 import ExperienceCard from "@/components/GalleryCard";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 type WorkItem = {
@@ -14,22 +14,34 @@ type WorkItem = {
 
 export default function FeaturedWork({ items }: { items: WorkItem[] }) {
   const ref = useRef<HTMLElement>(null);
+  const reducedMotion = useReducedMotion();
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
+
   const labelX = useTransform(scrollYProgress, [0, 1], ["-8%", "12%"]);
   const labelY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
   return (
-    <section ref={ref} className="py-24 md:py-32 relative">
-      <motion.div
-        style={{ x: labelX, y: labelY }}
-        className="absolute -top-4 left-0 text-[clamp(4rem,12vw,10rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none"
-        aria-hidden
-      >
-        WORK
-      </motion.div>
+    <section ref={ref} className="py-16 sm:py-24 md:py-32 relative">
+      {reducedMotion ? (
+        <div
+          className="absolute -top-4 left-0 text-[clamp(4rem,12vw,10rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none"
+          aria-hidden
+        >
+          WORK
+        </div>
+      ) : (
+        <motion.div
+          style={{ x: labelX, y: labelY }}
+          className="absolute -top-4 left-0 text-[clamp(4rem,12vw,10rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none will-change-transform [backface-visibility:hidden]"
+          aria-hidden
+        >
+          WORK
+        </motion.div>
+      )}
 
       <div className="relative z-10">
         <div

@@ -10,14 +10,74 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
+function HeroPortraitFrame() {
+  return (
+    <>
+      <div
+        className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]"
+        aria-hidden
+      />
+      <Image
+        src="/mobi.png"
+        alt="Mobina Moghadam"
+        width={800}
+        height={800}
+        priority
+        sizes="(max-width: 1024px) 80vw, 420px"
+        className="relative rounded-2xl object-cover w-full h-full drop-shadow-2xl"
+      />
+    </>
+  );
+}
+
+function HeroPortrait({ floating = false }: { floating?: boolean }) {
+  if (!floating) {
+    return (
+      <div className="relative w-full max-w-[420px] aspect-square">
+        <HeroPortraitFrame />
+      </div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.92 }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: [0, -14, 0],
+        rotate: [0, 1.5, 0],
+      }}
+      transition={{
+        opacity: { duration: 1, delay: 0.3 },
+        scale: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+        y: {
+          repeat: Infinity,
+          duration: 5,
+          ease: "easeInOut",
+          delay: 1.2,
+        },
+        rotate: {
+          repeat: Infinity,
+          duration: 5,
+          ease: "easeInOut",
+          delay: 1.2,
+        },
+      }}
+      className="relative w-full max-w-[420px] aspect-square will-change-transform [backface-visibility:hidden]"
+    >
+      <HeroPortraitFrame />
+    </motion.div>
+  );
+}
+
 function HeroStatic() {
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 -z-10" aria-hidden>
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pb-28 sm:pb-36 md:pb-44">
+      <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
         <div className="absolute top-[10%] -left-[10%] w-[45vw] h-[45vw] max-w-[520px] max-h-[520px] rounded-full bg-neutral-100 blur-3xl opacity-80" />
         <div className="absolute bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] rounded-full bg-neutral-200/60 blur-3xl" />
       </div>
-
       <div className="container relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 md:py-28">
         <div className="order-2 lg:order-1 space-y-8">
           <p className="text-xs md:text-sm tracking-[0.35em] uppercase text-gray1 font-light">
@@ -49,18 +109,7 @@ function HeroStatic() {
         </div>
 
         <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-[420px] aspect-square">
-            <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
-            <Image
-              src="/mobi.png"
-              alt="Mobina Moghadam"
-              width={800}
-              height={800}
-              priority
-              sizes="(max-width: 1024px) 80vw, 420px"
-              className="relative rounded-2xl object-cover w-full h-full drop-shadow-2xl"
-            />
-          </div>
+          <HeroPortrait />
         </div>
       </div>
     </section>
@@ -74,45 +123,33 @@ function HeroAnimated() {
     offset: ["start start", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
-  const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
-  const blob2Y = useTransform(scrollYProgress, [0, 1], ["0%", "45%"]);
-  const lineY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
-  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, 6]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "75%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.88]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "45%"]);
+  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pb-28 sm:pb-36 md:pb-44"
     >
       <motion.div
         style={{ y: bgY }}
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 -z-10 pointer-events-none"
         aria-hidden
       >
-        <motion.div
-          style={{ y: blob1Y }}
-          className="absolute top-[10%] -left-[10%] w-[45vw] h-[45vw] max-w-[520px] max-h-[520px] rounded-full bg-neutral-100 blur-3xl opacity-80"
-        />
-        <motion.div
-          style={{ y: blob2Y }}
-          className="absolute bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] rounded-full bg-neutral-200/60 blur-3xl"
-        />
-        <motion.div
-          style={{ y: lineY }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[1px] bg-gradient-to-r from-transparent via-neutral-300/50 to-transparent"
-        />
+        <div className="absolute top-[10%] -left-[10%] w-[45vw] h-[45vw] max-w-[520px] max-h-[520px] rounded-full bg-neutral-100 blur-3xl opacity-80" />
+        <div className="absolute bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] rounded-full bg-neutral-200/60 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-px bg-gradient-to-r from-transparent via-neutral-300/50 to-transparent" />
       </motion.div>
 
-      <motion.div
-        style={{ y: contentY, opacity, scale }}
-        className="container relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 md:py-28"
-      >
-        <div className="order-2 lg:order-1 space-y-8">
+      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 md:py-28">
+        <motion.div
+          style={{ y: contentY, opacity, scale }}
+          className="order-2 lg:order-1 space-y-8 will-change-transform [backface-visibility:hidden]"
+        >
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,32 +196,15 @@ function HeroAnimated() {
               Contact Me
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div
-          style={{ y: imageY }}
-          className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
+          style={{ y: imageY, rotate: imageRotate, opacity }}
+          className="order-1 lg:order-2 relative flex justify-center lg:justify-end will-change-transform [backface-visibility:hidden]"
         >
-          <motion.div
-            style={{ rotate: imageRotate }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-[420px] aspect-square"
-          >
-            <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
-            <Image
-              src="/mobi.png"
-              alt="Mobina Moghadam"
-              width={800}
-              height={800}
-              priority
-              sizes="(max-width: 1024px) 80vw, 420px"
-              className="relative rounded-2xl object-cover w-full h-full drop-shadow-2xl"
-            />
-          </motion.div>
+          <HeroPortrait floating />
         </motion.div>
-      </motion.div>
+      </div>
 
       <motion.div
         style={{ opacity }}

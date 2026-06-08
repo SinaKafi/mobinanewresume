@@ -22,9 +22,11 @@ export default function AOSInit() {
       AOS.init({
         duration: 700,
         easing: "ease-out-cubic",
-        once: true,
         offset: 80,
-        mirror: false,
+        // once: true,
+        // mirror: false,
+        once: false,
+        mirror: true,
       });
       aosInitialized = true;
     }
