@@ -6,70 +6,10 @@ import {
   motion,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
-
-function HeroPortraitFrame() {
-  return (
-    <>
-      <div
-        className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]"
-        aria-hidden
-      />
-      <Image
-        src="/mobi.png"
-        alt="Mobina Moghadam"
-        width={800}
-        height={800}
-        priority
-        sizes="(max-width: 1024px) 80vw, 420px"
-        className="relative rounded-2xl object-cover w-full h-full drop-shadow-2xl"
-      />
-    </>
-  );
-}
-
-function HeroPortrait({ floating = false }: { floating?: boolean }) {
-  if (!floating) {
-    return (
-      <div className="relative w-full max-w-[420px] aspect-square">
-        <HeroPortraitFrame />
-      </div>
-    );
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.92 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        y: [0, -14, 0],
-        rotate: [0, 1.5, 0],
-      }}
-      transition={{
-        opacity: { duration: 1, delay: 0.3 },
-        scale: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-        y: {
-          repeat: Infinity,
-          duration: 5,
-          ease: "easeInOut",
-          delay: 1.2,
-        },
-        rotate: {
-          repeat: Infinity,
-          duration: 5,
-          ease: "easeInOut",
-          delay: 1.2,
-        },
-      }}
-      className="relative w-full max-w-[420px] aspect-square will-change-transform [backface-visibility:hidden]"
-    >
-      <HeroPortraitFrame />
-    </motion.div>
-  );
-}
 
 function HeroStatic() {
   return (
@@ -109,7 +49,18 @@ function HeroStatic() {
         </div>
 
         <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
-          <HeroPortrait />
+          <div className="relative w-full max-w-[420px] aspect-square">
+            <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
+            <Image
+              src="/mobi.png"
+              alt="Mobina Moghadam"
+              width={800}
+              height={800}
+              priority
+              sizes="(max-width: 1024px) 80vw, 420px"
+              className="relative rounded-2xl object-cover w-full h-full drop-shadow-2xl"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -123,8 +74,13 @@ function HeroAnimated() {
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "45%"]);
-  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
+  const imageYRaw = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const imageY = useSpring(imageYRaw, {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.3,
+  });
+
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
@@ -198,12 +154,33 @@ function HeroAnimated() {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          style={{ y: imageY, rotate: imageRotate, opacity }}
-          className="order-1 lg:order-2 relative flex justify-center lg:justify-end will-change-transform [backface-visibility:hidden]"
-        >
-          <HeroPortrait floating />
-        </motion.div>
+        <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+          <motion.div
+            style={{ y: imageY, willChange: "transform" }}
+            className="relative w-full max-w-[420px] aspect-square"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="h-full"
+            >
+              <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
+              <Image
+                src="/mobi.png"
+                alt="Mobina Moghadam"
+                width={800}
+                height={800}
+                priority
+                sizes="(max-width: 1024px) 80vw, 420px"
+                className="relative rounded-2xl object-cover w-full h-full drop-shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       <motion.div

@@ -5,6 +5,10 @@ import SVGCopy from "@/components/SVGS/SVGCopy";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+
+const GLASS_LAYER =
+  "pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -71,6 +75,11 @@ const itemVariants = {
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isCopied, setIsCopied] = useState({ mobile: false, email: false });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -82,20 +91,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   useEffect(() => {
     if (!isCopied.email) return;
-    const t = setTimeout(() => setIsCopied((p) => ({ ...p, email: false })), 1500);
+    const t = setTimeout(
+      () => setIsCopied((p) => ({ ...p, email: false })),
+      1500,
+    );
     return () => clearTimeout(t);
   }, [isCopied.email]);
 
   useEffect(() => {
     if (!isCopied.mobile) return;
-    const t = setTimeout(() => setIsCopied((p) => ({ ...p, mobile: false })), 1500);
+    const t = setTimeout(
+      () => setIsCopied((p) => ({ ...p, mobile: false })),
+      1500,
+    );
     return () => clearTimeout(t);
   }, [isCopied.mobile]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-center items-end md:items-center pointer-events-none">
+        <div className="fixed inset-0 z-[60] flex justify-center items-end md:items-center pointer-events-none">
           <motion.div
             key="contact-backdrop"
             className="absolute inset-0 bg-gray-900/50 backdrop-blur-[6px] pointer-events-auto"
@@ -105,10 +122,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             onClick={onClose}
           />
 
-          {/* Mobile bottom sheet */}
+          {/* Mobile bottom sheet — glass on inner layer so drag/translateY stays intact */}
           <motion.div
             key="contact-sheet"
-            className="relative md:hidden w-full bg-white flex flex-col gap-y-8 px-10 pt-6 pb-14 rounded-t-[1.25rem] shadow-[0_-8px_40px_rgba(0,0,0,0.12)] max-h-[90vh] overflow-y-auto pointer-events-auto"
+            className="relative md:hidden w-full isolate rounded-t-[1.25rem] shadow-[0_-8px_40px_rgba(0,0,0,0.12)] max-h-[90vh] overflow-hidden pointer-events-auto"
             initial={{ y: "100%" }}
             animate={{ y: 0, transition: sheetTransition }}
             exit={{ y: "100%", transition: sheetExitTransition }}
@@ -120,24 +137,52 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-neutral-200" aria-hidden />
-            <ModalBody isCopied={isCopied} setIsCopied={setIsCopied} onClose={onClose} />
+            <div aria-hidden className={`${GLASS_LAYER} rounded-t-[1.25rem]`} />
+            <div className="relative flex max-h-[90vh] flex-col gap-y-8 overflow-y-auto px-10 pt-6 pb-14">
+              <div
+                className="mx-auto mb-2 h-1 w-10 shrink-0 rounded-full bg-neutral-200"
+                aria-hidden
+              />
+              <ModalBody
+                isCopied={isCopied}
+                setIsCopied={setIsCopied}
+                onClose={onClose}
+              />
+            </div>
           </motion.div>
 
           {/* Desktop modal */}
           <motion.div
             key="contact-modal"
-            className="relative hidden md:flex w-full max-w-2xl bg-white flex-col gap-y-8 md:space-y-12 px-10 py-16 rounded-2xl shadow-2xl mx-4 pointer-events-auto"
+            className="relative hidden md:flex w-full max-w-2xl isolate overflow-hidden rounded-2xl shadow-2xl mx-4 pointer-events-auto"
             initial={{ opacity: 0, y: 28, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1, transition: modalTransition }}
-            exit={{ opacity: 0, y: 20, scale: 0.97, transition: modalExitTransition }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: modalTransition,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+              scale: 0.97,
+              transition: modalExitTransition,
+            }}
             onClick={(e) => e.stopPropagation()}
           >
-            <ModalBody isCopied={isCopied} setIsCopied={setIsCopied} onClose={onClose} />
+            <div aria-hidden className={`${GLASS_LAYER} rounded-2xl`} />
+            <div className="relative flex flex-col gap-y-8 px-10 py-16 md:space-y-12">
+              <ModalBody
+                isCopied={isCopied}
+                setIsCopied={setIsCopied}
+                onClose={onClose}
+              />
+            </div>
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
 
@@ -147,7 +192,9 @@ function ModalBody({
   onClose,
 }: {
   isCopied: { mobile: boolean; email: boolean };
-  setIsCopied: React.Dispatch<React.SetStateAction<{ mobile: boolean; email: boolean }>>;
+  setIsCopied: React.Dispatch<
+    React.SetStateAction<{ mobile: boolean; email: boolean }>
+  >;
   onClose: () => void;
 }) {
   return (
@@ -222,9 +269,12 @@ function ContactRow({
   onCopy: () => void;
 }) {
   return (
-    <div className="flex flex-wrap gap-1 items-center">
+    <div className="flex  gap-1 items-center">
       <p className="designTitleBold">{label}:</p>
-      <a href={href} className="designTitleBold hover:opacity-70 transition-opacity">
+      <a
+        href={href}
+        className="designTitleBold hover:opacity-70 transition-opacity"
+      >
         {value}
       </a>
       <button

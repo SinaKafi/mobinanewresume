@@ -14,10 +14,15 @@ const Header = () => {
 
   const path = usePathname();
   const router = useRouter();
+
   return (
-    <div className="sticky top-0 w-full bg-background z-50">
+    <div className="sticky top-0 w-full z-50 isolate">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150"
+      />
       {/* Desktop Header */}
-      <div className="container header h-24 hidden md:flex justify-between items-center gap-4 ">
+      <div className="container header relative h-24 hidden md:flex justify-between items-center gap-4 ">
         <div
           className="flex items-center justify-center gap-2 cursor-pointer"
           onClick={() => router.push("/")}
@@ -33,7 +38,7 @@ const Header = () => {
           </div>
           <div className="donthave flex flex-col cursor-pointer">
             <h1 className=" font-medium text-sm lg:text-lg xl:text-xl text-foreground leading-10">
-              MOBINA'S 2024 PORTFOLIO
+              MOBINA'S 2026 PORTFOLIO
             </h1>
             <h2 className="text-xs md:text-sm xl:text-base font-light text-gray2">
               PRODUCT DESIGNER
@@ -104,7 +109,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Header */}
-      <div className="flex md:hidden items-center justify-between p-4 bg-background">
+      <div className="relative flex md:hidden items-center justify-between p-4">
         {/* added */}
         <div
           className="flex items-center justify-center gap-2"
@@ -194,10 +199,16 @@ const Header = () => {
                 exit="hidden"
                 variants={{
                   hidden: {
-                    transition: { staggerChildren: 0.03, staggerDirection: -1 },
+                    transition: {
+                      staggerChildren: 0.03,
+                      staggerDirection: -1,
+                    },
                   },
                   visible: {
-                    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
+                    transition: {
+                      staggerChildren: 0.05,
+                      delayChildren: 0.1,
+                    },
                   },
                 }}
               >
