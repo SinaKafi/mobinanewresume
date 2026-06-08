@@ -41,7 +41,7 @@ export default function CTASection() {
           <h2 className="text-3xl md:text-4xl font-medium leading-tight">
             Let&apos;s build something meaningful together
           </h2>
-          <p className="text-sm md:text-base font-light opacity-80 leading-relaxed">
+          <p className="text-sm md:text-base font-light opacity-80 leading-relaxed text-background">
             Open to collaboration, freelance projects, and full-time
             opportunities. I&apos;d love to hear about what you&apos;re working
             on.
