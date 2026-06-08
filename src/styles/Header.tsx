@@ -8,6 +8,9 @@ import React, { useState } from "react";
 
 const SIDEBAR_EASE = [0.22, 1, 0.36, 1] as const;
 
+const GLASS_LAYER =
+  "pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150";
+
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModal, setIsModal] = useState(false);
@@ -17,10 +20,7 @@ const Header = () => {
 
   return (
     <div className="sticky top-0 w-full z-50 isolate">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150"
-      />
+      <div aria-hidden className={GLASS_LAYER} />
       {/* Desktop Header */}
       <div className="container header relative h-24 hidden md:flex justify-between items-center gap-4 ">
         <div
@@ -176,7 +176,7 @@ const Header = () => {
             />
             <motion.aside
               key="sidebar-panel"
-              className="fixed top-0 md:hidden left-0 h-full w-2/3 bg-background z-40 p-6 shadow-lg"
+              className="fixed top-0 md:hidden left-0 h-full w-2/3 isolate z-40 overflow-hidden shadow-lg"
               initial={{ x: "-100%" }}
               animate={{
                 x: 0,
@@ -192,8 +192,9 @@ const Header = () => {
                 transition: { duration: 0.38, ease: SIDEBAR_EASE },
               }}
             >
+              <div aria-hidden className={GLASS_LAYER} />
               <motion.div
-                className="flex flex-col gap-6 mobileHeader"
+                className="relative flex h-full flex-col gap-6 p-6 mobileHeader"
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
