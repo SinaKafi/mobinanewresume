@@ -1,14 +1,18 @@
 "use client";
 
+import PortalTooltip from "@/components/PortalTooltip";
 import SVGCopied from "@/components/SVGS/SVGCopied";
 import SVGCopy from "@/components/SVGS/SVGCopy";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 const GLASS_LAYER =
   "pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150";
+
+const SHELL_BASE =
+  "relative isolate w-full overflow-hidden border-2 border-white";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -122,10 +126,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             onClick={onClose}
           />
 
-          {/* Mobile bottom sheet — glass on inner layer so drag/translateY stays intact */}
+          {/* Mobile bottom sheet — motion wrapper for drag; shell owns border/clip */}
           <motion.div
             key="contact-sheet"
-            className="relative md:hidden w-full isolate rounded-t-[1.25rem] shadow-[0_-8px_40px_rgba(0,0,0,0.12)] max-h-[90vh] overflow-hidden pointer-events-auto"
+            className="relative md:hidden w-full max-h-[90vh] pointer-events-auto"
             initial={{ y: "100%" }}
             animate={{ y: 0, transition: sheetTransition }}
             exit={{ y: "100%", transition: sheetExitTransition }}
@@ -137,24 +141,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div aria-hidden className={`${GLASS_LAYER} rounded-t-[1.25rem]`} />
-            <div className="relative flex max-h-[90vh] flex-col gap-y-8 overflow-y-auto px-10 pt-6 pb-14">
-              <div
-                className="mx-auto mb-2 h-1 w-10 shrink-0 rounded-full bg-neutral-200"
-                aria-hidden
-              />
-              <ModalBody
-                isCopied={isCopied}
-                setIsCopied={setIsCopied}
-                onClose={onClose}
-              />
+            <div
+              className={`${SHELL_BASE} max-h-[90vh] rounded-t-[1.25rem] shadow-[0_-8px_40px_rgba(0,0,0,0.12)]`}
+            >
+              <div aria-hidden className={GLASS_LAYER} />
+              <div className="relative flex max-h-[90vh] flex-col gap-y-8 overflow-y-auto px-10 pt-6 pb-14">
+                <div
+                  className="mx-auto mb-2 h-1 w-10 shrink-0 rounded-full bg-neutral-200"
+                  aria-hidden
+                />
+                <ModalBody
+                  isCopied={isCopied}
+                  setIsCopied={setIsCopied}
+                  onClose={onClose}
+                />
+              </div>
             </div>
           </motion.div>
 
-          {/* Desktop modal */}
+          {/* Desktop modal — motion wrapper for enter/exit; shell owns border/clip */}
           <motion.div
             key="contact-modal"
-            className="relative hidden md:flex w-full max-w-2xl isolate overflow-hidden rounded-2xl shadow-2xl mx-4 pointer-events-auto"
+            className="hidden md:flex w-full max-w-2xl mx-4 pointer-events-auto"
             initial={{ opacity: 0, y: 28, scale: 0.96 }}
             animate={{
               opacity: 1,
@@ -170,13 +178,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div aria-hidden className={`${GLASS_LAYER} rounded-2xl`} />
-            <div className="relative flex flex-col gap-y-8 px-10 py-16 md:space-y-12">
-              <ModalBody
-                isCopied={isCopied}
-                setIsCopied={setIsCopied}
-                onClose={onClose}
-              />
+            <div className={`${SHELL_BASE} rounded-2xl shadow-2xl`}>
+              <div aria-hidden className={GLASS_LAYER} />
+              <div className="relative flex flex-col gap-y-8 px-10 py-16 md:space-y-12">
+                <ModalBody
+                  isCopied={isCopied}
+                  setIsCopied={setIsCopied}
+                  onClose={onClose}
+                />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -268,8 +278,10 @@ function ContactRow({
   copied: boolean;
   onCopy: () => void;
 }) {
+  const copyBtnRef = useRef<HTMLButtonElement>(null);
+
   return (
-    <div className="flex  gap-1 items-center">
+    <div className="flex gap-1 items-center">
       <p className="designTitleBold">{label}:</p>
       <a
         href={href}
@@ -278,20 +290,17 @@ function ContactRow({
         {value}
       </a>
       <button
+        ref={copyBtnRef}
         type="button"
-        className="relative ml-2 cursor-pointer"
+        className="ml-2 cursor-pointer"
         aria-label={`Copy ${label}`}
         onClick={onCopy}
       >
         {copied ? <SVGCopied /> : <SVGCopy />}
-        <span
-          className={`tooltip absolute z-50 mt-1 whitespace-normal break-words rounded-lg bg-foreground duration-300 py-1.5 px-3 scale-0 font-sans text-sm font-normal text-white transition-all opacity-0 ${
-            copied ? "opacity-100 scale-100" : ""
-          }`}
-        >
-          copied
-        </span>
       </button>
+      <PortalTooltip visible={copied} anchorRef={copyBtnRef}>
+        copied
+      </PortalTooltip>
     </div>
   );
 }

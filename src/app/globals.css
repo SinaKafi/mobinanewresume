@@ -163,6 +163,10 @@ li {
   left: 8px;
   border-bottom-color: var(--foreground);
 }
+.tooltip--center::after {
+  left: 50%;
+  transform: translate(-50%, -90%);
+}
 .freelanceCard b {
   font-weight: 500;
 }
