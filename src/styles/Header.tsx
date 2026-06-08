@@ -24,7 +24,7 @@ const Header = () => {
       {/* Desktop Header */}
       <div className="container header relative h-24 hidden md:flex justify-between items-center gap-4 ">
         <div
-          className="flex items-center justify-center gap-2 cursor-pointer"
+          className="flex items-center justify-center gap-2 cursor-pointer select-none"
           onClick={() => router.push("/")}
         >
           <div>
@@ -36,7 +36,7 @@ const Header = () => {
               className="block"
             />
           </div>
-          <div className="donthave flex flex-col cursor-pointer">
+          <div className="donthave flex flex-col cursor-pointer select-none">
             <h1 className=" font-medium text-sm lg:text-lg xl:text-xl text-foreground leading-10">
               MOBINA'S 2026 PORTFOLIO
             </h1>
