@@ -27,26 +27,43 @@ export default function AboutMeContent() {
             <h2 className="text-2xl sm:text-3xl font-bold text-primary">
               I&apos;m Mobina Moghadam
             </h2>
-            <p className="mt-4 text-gray-700" data-aos="fade-up" data-aos-delay="100">
-              I&apos;m a Product Designer, and I strongly believe that empathy is at
-              the core of creating meaningful and effective designs. To truly
-              understand and connect with users, a designer needs to develop a
-              habit of observing everything in their surroundings with care and
-              clarity, noticing the details that others might overlook.
+            <p
+              className="mt-4 text-gray-700"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              I&apos;m a Product Designer, and I strongly believe that empathy
+              is at the core of creating meaningful and effective designs. To
+              truly understand and connect with users, a designer needs to
+              develop a habit of observing everything in their surroundings with
+              care and clarity, noticing the details that others might overlook.
             </p>
-            <p className="mt-4 text-gray-700" data-aos="fade-up" data-aos-delay="150">
+            <p
+              className="mt-4 text-gray-700"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
               I believe a great product designer anticipates user needs and
               delivers intuitive solutions. By observing my surroundings, I fuel
               creativity and design experiences that feel natural, engaging, and
               user-friendly.
             </p>
-            <p className="mt-4 text-gray-700" data-aos="fade-up" data-aos-delay="200">
-              I&apos;ve been working in the design field for over 6 years. My journey
-              started with exciting graphic design projects, which eventually led
-              me to discover my passion for UI/UX design. For the past 3 years,
-              I&apos;ve been gaining hands-on experience in this field.
+            <p
+              className="mt-4 text-gray-700"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              I&apos;ve been working in the design field for over 10 years. My
+              journey started with exciting graphic design projects, which
+              eventually led me to discover my passion for UI/UX design. For the
+              past 5 years, I&apos;ve been gaining hands-on experience in this
+              field.
             </p>
-            <p className="mt-4 text-gray-700" data-aos="fade-up" data-aos-delay="250">
+            <p
+              className="mt-4 text-gray-700"
+              data-aos="fade-up"
+              data-aos-delay="250"
+            >
               I&apos;m continuously seeking to expand my knowledge in this area.
             </p>
           </div>
@@ -91,8 +108,8 @@ export default function AboutMeContent() {
           >
             <h2 className="designHeading">University education</h2>
             <p className="designTitle">
-              I have a Bachelor&apos;s degree in graphic design, which has definitely
-              played a big role in shaping my creative journey
+              I have a Bachelor&apos;s degree in graphic design, which has
+              definitely played a big role in shaping my creative journey
             </p>
           </div>
         </div>

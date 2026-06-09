@@ -247,6 +247,7 @@ const Header = () => {
                 ].map((item) => (
                   <motion.div
                     key={item.href}
+                    className="text-center"
                     variants={{
                       hidden: { opacity: 0, x: -12 },
                       visible: {
@@ -258,8 +259,8 @@ const Header = () => {
                   >
                     <Link
                       href={item.href}
-                      className={`relative text-center cursor-pointer block ${
-                        item.active && "active"
+                      className={`relative inline-block cursor-pointer ${
+                        item.active ? "active" : ""
                       }`}
                       onClick={() => setIsSidebarOpen(false)}
                     >

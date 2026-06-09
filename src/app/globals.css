@@ -46,7 +46,8 @@ body {
   direction: ltr;
 }
 .ExperienceCard h3::after,
-.header a::after {
+.header a::after,
+.mobileHeader a::after {
   content: "";
   position: absolute;
   width: 0px;
@@ -64,8 +65,10 @@ body {
   -o-transform: scaleX(0);
 }
 .header .active::after,
+.mobileHeader a.active::after,
 .ExperienceCard:hover h3:after,
-.header a:hover::after {
+.header a:hover::after,
+.mobileHeader a:hover::after {
   transform: scaleX(1);
   -webkit-transform: scaleX(1);
   -moz-transform: scaleX(1);
@@ -74,22 +77,24 @@ body {
 }
 
 .header a:hover,
-.header .active {
-  opacity: 1;
-}
-
+.header .active,
 .mobileHeader a:hover,
-.mobileHeader .active {
+.mobileHeader a.active {
   opacity: 1;
 }
 
 ::-webkit-scrollbar {
   width: 0;
 }
-.mobileHeader a,
+.mobileHeader a {
+  opacity: 0.6;
+  width: fit-content;
+  @apply inline-block font-light text-foreground text-xs md:text-sm xl:text-base;
+}
+
 .header a {
   opacity: 0.6;
-  @apply font-light text-foreground  text-xs md:text-sm xl:text-base;
+  @apply font-light text-foreground text-xs md:text-sm xl:text-base;
 }
 
 .aboutme img {

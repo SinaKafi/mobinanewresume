@@ -22,11 +22,6 @@ interface ContactModalProps {
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 const EASE_IN_OUT = [0.4, 0, 0.2, 1] as const;
 
-const backdropTransition = {
-  duration: 0.45,
-  ease: EASE_IN_OUT,
-};
-
 const sheetTransition = {
   type: "spring" as const,
   damping: 34,
@@ -37,18 +32,6 @@ const sheetTransition = {
 const sheetExitTransition = {
   duration: 0.42,
   ease: EASE_OUT,
-};
-
-const modalTransition = {
-  type: "spring" as const,
-  damping: 30,
-  stiffness: 240,
-  mass: 0.9,
-};
-
-const modalExitTransition = {
-  duration: 0.32,
-  ease: EASE_IN_OUT,
 };
 
 const contentVariants = {
@@ -79,11 +62,6 @@ const itemVariants = {
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isCopied, setIsCopied] = useState({ mobile: false, email: false });
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -111,25 +89,23 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     return () => clearTimeout(t);
   }, [isCopied.mobile]);
 
-  if (!mounted) return null;
-
   return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[60] flex justify-center items-end md:items-center pointer-events-none">
+        <>
           <motion.div
             key="contact-backdrop"
-            className="absolute inset-0 bg-gray-900/50 backdrop-blur-[6px] pointer-events-auto"
+            className="fixed inset-0 z-[60] bg-gray-900/50 backdrop-blur-[6px]"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: backdropTransition }}
-            exit={{ opacity: 0, transition: backdropTransition }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.3, ease: EASE_OUT } }}
             onClick={onClose}
           />
 
           {/* Mobile bottom sheet — motion wrapper for drag; shell owns border/clip */}
           <motion.div
             key="contact-sheet"
-            className="relative md:hidden w-full max-h-[90vh] pointer-events-auto"
+            className="fixed inset-x-0 bottom-0 z-[60] md:hidden w-full max-h-[90vh]"
             initial={{ y: "100%" }}
             animate={{ y: 0, transition: sheetTransition }}
             exit={{ y: "100%", transition: sheetExitTransition }}
@@ -162,23 +138,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           {/* Desktop modal — motion wrapper for enter/exit; shell owns border/clip */}
           <motion.div
             key="contact-modal"
-            className="hidden md:flex w-full max-w-2xl mx-4 pointer-events-auto"
-            initial={{ opacity: 0, y: 28, scale: 0.96 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              transition: modalTransition,
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-              scale: 0.97,
-              transition: modalExitTransition,
-            }}
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[60] hidden md:flex items-center justify-center px-4 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.3, ease: EASE_OUT } }}
           >
-            <div className={`${SHELL_BASE} rounded-2xl shadow-2xl`}>
+            <div
+              className={`${SHELL_BASE} w-full max-w-2xl rounded-2xl shadow-2xl pointer-events-auto`}
+              onClick={(e) => e.stopPropagation()}
+            >
               <div aria-hidden className={GLASS_LAYER} />
               <div className="relative flex flex-col gap-y-8 px-10 py-16 md:space-y-12">
                 <ModalBody
@@ -189,7 +157,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </div>
             </div>
           </motion.div>
-        </div>
+        </>
       )}
     </AnimatePresence>,
     document.body,

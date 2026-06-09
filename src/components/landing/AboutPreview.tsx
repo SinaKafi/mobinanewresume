@@ -6,9 +6,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const STATS = [
-  { value: "6+", label: "Years in Design" },
-  { value: "3+", label: "Years in UI/UX" },
-  { value: "20+", label: "Projects Delivered" },
+  { value: "10+", label: "Years in Design" },
+  { value: "5+", label: "Years in UI/UX" },
+  { value: "40+", label: "Projects Delivered" },
 ];
 
 export default function AboutPreview() {
