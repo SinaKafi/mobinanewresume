@@ -78,10 +78,21 @@ export const EXPERIENCE = [
 export const DESIGNED: {
   title: string;
   cover: string;
-  id: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+  id: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   route: string;
   images: Required<string[]>;
 }[] = [
+  {
+    title: "Rastin App",
+    cover: "/designed/RastinApp.png",
+    id: 10,
+    route: "rastinApp",
+    images: [
+      "/works/rasting app/1425 1.png",
+      "/works/rasting app/152 1.png",
+      "/works/rasting app/151 1.png",
+    ],
+  },
   {
     title: "Tractor Fan Club App",
     cover: "/designed/TractorFanClubApp.png",
