@@ -4,12 +4,10 @@ import { AnimatePresence, m } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { CASE_STUDY_SUBNAV_ID } from "@/components/caseStudy/constants";
 import React, { useState } from "react";
 
 const SIDEBAR_EASE = [0.22, 1, 0.36, 1] as const;
-
-const GLASS_LAYER =
-  "pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,10 +15,11 @@ const Header = () => {
 
   const path = usePathname();
   const router = useRouter();
+  const isCaseStudy = path === "/caseStudy";
 
   return (
     <div className="sticky top-0 w-full z-50 isolate">
-      <div aria-hidden className={GLASS_LAYER} />
+      <div aria-hidden className="glass-layer" />
       {/* Desktop Header */}
       <div className="container header relative h-24 hidden md:flex justify-between items-center gap-4 ">
         <div
@@ -109,7 +108,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Header */}
-      <div className="relative flex md:hidden items-center justify-between p-4">
+      <div className="relative flex md:hidden min-h-[var(--site-header-height)] items-center justify-between p-4">
         {/* added */}
         <div
           className="flex items-center justify-center gap-2"
@@ -156,6 +155,12 @@ const Header = () => {
         </button>
       </div>
 
+      {isCaseStudy && (
+        <div className="relative container flex justify-center pb-3">
+          <div id={CASE_STUDY_SUBNAV_ID} className="flex justify-center" />
+        </div>
+      )}
+
       {/* Mobile Sidebar */}
       <AnimatePresence>
         {isSidebarOpen && (
@@ -192,7 +197,7 @@ const Header = () => {
                 transition: { duration: 0.38, ease: SIDEBAR_EASE },
               }}
             >
-              <div aria-hidden className={GLASS_LAYER} />
+              <div aria-hidden className="glass-layer" />
               <m.div
                 className="relative flex h-full flex-col gap-6 p-6 mobileHeader"
                 initial="hidden"

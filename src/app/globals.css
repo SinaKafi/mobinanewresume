@@ -6,6 +6,13 @@
   --foreground: rgba(46, 46, 46, 1);
   --gray2: rgba(0, 0, 0, 1);
   --gray1: rgba(123, 123, 123, 1);
+  --site-header-height: 5.125rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-header-height: 6rem;
+  }
 }
 @font-face {
   font-family: "Montserrat";
@@ -181,6 +188,13 @@ li {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   overflow-x: clip;
+}
+
+.glass-layer {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  @apply bg-white/70 backdrop-blur-xl backdrop-saturate-150;
 }
 
 @media (prefers-reduced-motion: reduce) {
