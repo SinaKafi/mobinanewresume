@@ -6,7 +6,7 @@ import PortalTooltip from "@/components/PortalTooltip";
 import SVGCopied from "@/components/SVGS/SVGCopied";
 import SVGCopy from "@/components/SVGS/SVGCopy";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { motion } from "framer-motion";
+import { m } from "@/lib/motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -103,23 +103,23 @@ function ContactModalBody({
   onClose: () => void;
 }) {
   return (
-    <motion.div
+    <m.div
       variants={contentVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
     >
-      <motion.div variants={itemVariants}>
+      <m.div variants={itemVariants}>
         <h2 className="inline designHeading contactMe !relative">CONTACT ME</h2>
-      </motion.div>
+      </m.div>
 
       <div className="space-y-6 mt-8">
-        <motion.p variants={itemVariants} className="designTitle">
+        <m.p variants={itemVariants} className="designTitle">
           If you&apos;re interested in collaboration or want to learn more about
           my projects, I&apos;d be happy to connect with you.
-        </motion.p>
+        </m.p>
 
-        <motion.div variants={itemVariants} className="flex flex-col space-y-4">
+        <m.div variants={itemVariants} className="flex flex-col space-y-4">
           <ContactRow
             label="Phone"
             value="09223693919"
@@ -140,13 +140,13 @@ function ContactModalBody({
               setIsCopied((p) => ({ ...p, email: true }));
             }}
           />
-        </motion.div>
+        </m.div>
 
-        <motion.p variants={itemVariants} className="designTitle">
+        <m.p variants={itemVariants} className="designTitle">
           Looking forward to hearing from you!
-        </motion.p>
+        </m.p>
 
-        <motion.div variants={itemVariants}>
+        <m.div variants={itemVariants}>
           <Link
             href="/contact"
             onClick={onClose}
@@ -154,9 +154,9 @@ function ContactModalBody({
           >
             View full contact page →
           </Link>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 

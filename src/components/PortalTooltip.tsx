@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "@/lib/motion";
 import { useLayoutEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -69,7 +69,7 @@ export default function PortalTooltip({
   return createPortal(
     <AnimatePresence>
       {visible && pos && (
-        <motion.span
+        <m.span
           key="portal-tooltip"
           role="status"
           className={`tooltip fixed z-[70] origin-top whitespace-normal break-words rounded-lg bg-foreground py-1.5 px-3 font-sans text-sm font-normal text-white pointer-events-none${pos.centered ? " tooltip--center" : ""}`}
@@ -95,7 +95,7 @@ export default function PortalTooltip({
           transition={{ duration: 0.22, ease: EASE_OUT }}
         >
           {children}
-        </motion.span>
+        </m.span>
       )}
     </AnimatePresence>,
     document.body,

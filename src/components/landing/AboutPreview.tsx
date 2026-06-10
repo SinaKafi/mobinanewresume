@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import { m } from "@/lib/motion";
 import { useRef } from "react";
 
 const STATS = [
@@ -26,15 +27,15 @@ export default function AboutPreview() {
       ref={ref}
       className="py-24 md:py-32 border-t border-neutral-100 relative overflow-hidden"
     >
-      <motion.div
+      <m.div
         style={{ x: bgX }}
         className="absolute top-1/2 -right-8 text-[clamp(3rem,8vw,6rem)] font-medium text-neutral-50 select-none pointer-events-none"
         aria-hidden
       >
         EMPATHY
-      </motion.div>
+      </m.div>
       <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        <motion.div style={{ y: imageY }} className="relative">
+        <m.div style={{ y: imageY }} className="relative">
           <div
             data-aos="fade-right"
             className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 overflow-hidden rounded-2xl"
@@ -47,9 +48,9 @@ export default function AboutPreview() {
               className="w-full h-full object-contain p-16 bg-neutral-50"
             />
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.div style={{ y: textY }} className="space-y-8">
+        <m.div style={{ y: textY }} className="space-y-8">
           <div data-aos="fade-left">
             <p className="text-xs tracking-[0.3em] uppercase text-gray1 font-light mb-3">
               About
@@ -89,7 +90,7 @@ export default function AboutPreview() {
               Read my story
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

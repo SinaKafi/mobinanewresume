@@ -1,6 +1,6 @@
 "use client";
 import ContactModal from "@/components/contact/ContactModal";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -160,7 +160,7 @@ const Header = () => {
       <AnimatePresence>
         {isSidebarOpen && (
           <>
-            <motion.div
+            <m.div
               key="sidebar-backdrop"
               className="fixed inset-0 md:hidden bg-gray-900/50 backdrop-blur-[4px] z-30"
               initial={{ opacity: 0 }}
@@ -174,7 +174,7 @@ const Header = () => {
               }}
               onClick={() => setIsSidebarOpen(false)}
             />
-            <motion.aside
+            <m.aside
               key="sidebar-panel"
               className="fixed top-0 md:hidden left-0 h-full w-2/3 isolate z-40 overflow-hidden shadow-lg"
               initial={{ x: "-100%" }}
@@ -193,7 +193,7 @@ const Header = () => {
               }}
             >
               <div aria-hidden className={GLASS_LAYER} />
-              <motion.div
+              <m.div
                 className="relative flex h-full flex-col gap-6 p-6 mobileHeader"
                 initial="hidden"
                 animate="visible"
@@ -245,7 +245,7 @@ const Header = () => {
                     active: path === "/contact",
                   },
                 ].map((item) => (
-                  <motion.div
+                  <m.div
                     key={item.href}
                     className="text-center"
                     variants={{
@@ -266,9 +266,9 @@ const Header = () => {
                     >
                       {item.label}
                     </Link>
-                  </motion.div>
+                  </m.div>
                 ))}
-                <motion.div
+                <m.div
                   variants={{
                     hidden: { opacity: 0, x: -12 },
                     visible: {
@@ -287,9 +287,9 @@ const Header = () => {
                   >
                     CONTACT ME
                   </button>
-                </motion.div>
-              </motion.div>
-            </motion.aside>
+                </m.div>
+              </m.div>
+            </m.aside>
           </>
         )}
       </AnimatePresence>

@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { MotionValue, useReducedMotion, useTransform } from "framer-motion";
+import { m } from "@/lib/motion";
 import { ReactNode } from "react";
-import { useReducedMotion } from "framer-motion";
 import { useParallaxProgress } from "./ParallaxSection";
 
 interface ParallaxLayerProps {
@@ -20,13 +20,13 @@ function ParallaxLayerInner({
   const y = useTransform(
     progress,
     [0, 1],
-    [`${-(speed ?? 0.12) * 120}px`, `${(speed ?? 0.12) * 120}px`]
+    [`${-(speed ?? 0.12) * 120}px`, `${(speed ?? 0.12) * 120}px`],
   );
 
   return (
-    <motion.div style={{ y }} className={`parallax-layer ${className}`.trim()}>
+    <m.div style={{ y }} className={`parallax-layer ${className}`.trim()}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -39,7 +39,9 @@ export default function ParallaxLayer({
   const progress = useParallaxProgress();
 
   if (reducedMotion || !progress) {
-    return <div className={`parallax-layer ${className}`.trim()}>{children}</div>;
+    return (
+      <div className={`parallax-layer ${className}`.trim()}>{children}</div>
+    );
   }
 
   return (

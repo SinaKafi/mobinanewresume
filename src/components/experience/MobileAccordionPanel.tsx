@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
+import { m } from "@/lib/motion";
 import { ReactNode } from "react";
 
 const PANEL_EASE = [0.22, 1, 0.36, 1] as const;
@@ -23,7 +24,7 @@ export default function MobileAccordionPanel({
   }
 
   return (
-    <motion.div
+    <m.div
       initial={false}
       animate={{
         height: isOpen ? "auto" : 0,
@@ -39,6 +40,6 @@ export default function MobileAccordionPanel({
       }}
     >
       <div className="pt-4">{children}</div>
-    </motion.div>
+    </m.div>
   );
 }

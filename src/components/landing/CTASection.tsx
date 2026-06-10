@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import { m } from "@/lib/motion";
 import { useRef } from "react";
 
 const LINKS = [
@@ -22,9 +23,8 @@ export default function CTASection() {
 
   return (
     <section ref={ref} className="py-24 md:py-32">
-      <motion.div
+      <m.div
         style={{ scale: bgScale }}
-        data-aos="zoom-in"
         className="relative rounded-2xl bg-foreground text-background px-8 py-16 md:px-16 md:py-24 overflow-hidden"
       >
         <div
@@ -61,7 +61,7 @@ export default function CTASection() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

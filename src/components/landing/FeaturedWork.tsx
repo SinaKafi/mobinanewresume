@@ -2,7 +2,8 @@
 
 import ExperienceCard from "@/components/GalleryCard";
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { m } from "@/lib/motion";
 import { useRef } from "react";
 
 type WorkItem = {
@@ -34,13 +35,13 @@ export default function FeaturedWork({ items }: { items: WorkItem[] }) {
           WORK
         </div>
       ) : (
-        <motion.div
+        <m.div
           style={{ x: labelX, y: labelY }}
           className="absolute -top-4 left-0 text-[clamp(4rem,12vw,10rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none will-change-transform [backface-visibility:hidden]"
           aria-hidden
         >
           WORK
-        </motion.div>
+        </m.div>
       )}
 
       <div className="relative z-10">

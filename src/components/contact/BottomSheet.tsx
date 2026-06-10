@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useDragControls } from "framer-motion";
+import { useDragControls } from "framer-motion";
+import { AnimatePresence, m } from "@/lib/motion";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -65,7 +66,7 @@ export default function BottomSheet({
     <AnimatePresence>
       {isOpen && (
         <>
-          <motion.div
+          <m.div
             key="bottom-sheet-backdrop"
             className="fixed inset-0 z-[60] bg-gray-900/50 backdrop-blur-[6px]"
             initial={{ opacity: 0 }}
@@ -74,7 +75,7 @@ export default function BottomSheet({
             onClick={onClose}
           />
 
-          <motion.div
+          <m.div
             key="bottom-sheet"
             className="fixed inset-x-0 bottom-0 z-[60] w-full max-h-[90vh]"
             initial={{ y: "100%" }}
@@ -121,7 +122,7 @@ export default function BottomSheet({
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>,

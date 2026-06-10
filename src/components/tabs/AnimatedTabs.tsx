@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
+import { AnimatePresence, m } from "@/lib/motion";
 import {
   Children,
   createContext,
@@ -123,7 +124,7 @@ export function TabsTrigger({
     >
       {children}
       {isActive && (
-        <motion.span
+        <m.span
           layoutId={layoutId}
           className="absolute bottom-0 left-0 right-0 h-0.5 bg-foreground"
           transition={
@@ -170,7 +171,7 @@ export function TabsContent({
   const { reducedMotion } = useTabsContext();
 
   return (
-    <motion.div
+    <m.div
       key={value}
       role="tabpanel"
       id={`panel-${value}`}
@@ -182,6 +183,6 @@ export function TabsContent({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

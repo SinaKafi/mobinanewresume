@@ -6,7 +6,7 @@ import ParallaxSection from "@/components/animations/ParallaxSection";
 import ExperienceCard from "@/components/GalleryCard";
 import { useAOSRefresh } from "@/hooks/useAOSRefresh";
 import { DESIGNED } from "@/utils/datas";
-import { motion } from "framer-motion";
+import { m } from "@/lib/motion";
 
 export default function PortfolioGallery() {
   useAOSRefresh();
@@ -26,12 +26,12 @@ export default function PortfolioGallery() {
             data-aos-delay={index * 80}
           >
             <ParallaxLayer speed={index % 3 === 1 ? 0.18 : index % 3 === 2 ? 0.08 : 0.12}>
-              <motion.div
+              <m.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
                 <ExperienceCard {...item} priority={index < 3} />
-              </motion.div>
+              </m.div>
             </ParallaxLayer>
           </div>
         ))}

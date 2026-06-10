@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
+import { m } from "@/lib/motion";
 import { Children, isValidElement, ReactElement, ReactNode } from "react";
 
 interface PortfolioDetailTextProps {
@@ -24,7 +25,7 @@ function AnimatedBlock({
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2, margin: "-40px 0px" }}
@@ -33,12 +34,9 @@ function AnimatedBlock({
         delay: Math.min(index * 0.07, 0.35),
         ease,
       }}
-      data-aos="fade-up"
-      data-aos-delay={index * 80}
-      data-aos-offset="60"
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 

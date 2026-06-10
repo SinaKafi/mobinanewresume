@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "@/lib/motion";
 import React, { useCallback } from "react";
 import SVGArrowUp from "../SVGS/SVGArrowUp";
 import MobileAccordionPanel from "./MobileAccordionPanel";
@@ -104,13 +104,13 @@ const JobCard: React.FC<IJobCard> = ({
           onClick={handleClick}
           aria-label={isOpen ? "Collapse details" : "Expand details"}
         >
-          <motion.span
+          <m.span
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex"
           >
             <SVGArrowUp className="text-[#2E2E2E] my-2" />
-          </motion.span>
+          </m.span>
         </button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { m } from "@/lib/motion";
 import { useRef } from "react";
 
 interface PageHeroProps {
@@ -54,19 +55,15 @@ function PageHeroAnimated({ title, subtitle, watermark }: PageHeroProps) {
       ref={ref}
       className="relative py-14 md:py-20 mb-10 md:mb-16 overflow-hidden"
     >
-      <motion.div
+      <m.div
         style={{ y: watermarkY, x: watermarkX }}
         className="absolute -top-6 md:-top-10 left-0 text-[clamp(3.5rem,11vw,9rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none tracking-tight"
         aria-hidden
       >
         {watermark}
-      </motion.div>
+      </m.div>
 
-      <motion.div
-        style={{ y: contentY, opacity }}
-        className="relative z-10"
-        data-aos="fade-up"
-      >
+      <m.div style={{ y: contentY, opacity }} className="relative z-10">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
           {title}
         </h1>
@@ -75,9 +72,9 @@ function PageHeroAnimated({ title, subtitle, watermark }: PageHeroProps) {
             {subtitle}
           </p>
         )}
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         style={{ scaleX: lineScale }}
         className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-foreground/30 via-foreground/10 to-transparent origin-left"
         aria-hidden

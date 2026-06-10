@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "@/lib/motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -39,7 +39,7 @@ export default function MainModal({ isOpen, onClose, children }: MainModalProps)
     <AnimatePresence>
       {isOpen && (
         <>
-          <motion.div
+          <m.div
             key="main-modal-backdrop"
             className="fixed inset-0 z-[60] bg-gray-900/50 backdrop-blur-[6px]"
             initial={{ opacity: 0 }}
@@ -48,7 +48,7 @@ export default function MainModal({ isOpen, onClose, children }: MainModalProps)
             onClick={onClose}
           />
 
-          <motion.div
+          <m.div
             key="main-modal"
             className="fixed inset-0 z-[60] flex items-center justify-center px-4 pointer-events-none"
             initial={{ opacity: 0 }}
@@ -64,7 +64,7 @@ export default function MainModal({ isOpen, onClose, children }: MainModalProps)
                 {children}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>,

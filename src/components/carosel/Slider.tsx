@@ -1,6 +1,7 @@
 "use client";
 import { sliderSettings } from "@/utils/slider";
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
+import { m } from "@/lib/motion";
 import Image from "next/image";
 import { ComponentType } from "react";
 import Slider from "react-slick";
@@ -42,7 +43,7 @@ const ImageSlider = ({
     <ReactSlickSlider {...dynamicSliderSettings}>
       {array?.map((image, index) => (
         <div className="w-full !appearance-none p-2 outline-none" key={image}>
-          <motion.div
+          <m.div
             className="max-w-[23rem] max-h-[23rem] relative aspect-square w-full mx-auto bg-gray-200 overflow-hidden rounded-lg"
             initial={reducedMotion ? false : { opacity: 0, scale: 0.96 }}
             animate={reducedMotion ? undefined : { opacity: 1, scale: 1 }}
@@ -52,8 +53,6 @@ const ImageSlider = ({
               delay: index * 0.08,
             }}
             whileHover={reducedMotion ? undefined : { scale: 1.02 }}
-            data-aos="zoom-in"
-            data-aos-delay={index * 60}
           >
             <Image
               src={image}
@@ -67,7 +66,7 @@ const ImageSlider = ({
               sizes={SLIDE_SIZES}
               priority={index === 0}
             />
-          </motion.div>
+          </m.div>
         </div>
       ))}
     </ReactSlickSlider>
