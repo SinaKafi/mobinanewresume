@@ -1,7 +1,10 @@
 "use client";
+
+import { m } from "@/lib/motion";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback } from "react";
 import SVGArrowUp from "../SVGS/SVGArrowUp";
+import MobileAccordionPanel from "./MobileAccordionPanel";
 
 interface IFreelanceCard {
   name: string;
@@ -20,27 +23,24 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
   Icon,
   id,
 }) => {
-  const scrollToElement = (id: string) => {
+  const scrollToCard = useCallback(() => {
     const element = document.getElementById(id);
-    const headerOffset = 85;
-    const elementPosition = element?.getBoundingClientRect().top || 0;
-    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    if (!element) return;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  };
-  const handleClick = () => {
+    const headerOffset = 96;
+    const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }, [id]);
+
+  const handleClick = useCallback(() => {
     if (isOpen) {
       setIsOpen("");
-    } else {
-      setIsOpen(id);
-      setTimeout(() => {
-        scrollToElement(id);
-      }, 100);
+      return;
     }
-  };
+
+    setIsOpen(id);
+    requestAnimationFrame(() => scrollToCard());
+  }, [isOpen, id, scrollToCard, setIsOpen]);
 
   return (
     <div className="freelanceCard py-4">
@@ -69,12 +69,11 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
         id={id}
         className="relative md:hidden border-b border-[#7B7B7B] collapsible"
       >
-        <div
-          className={`flex items-start flex-col cursor-pointer gap-1`} // Disable clicks during transitions
-          onClick={(e) => {
-            e.stopPropagation();
-            handleClick();
-          }}
+        <button
+          type="button"
+          className="w-full text-left flex items-start flex-col gap-1 py-1"
+          onClick={handleClick}
+          aria-expanded={isOpen}
         >
           <Image
             src={Icon}
@@ -84,44 +83,34 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
             height={28}
             className="inline-flex !mr-auto pr-1 !w-7 !h-7"
           />
-
           <h1 className="font-medium text-lg text-gray2">{name}</h1>
-          {/* <div className="flex justify-between items-center w-full"></div> */}
-        </div>
+        </button>
 
-        {/* Accordion Body */}
-        <div
-          className={`mt-4 max-h-0 overflow-hidden transition-all  duration-0 ${
-            isOpen && "!duration-[1s] max-h-[400vh]"
-          } `}
-        >
+        <MobileAccordionPanel isOpen={isOpen} onOpenComplete={scrollToCard}>
           <div
-            className="col-span-2 designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
+            className="designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
             style={{
               whiteSpace: "pre-line !important",
               wordWrap: "break-word",
             }}
             dangerouslySetInnerHTML={{ __html: description }}
-          >
-            {/* {description} */}
-          </div>
-        </div>
-        <div
-          className="w-full flex items-center justify-center "
-          onClick={(e) => {
-            e.stopPropagation();
-            handleClick();
-          }}
+          />
+        </MobileAccordionPanel>
+
+        <button
+          type="button"
+          className="w-full flex items-center justify-center"
+          onClick={handleClick}
+          aria-label={isOpen ? "Collapse details" : "Expand details"}
         >
-          <button className="focus:outline-none" aria-label="Toggle details">
-            <SVGArrowUp
-              className={`transition-all text-[#2E2E2E] my-2 rotate-0 ${
-                isOpen && "rotate-180"
-              }`}
-            />
-            {/* {isOpen === name ? "▲" : "▼"} */}
-          </button>
-        </div>
+          <m.span
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex"
+          >
+            <SVGArrowUp className="text-[#2E2E2E] my-2" />
+          </m.span>
+        </button>
       </div>
     </div>
   );
