@@ -156,7 +156,7 @@ const Header = () => {
       </div>
 
       {isCaseStudy && (
-        <div className="relative container flex justify-center pb-3">
+        <div className="relative container flex justify-center py-3">
           <div id={CASE_STUDY_SUBNAV_ID} className="flex justify-center" />
         </div>
       )}
