@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   useReducedMotion,
   useScroll,
   useSpring,
   useTransform,
-} from "framer-motion";
-import { m } from "@/lib/motion";
-import { useRef } from "react";
+} from 'framer-motion';
+import { m } from '@/lib/motion';
+import { useRef } from 'react';
 
 function HeroStatic() {
   return (
@@ -71,7 +71,7 @@ function HeroAnimated() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ['start start', 'end start'],
   });
 
   const imageYRaw = useTransform(scrollYProgress, [0, 1], [0, 140]);
@@ -81,10 +81,10 @@ function HeroAnimated() {
     mass: 0.3,
   });
 
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '55%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '35%']);
 
   return (
     <section
@@ -156,7 +156,7 @@ function HeroAnimated() {
 
         <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
           <m.div
-            style={{ y: imageY, willChange: "transform" }}
+            style={{ y: imageY, willChange: 'transform' }}
             className="relative w-full max-w-[420px] aspect-square"
           >
             <m.div
@@ -189,7 +189,7 @@ function HeroAnimated() {
       >
         <m.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
           className="w-px h-10 bg-gradient-to-b from-foreground/40 to-transparent"
         />
       </m.div>

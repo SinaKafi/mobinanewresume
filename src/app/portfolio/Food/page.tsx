@@ -1,13 +1,13 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
-import React from "react";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
+import React from 'react';
 
 export const metadata = createPageMetadata({
-  title: "Food E-commerce Landing",
+  title: 'Food E-commerce Landing',
   description:
-    "UI/UX case study for a food e-commerce landing page with product categorization.",
-  path: "/portfolio/Food",
+    'UI/UX case study for a food e-commerce landing page with product categorization.',
+  path: '/portfolio/Food',
 });
 
 function Page() {
@@ -42,24 +42,24 @@ function Page() {
             I developed a clear and intuitive categorization system, enabling
             users to find products effortlessly. Categories like "Fruits &
             Vegetables," "Protein Products," and "Organic Foods" were
-            thoughtfully designed and implemented.{" "}
+            thoughtfully designed and implemented.
           </p>
-        </div>{" "}
+        </div>
         <div>
           <h1 className="designHeading2">Product Card Design:</h1>
           <p className="designTitle">
             I designed multiple variations of product cards to display essential
             details such as product image, name, price, weight, and additional
             information. Each card was optimized to highlight critical details
-            at a glance.{" "}
+            at a glance.
           </p>
-        </div>{" "}
+        </div>
         <div>
           <h1 className="designHeading2"> Color and Image Selection:</h1>
           <p className="designTitle">
             Color and Image Selection: I used warm, natural colors (such as
             greens and yellows) to evoke freshness and health. High-resolution
-            product images were carefully chosen to enhance visual appeal.{" "}
+            product images were carefully chosen to enhance visual appeal.
           </p>
         </div>
         <div>
@@ -67,7 +67,7 @@ function Page() {
           <p className="designTitle">
             The page was structured logically to minimize user confusion. Users
             could easily access products via search, filters, or intuitive
-            navigation through categories.{" "}
+            navigation through categories.
           </p>
         </div>
         <div>

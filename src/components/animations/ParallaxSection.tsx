@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { MotionValue, useScroll } from "framer-motion";
-import { createContext, ReactNode, useContext, useRef } from "react";
+import { MotionValue, useScroll } from 'framer-motion';
+import { createContext, ReactNode, useContext, useRef } from 'react';
 
 const ParallaxContext = createContext<MotionValue<number> | null>(null);
 
@@ -17,13 +17,13 @@ interface ParallaxSectionProps {
 
 export default function ParallaxSection({
   children,
-  className = "",
-  offset = ["start end", "end start"],
+  className = '',
+  offset = ['start end', 'end start'],
 }: ParallaxSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: offset as ["start end", "end start"],
+    offset: offset as ['start end', 'end start'],
   });
 
   return (

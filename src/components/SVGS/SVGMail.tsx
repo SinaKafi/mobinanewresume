@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const SVGMail = ({ width = "24", height = "24", className = "" }) => {
+const SVGMail = ({ width = '24', height = '24', className = '' }) => {
   return (
     <svg
       width={width}

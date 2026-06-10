@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import BottomSheet from "@/components/contact/BottomSheet";
-import MainModal from "@/components/contact/MainModal";
-import PortalTooltip from "@/components/PortalTooltip";
-import SVGCopied from "@/components/SVGS/SVGCopied";
-import SVGCopy from "@/components/SVGS/SVGCopy";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { m } from "@/lib/motion";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import BottomSheet from '@/components/contact/BottomSheet';
+import MainModal from '@/components/contact/MainModal';
+import PortalTooltip from '@/components/PortalTooltip';
+import SVGCopied from '@/components/SVGS/SVGCopied';
+import SVGCopy from '@/components/SVGS/SVGCopy';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { m } from '@/lib/motion';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -45,14 +45,14 @@ const itemVariants = {
 };
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   const [isCopied, setIsCopied] = useState({ mobile: false, email: false });
 
   useEffect(() => {
     if (!isCopied.email) return;
     const t = setTimeout(
       () => setIsCopied((p) => ({ ...p, email: false })),
-      1500,
+      1500
     );
     return () => clearTimeout(t);
   }, [isCopied.email]);
@@ -61,7 +61,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (!isCopied.mobile) return;
     const t = setTimeout(
       () => setIsCopied((p) => ({ ...p, mobile: false })),
-      1500,
+      1500
     );
     return () => clearTimeout(t);
   }, [isCopied.mobile]);
@@ -126,7 +126,7 @@ function ContactModalBody({
             href="tel:09223693919"
             copied={isCopied.mobile}
             onCopy={() => {
-              navigator.clipboard.writeText("09223693919");
+              navigator.clipboard.writeText('09223693919');
               setIsCopied((p) => ({ ...p, mobile: true }));
             }}
           />
@@ -136,7 +136,7 @@ function ContactModalBody({
             href="mailto:mmoghadam376@gmail.com"
             copied={isCopied.email}
             onCopy={() => {
-              navigator.clipboard.writeText("mmoghadam376@gmail.com");
+              navigator.clipboard.writeText('mmoghadam376@gmail.com');
               setIsCopied((p) => ({ ...p, email: true }));
             }}
           />

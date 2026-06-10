@@ -2,7 +2,7 @@ export const sliderSettings = {
   // infinite: true,
   autoplay: true,
   slidesToShow: 2.5,
-  cssEase: "linear",
+  cssEase: 'linear',
   // accessibility: true,
   rtl: false,
   responsive: [

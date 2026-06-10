@@ -15,9 +15,9 @@
   }
 }
 @font-face {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 100 900; /* Supports variable weights from 100 to 900 */
-  src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
   font-display: swap; /* Improves performance by swapping the font */
 }
 
@@ -38,7 +38,7 @@ p {
 *::before {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   padding: 0;
 }
 .container {
@@ -55,7 +55,7 @@ body {
 .ExperienceCard h3::after,
 .header a::after,
 .mobileHeader a::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0px;
   background: var(--foreground);
@@ -158,7 +158,7 @@ li {
   @apply text-gray2 text-base md:text-lg font-medium text-left;
 }
 .contactMe::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background: #000;
@@ -167,7 +167,7 @@ li {
   left: 0;
 }
 .tooltip::after {
-  content: "";
+  content: '';
   border: 4px solid transparent;
   position: absolute;
   top: 0px;

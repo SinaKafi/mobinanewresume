@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import PageHero from "@/components/animations/PageHero";
-import ParallaxLayer from "@/components/animations/ParallaxLayer";
-import ParallaxSection from "@/components/animations/ParallaxSection";
-import ExperienceCard from "@/components/GalleryCard";
-import { useAOSRefresh } from "@/hooks/useAOSRefresh";
-import { DESIGNED } from "@/utils/datas";
-import { m } from "@/lib/motion";
+import PageHero from '@/components/animations/PageHero';
+import ParallaxLayer from '@/components/animations/ParallaxLayer';
+import ParallaxSection from '@/components/animations/ParallaxSection';
+import ExperienceCard from '@/components/GalleryCard';
+import { useAOSRefresh } from '@/hooks/useAOSRefresh';
+import { DESIGNED } from '@/utils/datas';
+import { m } from '@/lib/motion';
 
 export default function PortfolioGallery() {
   useAOSRefresh();
@@ -25,7 +25,9 @@ export default function PortfolioGallery() {
             data-aos="fade-up"
             data-aos-delay={index * 80}
           >
-            <ParallaxLayer speed={index % 3 === 1 ? 0.18 : index % 3 === 2 ? 0.08 : 0.12}>
+            <ParallaxLayer
+              speed={index % 3 === 1 ? 0.18 : index % 3 === 2 ? 0.08 : 0.12}
+            >
               <m.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}

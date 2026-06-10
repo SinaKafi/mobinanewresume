@@ -1,13 +1,13 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
-import React from "react";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
+import React from 'react';
 
 export const metadata = createPageMetadata({
-  title: "Namikhodro E-commerce Website",
+  title: 'Namikhodro E-commerce Website',
   description:
-    "UI/UX case study for Namikhodro e-commerce website for selling Toyota cars in Iran.",
-  path: "/portfolio/NamikhodroWeb",
+    'UI/UX case study for Namikhodro e-commerce website for selling Toyota cars in Iran.',
+  path: '/portfolio/NamikhodroWeb',
 });
 
 export default function Page() {
@@ -19,7 +19,7 @@ export default function Page() {
       images={project?.images}
       title={project?.title}
     >
-<div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Namikhodro E-commerce Website</h1>
         <p className="designTitle">
           Design Process for Nami Khodro Website
@@ -35,7 +35,6 @@ export default function Page() {
         <ol className="list-decimal list-inside marker:font-medium space-y-8">
           <li>
             <span className="designHeading2">
-              {" "}
               Initial Research & Client Requirements:
             </span>
             <p className="designTitle mb-2">
@@ -59,10 +58,7 @@ export default function Page() {
             <div className="pl-4 md:pl-8">
               <ul className="list-disc list-outside space-y-2">
                 <li>
-                  <span className="designTitleBold">
-                    {" "}
-                    User Journey Mapping:
-                  </span>
+                  <span className="designTitleBold">User Journey Mapping:</span>
                   <p className="designTitle">
                     We created detailed user journey maps to visualize the steps
                     a customer would take from browsing cars to completing a
@@ -74,7 +70,6 @@ export default function Page() {
               <ul className="list-disc list-outside space-y-2">
                 <li>
                   <span className="designTitleBold">
-                    {" "}
                     Wireframes & Prototypes:
                   </span>
                   <p className="designTitle">
@@ -110,10 +105,7 @@ export default function Page() {
             <div className="pl-4 md:pl-8">
               <ul className="list-disc list-outside space-y-2">
                 <li>
-                  <span className="designTitleBold">
-                    {" "}
-                    Branding Integration:
-                  </span>
+                  <span className="designTitleBold">Branding Integration:</span>
                   <p className="designTitle">
                     The website was designed using Toyota's official branding
                     colors and fonts while also integrating Naeem Khodro's
@@ -126,10 +118,7 @@ export default function Page() {
 
               <ul className="list-disc list-outside space-y-2">
                 <li>
-                  <span className="designTitleBold">
-                    {" "}
-                    Product Pages Design:
-                  </span>
+                  <span className="designTitleBold">Product Pages Design:</span>
                   <p className="designTitle">
                     Each vehicle was given a dedicated product page with
                     high-quality images, detailed specifications, and key
@@ -168,7 +157,6 @@ export default function Page() {
                     Electronic Contract System:
                   </span>
                   <p className="designTitle">
-                    {" "}
                     A significant feature of the website was the electronic
                     contract system. Customers could sign contracts digitally,
                     making the car-buying process faster and more secure. This

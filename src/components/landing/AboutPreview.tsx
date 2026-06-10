@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useScroll, useTransform } from "framer-motion";
-import { m } from "@/lib/motion";
-import { useRef } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useScroll, useTransform } from 'framer-motion';
+import { m } from '@/lib/motion';
+import { useRef } from 'react';
 
 const STATS = [
-  { value: "10+", label: "Years in Design" },
-  { value: "5+", label: "Years in UI/UX" },
-  { value: "40+", label: "Projects Delivered" },
+  { value: '10+', label: 'Years in Design' },
+  { value: '5+', label: 'Years in UI/UX' },
+  { value: '40+', label: 'Projects Delivered' },
 ];
 
 export default function AboutPreview() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ['start end', 'end start'],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["15%", "-18%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["8%", "-12%"]);
-  const bgX = useTransform(scrollYProgress, [0, 1], ["-5%", "10%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ['15%', '-18%']);
+  const textY = useTransform(scrollYProgress, [0, 1], ['8%', '-12%']);
+  const bgX = useTransform(scrollYProgress, [0, 1], ['-5%', '10%']);
 
   return (
     <section

@@ -1,10 +1,10 @@
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from '@/lib/metadata';
 
 export const metadata = createPageMetadata({
-  title: "Projects",
+  title: 'Projects',
   description:
-    "Highlight initiatives spanning healthcare, automotive e-commerce, blockchain, and organizational tools.",
-  path: "/project",
+    'Highlight initiatives spanning healthcare, automotive e-commerce, blockchain, and organizational tools.',
+  path: '/project',
 });
 
 export default function ProjectLayout({

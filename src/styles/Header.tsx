@@ -1,11 +1,11 @@
-"use client";
-import ContactModal from "@/components/contact/ContactModal";
-import { AnimatePresence, m } from "@/lib/motion";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { CASE_STUDY_SUBNAV_ID } from "@/components/caseStudy/constants";
-import React, { useState } from "react";
+'use client';
+import ContactModal from '@/components/contact/ContactModal';
+import { AnimatePresence, m } from '@/lib/motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { CASE_STUDY_SUBNAV_ID } from '@/components/caseStudy/constants';
+import React, { useState } from 'react';
 
 const SIDEBAR_EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -15,7 +15,7 @@ const Header = () => {
 
   const path = usePathname();
   const router = useRouter();
-  const isCaseStudy = path === "/caseStudy";
+  const isCaseStudy = path === '/caseStudy';
 
   return (
     <div className="sticky top-0 w-full z-50 isolate">
@@ -24,11 +24,11 @@ const Header = () => {
       <div className="container header relative h-24 hidden md:flex justify-between items-center gap-4 ">
         <div
           className="flex items-center justify-center gap-2 cursor-pointer select-none"
-          onClick={() => router.push("/")}
+          onClick={() => router.push('/')}
         >
           <div>
             <Image
-              src={"/vector.svg"}
+              src={'/vector.svg'}
               alt=""
               width={50}
               height={50}
@@ -46,42 +46,42 @@ const Header = () => {
         </div>
         <div className="flex  justify-between items-center gap-6">
           <Link
-            href={"/portfolio"}
+            href={'/portfolio'}
             className={`leading-7 relative text-sm md:text-base cursor-pointer  ${
-              path.includes("portfolio") && "active"
+              path.includes('portfolio') && 'active'
             }`}
           >
             WORK
           </Link>
           <Link
-            href={"/experience"}
+            href={'/experience'}
             className={`leading-7 relative cursor-pointer text-sm md:text-base ${
-              path === "/experience" && "active"
+              path === '/experience' && 'active'
             }`}
           >
             EXPERIENCE
           </Link>
           <Link
-            href={"/project"}
+            href={'/project'}
             className={`leading-7 relative cursor-pointer text-sm md:text-base  ${
-              path === "/project" && "active"
+              path === '/project' && 'active'
             }`}
           >
             PROJECT
           </Link>
 
           <Link
-            href={"/aboutme"}
+            href={'/aboutme'}
             className={`leading-7 relative text-sm md:text-base cursor-pointer ${
-              path === "/aboutme" && "active"
+              path === '/aboutme' && 'active'
             }`}
           >
             ABOUT ME
           </Link>
           <Link
-            href={"/caseStudy"}
+            href={'/caseStudy'}
             className={`leading-7 relative text-sm md:text-base cursor-pointer ${
-              path === "/caseStudy" && "active"
+              path === '/caseStudy' && 'active'
             }`}
           >
             CASE STUDY
@@ -112,11 +112,11 @@ const Header = () => {
         {/* added */}
         <div
           className="flex items-center justify-center gap-2"
-          onClick={() => router.push("/")}
+          onClick={() => router.push('/')}
         >
           <div>
             <Image
-              src={"/vector.svg"}
+              src={'/vector.svg'}
               alt=""
               width={50}
               height={50}
@@ -139,17 +139,17 @@ const Header = () => {
         >
           <span
             className={`block h-0.5 w-full bg-foreground transition-transform ${
-              isSidebarOpen ? "rotate-45 translate-y-1.5" : ""
+              isSidebarOpen ? 'rotate-45 translate-y-1.5' : ''
             }`}
           ></span>
           <span
             className={`block h-0.5 w-full bg-foreground ${
-              isSidebarOpen ? "opacity-0" : ""
+              isSidebarOpen ? 'opacity-0' : ''
             }`}
           ></span>
           <span
             className={`block h-0.5 w-full bg-foreground transition-transform ${
-              isSidebarOpen ? "-rotate-45 -translate-y-1.5" : ""
+              isSidebarOpen ? '-rotate-45 -translate-y-1.5' : ''
             }`}
           ></span>
         </button>
@@ -182,18 +182,18 @@ const Header = () => {
             <m.aside
               key="sidebar-panel"
               className="fixed top-0 md:hidden left-0 h-full w-2/3 isolate z-40 overflow-hidden shadow-lg"
-              initial={{ x: "-100%" }}
+              initial={{ x: '-100%' }}
               animate={{
                 x: 0,
                 transition: {
-                  type: "spring",
+                  type: 'spring',
                   damping: 32,
                   stiffness: 280,
                   mass: 0.9,
                 },
               }}
               exit={{
-                x: "-100%",
+                x: '-100%',
                 transition: { duration: 0.38, ease: SIDEBAR_EASE },
               }}
             >
@@ -220,34 +220,34 @@ const Header = () => {
               >
                 {[
                   {
-                    href: "/portfolio",
-                    label: "WORK",
-                    active: path.includes("portfolio"),
+                    href: '/portfolio',
+                    label: 'WORK',
+                    active: path.includes('portfolio'),
                   },
                   {
-                    href: "/experience",
-                    label: "EXPERIENCE",
-                    active: path === "/experience",
+                    href: '/experience',
+                    label: 'EXPERIENCE',
+                    active: path === '/experience',
                   },
                   {
-                    href: "/project",
-                    label: "PROJECTS",
-                    active: path === "/project",
+                    href: '/project',
+                    label: 'PROJECTS',
+                    active: path === '/project',
                   },
                   {
-                    href: "/aboutme",
-                    label: "ABOUT ME",
-                    active: path === "/aboutme",
+                    href: '/aboutme',
+                    label: 'ABOUT ME',
+                    active: path === '/aboutme',
                   },
                   {
-                    href: "/caseStudy",
-                    label: "CASE STUDY",
-                    active: path === "/caseStudy",
+                    href: '/caseStudy',
+                    label: 'CASE STUDY',
+                    active: path === '/caseStudy',
                   },
                   {
-                    href: "/contact",
-                    label: "CONTACT",
-                    active: path === "/contact",
+                    href: '/contact',
+                    label: 'CONTACT',
+                    active: path === '/contact',
                   },
                 ].map((item) => (
                   <m.div
@@ -265,7 +265,7 @@ const Header = () => {
                     <Link
                       href={item.href}
                       className={`relative inline-block cursor-pointer ${
-                        item.active ? "active" : ""
+                        item.active ? 'active' : ''
                       }`}
                       onClick={() => setIsSidebarOpen(false)}
                     >

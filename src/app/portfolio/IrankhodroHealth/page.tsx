@@ -1,13 +1,13 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
-import React from "react";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
+import React from 'react';
 
 export const metadata = createPageMetadata({
-  title: "Irankhodro Health Dashboard",
+  title: 'Irankhodro Health Dashboard',
   description:
-    "UI/UX case study for Iran Khodro employee health dashboard and risk assessment.",
-  path: "/portfolio/IrankhodroHealth",
+    'UI/UX case study for Iran Khodro employee health dashboard and risk assessment.',
+  path: '/portfolio/IrankhodroHealth',
 });
 
 function Page() {
@@ -19,7 +19,7 @@ function Page() {
       images={project?.images}
       title={project?.title}
     >
-<div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Irankhodro Health Dashboard</h1>
         <p className="designTitle">
           Employee Health Dashboard for Iran Khodro
@@ -37,11 +37,9 @@ function Page() {
         <ol className="list-decimal list-inside marker:font-medium space-y-8">
           <li>
             <span className="designTitleBold">
-              {" "}
               Health Assessment of Employees:
             </span>
             <p className="designTitle mb-2">
-              {" "}
               The dashboard utilizes data on employees' age, work history, and
               job type to evaluate their health and predict potential illnesses.
               This analysis helps identify specific health risks and enables
@@ -97,7 +95,6 @@ function Page() {
             <li>
               <span className="designTitleBold">Resources Management:</span>
               <p className="designTitle">
-                {" "}
                 Real-time, precise data allows for better management of human
                 and medical resources. Support for Strategic
               </p>

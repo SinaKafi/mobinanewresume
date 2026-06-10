@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import HeroSection from "./HeroSection";
-import FeaturedWork from "./FeaturedWork";
-import AboutPreview from "./AboutPreview";
-import CTASection from "./CTASection";
+import HeroSection from './HeroSection';
+import FeaturedWork from './FeaturedWork';
+import AboutPreview from './AboutPreview';
+import CTASection from './CTASection';
 
 type WorkItem = {
   title: string;

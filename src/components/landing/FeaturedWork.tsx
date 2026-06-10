@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import ExperienceCard from "@/components/GalleryCard";
-import Link from "next/link";
-import { useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { m } from "@/lib/motion";
-import { useRef } from "react";
+import ExperienceCard from '@/components/GalleryCard';
+import Link from 'next/link';
+import { useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { m } from '@/lib/motion';
+import { useRef } from 'react';
 
 type WorkItem = {
   title: string;
@@ -19,11 +19,11 @@ export default function FeaturedWork({ items }: { items: WorkItem[] }) {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ['start end', 'end start'],
   });
 
-  const labelX = useTransform(scrollYProgress, [0, 1], ["-8%", "12%"]);
-  const labelY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const labelX = useTransform(scrollYProgress, [0, 1], ['-8%', '12%']);
+  const labelY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
 
   return (
     <section ref={ref} className="py-16 sm:py-24 md:py-32 relative">
@@ -67,11 +67,7 @@ export default function FeaturedWork({ items }: { items: WorkItem[] }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {items.map((item, index) => (
-            <div
-              key={item.id}
-              data-aos="fade-up"
-              data-aos-delay={index * 120}
-            >
+            <div key={item.id} data-aos="fade-up" data-aos-delay={index * 120}>
               <ExperienceCard {...item} priority={index === 0} />
             </div>
           ))}

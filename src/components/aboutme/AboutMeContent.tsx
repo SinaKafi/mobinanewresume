@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import PageHero from "@/components/animations/PageHero";
-import { useAOSRefresh } from "@/hooks/useAOSRefresh";
-import AboutMeImage from "./AboutMeImage";
+import PageHero from '@/components/animations/PageHero';
+import { useAOSRefresh } from '@/hooks/useAOSRefresh';
+import AboutMeImage from './AboutMeImage';
 
 export default function AboutMeContent() {
   useAOSRefresh();

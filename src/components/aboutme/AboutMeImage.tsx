@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useReducedMotion } from "framer-motion";
-import { m } from "@/lib/motion";
+import Image from 'next/image';
+import { useReducedMotion } from 'framer-motion';
+import { m } from '@/lib/motion';
 
 export default function AboutMeImage() {
   const reducedMotion = useReducedMotion();

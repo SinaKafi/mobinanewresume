@@ -1,14 +1,14 @@
-"use client";
-import { sliderSettings } from "@/utils/slider";
-import { useReducedMotion } from "framer-motion";
-import { m } from "@/lib/motion";
-import Image from "next/image";
-import { ComponentType } from "react";
-import Slider from "react-slick";
-import { Settings } from "react-slick"; // Import the Settings type
+'use client';
+import { sliderSettings } from '@/utils/slider';
+import { useReducedMotion } from 'framer-motion';
+import { m } from '@/lib/motion';
+import Image from 'next/image';
+import { ComponentType } from 'react';
+import Slider from 'react-slick';
+import { Settings } from 'react-slick'; // Import the Settings type
 
 const SLIDE_SIZES =
-  "(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1024px) 40vw, 23rem";
+  '(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1024px) 40vw, 23rem';
 
 const ImageSlider = ({
   array = [],

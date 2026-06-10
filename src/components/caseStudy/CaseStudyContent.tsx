@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Tabs,
@@ -6,11 +6,11 @@ import {
   TabsList,
   TabsPanels,
   TabsTrigger,
-} from "@/components/tabs/AnimatedTabs";
-import Image from "next/image";
-import { useLayoutEffect, useState } from "react";
-import { createPortal } from "react-dom";
-import { CASE_STUDIES, CASE_STUDY_SUBNAV_ID } from "./constants";
+} from '@/components/tabs/AnimatedTabs';
+import Image from 'next/image';
+import { useLayoutEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { CASE_STUDIES, CASE_STUDY_SUBNAV_ID } from './constants';
 
 export default function CaseStudyContent() {
   const [subnavRoot, setSubnavRoot] = useState<HTMLElement | null>(null);
@@ -30,7 +30,7 @@ export default function CaseStudyContent() {
               </TabsTrigger>
             ))}
           </TabsList>,
-          subnavRoot,
+          subnavRoot
         )}
       <TabsPanels>
         {CASE_STUDIES.map(({ value, alt, src }) => (
@@ -42,7 +42,7 @@ export default function CaseStudyContent() {
               width={1000}
               height={1000}
               sizes="100vw"
-              priority={value === "TRACTOR"}
+              priority={value === 'TRACTOR'}
             />
           </TabsContent>
         ))}

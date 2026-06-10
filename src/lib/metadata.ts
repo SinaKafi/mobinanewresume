@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/config/site";
+import type { Metadata } from 'next';
+import { OG_IMAGE, SITE_NAME, SITE_URL } from '@/config/site';
 
 type PageMetadataOptions = {
   title: string;
@@ -31,12 +31,12 @@ export function createPageMetadata({
       description: ogDescription,
       url,
       siteName: SITE_NAME,
-      locale: "en_US",
-      type: "website",
+      locale: 'en_US',
+      type: 'website',
       images: [OG_IMAGE],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: ogTitle,
       description: ogDescription,
       images: [OG_IMAGE.url],

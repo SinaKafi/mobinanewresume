@@ -1,12 +1,12 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
 
 export const metadata = createPageMetadata({
-  title: "Moeinkhodro E-commerce Website",
+  title: 'Moeinkhodro E-commerce Website',
   description:
-    "UI/UX case study for Moeinkhodro automotive e-commerce website.",
-  path: "/portfolio/Moeinkhodro",
+    'UI/UX case study for Moeinkhodro automotive e-commerce website.',
+  path: '/portfolio/Moeinkhodro',
 });
 
 export default async function Page() {
@@ -18,7 +18,7 @@ export default async function Page() {
       images={project?.images}
       title={project?.title}
     >
-<div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Namikhodro E-commerce Website</h1>
         <div>
           <p className="designTitleBold">
@@ -118,14 +118,13 @@ export default async function Page() {
                 <li>
                   <span className="designTitleBold">Product Pages Design:</span>
                   <p className="designTitle">
-                    {" "}
                     Each vehicle was given a dedicated product page with
                     high-quality images, detailed specifications, and key
                     features, making it easy for customers to make informed
                     decisions. The release date of each model was clearly
                     displayed to ensure transparency.
                   </p>
-                </li>{" "}
+                </li>
                 <li>
                   <span className="designTitleBold">
                     Visual Elements & Layout:
@@ -159,7 +158,7 @@ export default async function Page() {
                     system was built to handle personal data securely and ensure
                     compliance with legal standards.
                   </p>
-                </li>{" "}
+                </li>
                 <li>
                   <span className="designTitleBold">
                     Online Payment Integration:
@@ -169,7 +168,7 @@ export default async function Page() {
                     systems, allowing customers to complete their purchase
                     directly on the site.
                   </p>
-                </li>{" "}
+                </li>
                 <li>
                   <span className="designTitleBold">
                     Website Testing & Optimization:

@@ -1,13 +1,13 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
-import React from "react";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
+import React from 'react';
 
 export const metadata = createPageMetadata({
-  title: "Wellowork Health App",
+  title: 'Wellowork Health App',
   description:
-    "UI/UX case study for Wellowork employee wellness and health support app.",
-  path: "/portfolio/WelloworkApp",
+    'UI/UX case study for Wellowork employee wellness and health support app.',
+  path: '/portfolio/WelloworkApp',
 });
 
 export default function Page() {
@@ -19,7 +19,7 @@ export default function Page() {
       images={project?.images}
       title={project?.title}
     >
-<div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Wellowork Health App</h1>
         <p className="designTitle">
           Employee Wellness App Design Project <br />
@@ -38,9 +38,9 @@ export default function Page() {
           focused on creating a user-friendly and secure interface that would
           encourage employees to actively engage with their well-being and
           foster a healthier workplace environment.This app was successfully
-          selected among 250 applications at the{" "}
+          selected among 250 applications at the
           <b className="font-semibold">Plug and Play</b> event and has advanced
-          to the next stages.{" "}
+          to the next stages.
         </p>
         <div>
           <h1 className="designHeading2">Project Challenges and Goals:</h1>
@@ -107,7 +107,7 @@ export default function Page() {
                   <li>
                     <span className="designTitleBold">
                       Simple, User-Friendly Layout:
-                    </span>{" "}
+                    </span>
                     <p className="designTitle  ">
                       I kept the design clean and intuitive, with large buttons
                       and easy navigation, ensuring users could quickly access
@@ -151,11 +151,11 @@ export default function Page() {
                   </li>
                   <li>
                     <span className="designTitleBold">
-                      Stress-Relief Activities:{" "}
+                      Stress-Relief Activities:
                     </span>
                     <p className="designTitle  ">
                       Real-time features like guided meditation and breathing
-                      exercises were included to help users reduce stress.{" "}
+                      exercises were included to help users reduce stress.
                     </p>
                   </li>
                 </ul>

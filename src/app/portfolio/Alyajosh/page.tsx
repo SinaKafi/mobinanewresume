@@ -1,12 +1,12 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
 
 export const metadata = createPageMetadata({
-  title: "Alyajosh Task Manager App",
+  title: 'Alyajosh Task Manager App',
   description:
-    "UI/UX case study for Aria Joush organizational task manager app with internal chat.",
-  path: "/portfolio/Alyajosh",
+    'UI/UX case study for Aria Joush organizational task manager app with internal chat.',
+  path: '/portfolio/Alyajosh',
 });
 
 export default function Page() {
@@ -18,7 +18,7 @@ export default function Page() {
       images={project?.images}
       title={project?.title}
     >
-<div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Alyajosh Task Manager App</h1>
         <p className="designTitle">
           Here’s an expanded version of your description with an emphasis on the
@@ -99,7 +99,6 @@ export default function Page() {
           <li>
             <span className="designTitleBold">Implementation & Launch:</span>
             <p className="designTitle mb-2">
-              {" "}
               After finalizing the design, the development team worked on
               implementing the app, and I collaborated closely with them to
               ensure the design vision was maintained throughout the coding
@@ -118,7 +117,7 @@ export default function Page() {
         <ol className="list-decimal list-inside marker:font-medium space-y-4">
           <li>
             <span className="designTitleBold">
-              Task Planning & Registration:{" "}
+              Task Planning & Registration:
             </span>
             <p className="designTitle mb-2">
               Employees can create and prioritize tasks within the app. Each
@@ -126,7 +125,7 @@ export default function Page() {
               set to ensure deadlines are met. The app also provides reminders
               for upcoming tasks to help employees stay on track.
             </p>
-          </li>{" "}
+          </li>
           <li>
             <span className="designTitleBold">
               Intra-Organizational Chat Integration:
@@ -138,7 +137,7 @@ export default function Page() {
               switching between different platforms. This makes communication
               more seamless and ensures that everyone stays on the same page.
             </p>
-          </li>{" "}
+          </li>
           <li>
             <span className="designTitleBold">User-Friendly Interface:</span>
             <p className="designTitle mb-2">
@@ -148,7 +147,7 @@ export default function Page() {
               and the chat feature is integrated smoothly into the workflow, so
               it doesn’t interrupt the task management process.
             </p>
-          </li>{" "}
+          </li>
           <li>
             <span className="designTitleBold"> Customization Options:</span>
             <p className="designTitle mb-2">

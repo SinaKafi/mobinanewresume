@@ -1,13 +1,13 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
-import React from "react";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
+import React from 'react';
 
 export const metadata = createPageMetadata({
-  title: "Wellowork Website",
+  title: 'Wellowork Website',
   description:
-    "UI/UX case study for the Wellowork employee wellness app landing page.",
-  path: "/portfolio/WelloworkWeb",
+    'UI/UX case study for the Wellowork employee wellness app landing page.',
+  path: '/portfolio/WelloworkWeb',
 });
 function Page() {
   const project = DESIGNED.find((item) => item.id === 5);
@@ -42,7 +42,6 @@ function Page() {
           <li>
             <span className="designTitleBold">Core Features Overview:</span>
             <p className="designTitle mb-2">
-              {" "}
               The landing page succinctly highlighted the app’s key
               features—such as mental health support, physical health
               management, and stress-relief activities. Each feature was
@@ -55,7 +54,6 @@ function Page() {
           <li>
             <span className="designTitleBold">User-Centric Design:</span>
             <p className="designTitle mb-2">
-              {" "}
               I focused on creating a user-friendly experience for visitors,
               ensuring the landing page was visually appealing and easy to
               navigate. The layout included interactive elements such as sliding
@@ -63,7 +61,7 @@ function Page() {
               sections for getting started. The goal was to engage users
               immediately and guide them through the key information smoothly.
             </p>
-          </li>{" "}
+          </li>
           <li>
             <span className="designTitleBold">
               Highlighting Key Stakeholders:
@@ -77,7 +75,7 @@ function Page() {
               personal touch and making the project feel more grounded and
               authentic.
             </p>
-          </li>{" "}
+          </li>
           <li>
             <span className="designTitleBold">Call to Action (CTA):</span>
             <p className="designTitle mb-2">
@@ -87,7 +85,7 @@ function Page() {
               appealing, with action-oriented copy that encouraged immediate
               engagement.
             </p>
-          </li>{" "}
+          </li>
           <li>
             <span className="designTitleBold">Branding and Visual Design:</span>
             <p className="designTitle mb-2">

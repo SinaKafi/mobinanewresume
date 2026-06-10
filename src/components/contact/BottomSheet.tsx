@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useDragControls } from "framer-motion";
-import { AnimatePresence, m } from "@/lib/motion";
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useDragControls } from 'framer-motion';
+import { AnimatePresence, m } from '@/lib/motion';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const GLASS_LAYER =
-  "pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150";
+  'pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150';
 
 const SHELL_BASE =
-  "relative isolate w-full overflow-hidden border-2 border-white";
+  'relative isolate w-full overflow-hidden border-2 border-white';
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
 const sheetTransition = {
-  type: "spring" as const,
+  type: 'spring' as const,
   damping: 34,
   stiffness: 260,
   mass: 0.85,
@@ -54,9 +54,9 @@ export default function BottomSheet({
 
   useEffect(() => {
     if (!isOpen) return;
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 
@@ -78,9 +78,9 @@ export default function BottomSheet({
           <m.div
             key="bottom-sheet"
             className="fixed inset-x-0 bottom-0 z-[60] w-full max-h-[90vh]"
-            initial={{ y: "100%" }}
+            initial={{ y: '100%' }}
             animate={{ y: 0, transition: sheetTransition }}
-            exit={{ y: "100%", transition: sheetExitTransition }}
+            exit={{ y: '100%', transition: sheetExitTransition }}
             drag="y"
             dragControls={dragControls}
             dragListener={!scrollLocked}
@@ -126,6 +126,6 @@ export default function BottomSheet({
         </>
       )}
     </AnimatePresence>,
-    document.body,
+    document.body
   );
 }

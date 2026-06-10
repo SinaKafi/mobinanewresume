@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import ImageSlider from "@/components/carosel/Slider";
-import ExperienceCard from "@/components/GalleryCard";
-import PortfolioDetailText from "@/components/portfolio/PortfolioDetailText";
-import { useAOSRefresh } from "@/hooks/useAOSRefresh";
-import { DESIGNED } from "@/utils/datas";
-import { useReducedMotion } from "framer-motion";
-import { m } from "@/lib/motion";
-import { ReactNode } from "react";
+import ImageSlider from '@/components/carosel/Slider';
+import ExperienceCard from '@/components/GalleryCard';
+import PortfolioDetailText from '@/components/portfolio/PortfolioDetailText';
+import { useAOSRefresh } from '@/hooks/useAOSRefresh';
+import { DESIGNED } from '@/utils/datas';
+import { useReducedMotion } from 'framer-motion';
+import { m } from '@/lib/motion';
+import { ReactNode } from 'react';
 
 interface PortfolioDetailLayoutProps {
   projectId: number;

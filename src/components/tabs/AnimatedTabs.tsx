@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useReducedMotion } from "framer-motion";
-import { AnimatePresence, m } from "@/lib/motion";
+import { useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m } from '@/lib/motion';
 import {
   Children,
   createContext,
@@ -12,7 +12,7 @@ import {
   useContext,
   useId,
   useState,
-} from "react";
+} from 'react';
 
 const TAB_EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -28,7 +28,7 @@ const TabsContext = createContext<TabsContextValue | null>(null);
 function useTabsContext() {
   const context = useContext(TabsContext);
   if (!context) {
-    throw new Error("Tab components must be used within <Tabs>");
+    throw new Error('Tab components must be used within <Tabs>');
   }
   return context;
 }
@@ -45,7 +45,7 @@ export function Tabs({
   defaultValue,
   children,
   layoutId,
-  className = "",
+  className = '',
   onValueChange,
 }: TabsProps) {
   const [activeTab, setActiveTabState] = useState(defaultValue);
@@ -57,7 +57,7 @@ export function Tabs({
       setActiveTabState(value);
       onValueChange?.(value);
     },
-    [onValueChange],
+    [onValueChange]
   );
 
   return (
@@ -77,13 +77,13 @@ export function Tabs({
 interface TabsListProps {
   children: ReactNode;
   className?: string;
-  "aria-label"?: string;
+  'aria-label'?: string;
 }
 
 export function TabsList({
   children,
-  className = "",
-  "aria-label": ariaLabel = "Tabs",
+  className = '',
+  'aria-label': ariaLabel = 'Tabs',
 }: TabsListProps) {
   return (
     <div
@@ -105,7 +105,7 @@ interface TabsTriggerProps {
 export function TabsTrigger({
   value,
   children,
-  className = "",
+  className = '',
 }: TabsTriggerProps) {
   const { activeTab, setActiveTab, layoutId, reducedMotion } = useTabsContext();
   const isActive = activeTab === value;
@@ -119,7 +119,7 @@ export function TabsTrigger({
       id={`tab-${value}`}
       onClick={() => setActiveTab(value)}
       className={`relative pb-3 text-sm md:text-base font-light transition-colors duration-300 w-fit ${
-        isActive ? "text-foreground opacity-100" : "text-gray1 opacity-60"
+        isActive ? 'text-foreground opacity-100' : 'text-gray1 opacity-60'
       } hover:opacity-100 ${className}`.trim()}
     >
       {children}
@@ -127,7 +127,7 @@ export function TabsTrigger({
         <m.span
           layoutId={layoutId}
           style={{
-            originY: "0px",
+            originY: '0px',
           }}
           className="absolute -bottom-[1px] left-0 w-full h-px bg-foreground"
           transition={
@@ -144,13 +144,12 @@ interface TabsPanelsProps {
   className?: string;
 }
 
-export function TabsPanels({ children, className = "" }: TabsPanelsProps) {
+export function TabsPanels({ children, className = '' }: TabsPanelsProps) {
   const { activeTab } = useTabsContext();
 
   const activePanel = Children.toArray(children).find(
     (child) =>
-      isValidElement<TabsContentProps>(child) &&
-      child.props.value === activeTab,
+      isValidElement<TabsContentProps>(child) && child.props.value === activeTab
   ) as ReactElement<TabsContentProps> | undefined;
 
   return (
@@ -169,7 +168,7 @@ interface TabsContentProps {
 export function TabsContent({
   value,
   children,
-  className = "",
+  className = '',
 }: TabsContentProps) {
   const { reducedMotion } = useTabsContext();
 

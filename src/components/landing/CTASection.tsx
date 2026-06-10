@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useScroll, useTransform } from "framer-motion";
-import { m } from "@/lib/motion";
-import { useRef } from "react";
+import Link from 'next/link';
+import { useScroll, useTransform } from 'framer-motion';
+import { m } from '@/lib/motion';
+import { useRef } from 'react';
 
 const LINKS = [
-  { href: "/portfolio", label: "Work" },
-  { href: "/experience", label: "Experience" },
-  { href: "/caseStudy", label: "Case Study" },
-  { href: "/project", label: "Projects" },
-  { href: "/contact", label: "Contact" },
+  { href: '/portfolio', label: 'Work' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/caseStudy', label: 'Case Study' },
+  { href: '/project', label: 'Projects' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function CTASection() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end end"],
+    offset: ['start end', 'end end'],
   });
   const bgScale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
 
@@ -32,8 +32,8 @@ export default function CTASection() {
           aria-hidden
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+              'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
           }}
         />
 

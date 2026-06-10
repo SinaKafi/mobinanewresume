@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const SVGArrowUp = ({ width = "11", height = "11", className = "" }) => {
+const SVGArrowUp = ({ width = '11', height = '11', className = '' }) => {
   return (
     <svg
       width={width}

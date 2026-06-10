@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { AnimatePresence, m } from "@/lib/motion";
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { AnimatePresence, m } from '@/lib/motion';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const GLASS_LAYER =
-  "pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150";
+  'pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-xl backdrop-saturate-150';
 
 const SHELL_BASE =
-  "relative isolate w-full overflow-hidden border-2 border-white";
+  'relative isolate w-full overflow-hidden border-2 border-white';
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
@@ -18,7 +18,11 @@ export interface MainModalProps {
   children: React.ReactNode;
 }
 
-export default function MainModal({ isOpen, onClose, children }: MainModalProps) {
+export default function MainModal({
+  isOpen,
+  onClose,
+  children,
+}: MainModalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -27,9 +31,9 @@ export default function MainModal({ isOpen, onClose, children }: MainModalProps)
 
   useEffect(() => {
     if (!isOpen) return;
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 
@@ -68,6 +72,6 @@ export default function MainModal({ isOpen, onClose, children }: MainModalProps)
         </>
       )}
     </AnimatePresence>,
-    document.body,
+    document.body
   );
 }

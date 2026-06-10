@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { m } from "@/lib/motion";
-import { useRef } from "react";
+import { useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { m } from '@/lib/motion';
+import { useRef } from 'react';
 
 interface PageHeroProps {
   title: string;
@@ -41,12 +41,12 @@ function PageHeroAnimated({ title, subtitle, watermark }: PageHeroProps) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ['start start', 'end start'],
   });
 
-  const watermarkY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
-  const watermarkX = useTransform(scrollYProgress, [0, 1], ["-3%", "8%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const watermarkY = useTransform(scrollYProgress, [0, 1], ['0%', '55%']);
+  const watermarkX = useTransform(scrollYProgress, [0, 1], ['-3%', '8%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '35%']);
   const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
   const lineScale = useTransform(scrollYProgress, [0, 1], [1, 0.6]);
 

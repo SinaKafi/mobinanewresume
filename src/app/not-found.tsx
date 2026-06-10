@@ -1,12 +1,12 @@
-"use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+'use client';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const NotFound = () => {
   const router = useRouter();
 
   const handleGoHome = () => {
-    router.push("/");
+    router.push('/');
   };
 
   return (

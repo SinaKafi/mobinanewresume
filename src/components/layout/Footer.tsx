@@ -1,23 +1,23 @@
-import SVGDrible from "@/components/SVGS/SVGDrible";
-import SVGLinkdin from "@/components/SVGS/SVGLinkdin";
-import SVGMail from "@/components/SVGS/SVGMail";
+import SVGDrible from '@/components/SVGS/SVGDrible';
+import SVGLinkdin from '@/components/SVGS/SVGLinkdin';
+import SVGMail from '@/components/SVGS/SVGMail';
 
 const SOCIAL_LINKS = [
   {
-    href: "mailto:mmoghadam376@gmail.com",
-    label: "Email",
+    href: 'mailto:mmoghadam376@gmail.com',
+    label: 'Email',
     icon: SVGMail,
     external: false,
   },
   {
-    href: "https://dribbble.com/mobinadesign",
-    label: "Dribbble Profile",
+    href: 'https://dribbble.com/mobinadesign',
+    label: 'Dribbble Profile',
     icon: SVGDrible,
     external: true,
   },
   {
-    href: "https://www.linkedin.com/in/mobina-moghadam-1424aa209/",
-    label: "LinkedIn Profile",
+    href: 'https://www.linkedin.com/in/mobina-moghadam-1424aa209/',
+    label: 'LinkedIn Profile',
     icon: SVGLinkdin,
     external: true,
   },
@@ -35,7 +35,7 @@ export default function Footer() {
               aria-label={label}
               className="cursor-pointer p-2 transition-all scale-90 hover:scale-110"
               {...(external
-                ? { target: "_blank", rel: "noopener noreferrer" }
+                ? { target: '_blank', rel: 'noopener noreferrer' }
                 : {})}
             >
               <Icon />

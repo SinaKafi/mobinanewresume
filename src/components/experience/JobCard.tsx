@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { m } from "@/lib/motion";
-import React, { useCallback } from "react";
-import SVGArrowUp from "../SVGS/SVGArrowUp";
-import MobileAccordionPanel from "./MobileAccordionPanel";
+import { m } from '@/lib/motion';
+import React, { useCallback } from 'react';
+import SVGArrowUp from '../SVGS/SVGArrowUp';
+import MobileAccordionPanel from './MobileAccordionPanel';
 
 interface IJobCard {
   name: string;
@@ -29,13 +29,14 @@ const JobCard: React.FC<IJobCard> = ({
     if (!element) return;
 
     const headerOffset = 96;
-    const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    const top =
+      element.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   }, [name]);
 
   const handleClick = useCallback(() => {
     if (isOpen) {
-      setIsOpen("");
+      setIsOpen('');
       return;
     }
 
@@ -58,7 +59,7 @@ const JobCard: React.FC<IJobCard> = ({
         </div>
         <p
           className="col-span-2 designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
-          style={{ whiteSpace: "pre-line", wordWrap: "break-word" }}
+          style={{ whiteSpace: 'pre-line', wordWrap: 'break-word' }}
         >
           {description}
         </p>
@@ -86,13 +87,10 @@ const JobCard: React.FC<IJobCard> = ({
           </div>
         </button>
 
-        <MobileAccordionPanel
-          isOpen={isOpen}
-          onOpenComplete={scrollToCard}
-        >
+        <MobileAccordionPanel isOpen={isOpen} onOpenComplete={scrollToCard}>
           <p
             className="designTitle leading-8 mt-2 text-foreground whitespace-pre-line break-words"
-            style={{ whiteSpace: "pre-line", wordWrap: "break-word" }}
+            style={{ whiteSpace: 'pre-line', wordWrap: 'break-word' }}
           >
             {description}
           </p>
@@ -102,7 +100,7 @@ const JobCard: React.FC<IJobCard> = ({
           type="button"
           className="w-full flex items-center justify-center"
           onClick={handleClick}
-          aria-label={isOpen ? "Collapse details" : "Expand details"}
+          aria-label={isOpen ? 'Collapse details' : 'Expand details'}
         >
           <m.span
             animate={{ rotate: isOpen ? 180 : 0 }}

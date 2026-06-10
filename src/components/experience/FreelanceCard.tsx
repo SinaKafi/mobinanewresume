@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { m } from "@/lib/motion";
-import Image from "next/image";
-import React, { useCallback } from "react";
-import SVGArrowUp from "../SVGS/SVGArrowUp";
-import MobileAccordionPanel from "./MobileAccordionPanel";
+import { m } from '@/lib/motion';
+import Image from 'next/image';
+import React, { useCallback } from 'react';
+import SVGArrowUp from '../SVGS/SVGArrowUp';
+import MobileAccordionPanel from './MobileAccordionPanel';
 
 interface IFreelanceCard {
   name: string;
@@ -28,13 +28,14 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
     if (!element) return;
 
     const headerOffset = 96;
-    const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    const top =
+      element.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   }, [id]);
 
   const handleClick = useCallback(() => {
     if (isOpen) {
-      setIsOpen("");
+      setIsOpen('');
       return;
     }
 
@@ -59,7 +60,7 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
         </div>
         <p
           className="col-span-2 designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
-          style={{ whiteSpace: "pre-line !important", wordWrap: "break-word" }}
+          style={{ whiteSpace: 'pre-line !important', wordWrap: 'break-word' }}
           dangerouslySetInnerHTML={{ __html: description }}
         ></p>
       </div>
@@ -90,8 +91,8 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
           <div
             className="designTitle leading-8 text-foreground !whitespace-pre-line !break-words"
             style={{
-              whiteSpace: "pre-line !important",
-              wordWrap: "break-word",
+              whiteSpace: 'pre-line !important',
+              wordWrap: 'break-word',
             }}
             dangerouslySetInnerHTML={{ __html: description }}
           />
@@ -101,7 +102,7 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
           type="button"
           className="w-full flex items-center justify-center"
           onClick={handleClick}
-          aria-label={isOpen ? "Collapse details" : "Expand details"}
+          aria-label={isOpen ? 'Collapse details' : 'Expand details'}
         >
           <m.span
             animate={{ rotate: isOpen ? 180 : 0 }}

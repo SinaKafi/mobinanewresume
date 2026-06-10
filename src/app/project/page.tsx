@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import PageHero from "@/components/animations/PageHero";
-import FreelanceCard from "@/components/experience/FreelanceCard";
-import { PROJECTS } from "@/utils/datas";
-import { useState } from "react";
+import PageHero from '@/components/animations/PageHero';
+import FreelanceCard from '@/components/experience/FreelanceCard';
+import { PROJECTS } from '@/utils/datas';
+import { useState } from 'react';
 
 export default function Projects() {
-  const [isOpen, setIsOpen] = useState("");
+  const [isOpen, setIsOpen] = useState('');
 
   return (
     <>

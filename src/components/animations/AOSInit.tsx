@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useReducedMotion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useReducedMotion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 let aosInitialized = false;
 
@@ -21,7 +21,7 @@ export default function AOSInit() {
     if (!aosInitialized) {
       AOS.init({
         duration: 700,
-        easing: "ease-out-cubic",
+        easing: 'ease-out-cubic',
         offset: 80,
         // once: true,
         // mirror: false,

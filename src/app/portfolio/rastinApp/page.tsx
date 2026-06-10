@@ -1,14 +1,14 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
 
 export const metadata = createPageMetadata({
-  title: "Rastin App",
+  title: 'Rastin App',
   description:
-    "UI/UX case study for Rastin — a cryptocurrency trading platform mobile application.",
-  path: "/portfolio/rastinApp",
+    'UI/UX case study for Rastin — a cryptocurrency trading platform mobile application.',
+  path: '/portfolio/rastinApp',
   openGraphDescription:
-    "Discover the UI/UX design of Rastin, a dedicated mobile app for cryptocurrency trading.",
+    'Discover the UI/UX design of Rastin, a dedicated mobile app for cryptocurrency trading.',
 });
 
 export default function Page() {

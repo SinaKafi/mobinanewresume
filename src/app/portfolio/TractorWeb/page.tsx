@@ -1,12 +1,12 @@
-import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
-import { createPageMetadata } from "@/lib/metadata";
-import { DESIGNED } from "@/utils/datas";
+import PortfolioDetailLayout from '@/components/portfolio/PortfolioDetailLayout';
+import { createPageMetadata } from '@/lib/metadata';
+import { DESIGNED } from '@/utils/datas';
 
 export const metadata = createPageMetadata({
-  title: "Tractor Fan Club Website",
+  title: 'Tractor Fan Club Website',
   description:
-    "UI/UX case study for the Tractor Fan Club official website redesign.",
-  path: "/portfolio/TractorWeb",
+    'UI/UX case study for the Tractor Fan Club official website redesign.',
+  path: '/portfolio/TractorWeb',
 });
 
 export default async function Page() {
@@ -18,7 +18,7 @@ export default async function Page() {
       images={project?.images}
       title={project?.title}
     >
-<div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8">
         <h1 className="designHeading">Tractor Fan Club Website</h1>
         <p className="designTitle">
           When redesigning the Tractor Club's official website, a structured
@@ -49,7 +49,7 @@ export default async function Page() {
                   <p className="designTitle">
                     Research websites of other football clubs to see how they
                     present features like academy information, ticketing, and
-                    standings.{" "}
+                    standings.
                   </p>
                 </li>
                 <li>
@@ -63,7 +63,7 @@ export default async function Page() {
 
                 <li>
                   <span className="designTitleBold">
-                    Stakeholder Collaboration:{" "}
+                    Stakeholder Collaboration:
                   </span>
                   <p className="designTitle">
                     Collect input from the club’s management, fans, and sponsors
@@ -202,7 +202,6 @@ export default async function Page() {
                 <li>
                   <span className="designTitleBold"> User Flows:</span>
                   <p className="designTitle">
-                    {" "}
                     Map out user journeys, like how a fan would purchase a
                     ticket or view upcoming matches.
                   </p>
@@ -211,7 +210,7 @@ export default async function Page() {
                   <span className="designTitleBold"> Feedback Loop: </span>
                   <p className="designTitle">
                     Share prototypes with users and stakeholders for feedback,
-                    refining the design iteratively.{" "}
+                    refining the design iteratively.
                   </p>
                 </li>
               </ul>
@@ -230,13 +229,12 @@ export default async function Page() {
                   <span className="designTitleBold">UI Design:</span>
                   <p className="designTitle">
                     Use the club’s colors and branding. Prioritize readability,
-                    especially for match schedules and league tables.{" "}
+                    especially for match schedules and league tables.
                   </p>
                 </li>
                 <li>
                   <span className="designHeading2">Responsive Design:</span>
                   <p className="designTitle">
-                    {" "}
                     Ensure the site is fully functional on desktop, tablet, and
                     mobile devices.
                   </p>
@@ -256,7 +254,7 @@ export default async function Page() {
             <span className="designHeading2">Testing and Validation</span>
             <p className="designTitle mb-2">
               Objective: Ensure the website functions seamlessly and meets user
-              expectations.{" "}
+              expectations.
             </p>
             <div className="pl-4 md:pl-8">
               <ul className="list-disc list-outside space-y-2">

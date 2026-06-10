@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const SVGDrible = ({ width = "24", height = "24", className = "" }) => {
+const SVGDrible = ({ width = '24', height = '24', className = '' }) => {
   return (
     <svg
       width={width}

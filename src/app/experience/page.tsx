@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import PageHero from "@/components/animations/PageHero";
-import JobCard from "@/components/experience/JobCard";
-import { EXPERIENCE } from "@/utils/datas";
-import { useState } from "react";
+import PageHero from '@/components/animations/PageHero';
+import JobCard from '@/components/experience/JobCard';
+import { EXPERIENCE } from '@/utils/datas';
+import { useState } from 'react';
 
 export default function Experience() {
-  const [isOpen, setIsOpen] = useState("");
+  const [isOpen, setIsOpen] = useState('');
 
   return (
     <>

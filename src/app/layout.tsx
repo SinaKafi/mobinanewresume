@@ -1,18 +1,18 @@
-import type { Metadata, Viewport } from "next";
-import AOSInit from "@/components/animations/AOSInit";
-import MotionProvider from "@/components/animations/MotionProvider";
-import Footer from "@/components/layout/Footer";
-import Header from "@/styles/Header";
+import type { Metadata, Viewport } from 'next';
+import AOSInit from '@/components/animations/AOSInit';
+import MotionProvider from '@/components/animations/MotionProvider';
+import Footer from '@/components/layout/Footer';
+import Header from '@/styles/Header';
 import {
   DEFAULT_DESCRIPTION,
   OG_DESCRIPTION,
   OG_IMAGE,
   SITE_NAME,
   SITE_URL,
-} from "@/config/site";
-import "./globals.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+} from '@/config/site';
+import './globals.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
-    "Mobina Moghadam",
-    "UI/UX Designer",
-    "Portfolio",
-    "Creative Design",
-    "Web Design",
-    "User Experience",
+    'Mobina Moghadam',
+    'UI/UX Designer',
+    'Portfolio',
+    'Creative Design',
+    'Web Design',
+    'User Experience',
   ],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
@@ -36,26 +36,26 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "/",
+    canonical: '/',
   },
   icons: {
-    icon: "/vector.svg",
+    icon: '/vector.svg',
   },
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
+    statusBarStyle: 'default',
   },
   openGraph: {
     title: `${SITE_NAME} | Portfolio`,
     description: OG_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
     images: [OG_IMAGE],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: `${SITE_NAME} | Portfolio`,
     description: OG_DESCRIPTION,
     images: [OG_IMAGE.url],
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
-  width: "device-width",
+  themeColor: '#ffffff',
+  width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,

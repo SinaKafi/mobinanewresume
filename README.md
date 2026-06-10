@@ -24,12 +24,12 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Available scripts
 
-| Script           | What it does                              |
-| ---------------- | ----------------------------------------- |
-| `npm run dev`    | Start the dev server with Turbopack       |
-| `npm run build`  | Production build                          |
-| `npm start`      | Run the production build on port 3020     |
-| `npm run lint`   | Lint with `next lint`                     |
+| Script          | What it does                          |
+| --------------- | ------------------------------------- |
+| `npm run dev`   | Start the dev server with Turbopack   |
+| `npm run build` | Production build                      |
+| `npm start`     | Run the production build on port 3020 |
+| `npm run lint`  | Lint with `next lint`                 |
 
 Requires **Node 22.12.0** (matches `.nvmrc` and `engines` in `package.json`).
 
