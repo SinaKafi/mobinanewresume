@@ -126,7 +126,10 @@ export function TabsTrigger({
       {isActive && (
         <m.span
           layoutId={layoutId}
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-foreground"
+          style={{
+            originY: "0px",
+          }}
+          className="absolute -bottom-[1px] left-0 w-full h-px bg-foreground"
           transition={
             reducedMotion ? { duration: 0 } : { duration: 0.45, ease: TAB_EASE }
           }
