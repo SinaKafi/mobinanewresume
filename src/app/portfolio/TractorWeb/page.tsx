@@ -1,5 +1,13 @@
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
+
+export const metadata = createPageMetadata({
+  title: "Tractor Fan Club Website",
+  description:
+    "UI/UX case study for the Tractor Fan Club official website redesign.",
+  path: "/portfolio/TractorWeb",
+});
 
 export default async function Page() {
   const project = DESIGNED.find((item) => item.id === 8);

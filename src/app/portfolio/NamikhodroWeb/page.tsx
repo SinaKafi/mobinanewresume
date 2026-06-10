@@ -1,6 +1,14 @@
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
 import React from "react";
+
+export const metadata = createPageMetadata({
+  title: "Namikhodro E-commerce Website",
+  description:
+    "UI/UX case study for Namikhodro e-commerce website for selling Toyota cars in Iran.",
+  path: "/portfolio/NamikhodroWeb",
+});
 
 export default function Page() {
   const project = DESIGNED.find((item) => item.id === 7);

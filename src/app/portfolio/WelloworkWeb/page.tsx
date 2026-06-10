@@ -1,26 +1,14 @@
-// export default page;
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
-import { Metadata } from "next";
 import React from "react";
-export const metadata: Metadata = {
-  title: "Mobina Moghadam | Portfolio",
-  description: "UI/UX Designer Portfolio - Mobina Moghadam",
-  openGraph: {
-    title: "Mobina Moghadam | Portfolio",
-    description: "Discover the creative UI/UX designs by Mobina Moghadam.",
-    url: "https://www.mobinamoghadam.art/portfolio/WelloworkWeb",
-    type: "website",
-    images: [
-      {
-        url: "https://www.mobinamoghadam.art/mobi.png",
-        width: 1200,
-        height: 630,
-        alt: "Mobina Moghadam Portfolio",
-      },
-    ],
-  },
-};
+
+export const metadata = createPageMetadata({
+  title: "Wellowork Website",
+  description:
+    "UI/UX case study for the Wellowork employee wellness app landing page.",
+  path: "/portfolio/WelloworkWeb",
+});
 function Page() {
   const project = DESIGNED.find((item) => item.id === 5);
 

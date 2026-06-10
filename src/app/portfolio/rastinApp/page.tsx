@@ -1,27 +1,15 @@
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Mobina Moghadam | Rastin App",
+export const metadata = createPageMetadata({
+  title: "Rastin App",
   description:
     "UI/UX case study for Rastin — a cryptocurrency trading platform mobile application.",
-  openGraph: {
-    title: "Mobina Moghadam | Rastin App",
-    description:
-      "Discover the UI/UX design of Rastin, a dedicated mobile app for cryptocurrency trading.",
-    url: "https://www.mobinamoghadam.art/portfolio/rastinApp",
-    type: "website",
-    images: [
-      {
-        url: "https://www.mobinamoghadam.art/mobi.png",
-        width: 1200,
-        height: 630,
-        alt: "Mobina Moghadam Portfolio",
-      },
-    ],
-  },
-};
+  path: "/portfolio/rastinApp",
+  openGraphDescription:
+    "Discover the UI/UX design of Rastin, a dedicated mobile app for cryptocurrency trading.",
+});
 
 export default function Page() {
   const project = DESIGNED.find((item) => item.id === 10);

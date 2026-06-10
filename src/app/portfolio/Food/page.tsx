@@ -1,6 +1,14 @@
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
 import React from "react";
+
+export const metadata = createPageMetadata({
+  title: "Food E-commerce Landing",
+  description:
+    "UI/UX case study for a food e-commerce landing page with product categorization.",
+  path: "/portfolio/Food",
+});
 
 function Page() {
   const project = DESIGNED.find((item) => item.id === 1);

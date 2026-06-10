@@ -1,6 +1,14 @@
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
 import React from "react";
+
+export const metadata = createPageMetadata({
+  title: "Wellowork Health App",
+  description:
+    "UI/UX case study for Wellowork employee wellness and health support app.",
+  path: "/portfolio/WelloworkApp",
+});
 
 export default function Page() {
   const project = DESIGNED.find((item) => item.id === 6);

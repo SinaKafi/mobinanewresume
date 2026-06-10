@@ -1,7 +1,14 @@
-// export default page;
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
 import React from "react";
+
+export const metadata = createPageMetadata({
+  title: "Irankhodro Health Dashboard",
+  description:
+    "UI/UX case study for Iran Khodro employee health dashboard and risk assessment.",
+  path: "/portfolio/IrankhodroHealth",
+});
 
 function Page() {
   const project = DESIGNED.find((item) => item.id === 4);

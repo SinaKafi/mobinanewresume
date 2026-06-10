@@ -1,7 +1,14 @@
-// export default page;
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
 import React from "react";
+
+export const metadata = createPageMetadata({
+  title: "Tractor Fan Club App",
+  description:
+    "UI/UX case study for the Tractor Fan Club mobile app — news, tickets, and fan engagement.",
+  path: "/portfolio/TractorApp",
+});
 
 function Page() {
   const project = DESIGNED.find((item) => item.id === 9);

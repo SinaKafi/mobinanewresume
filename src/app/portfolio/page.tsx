@@ -1,24 +1,13 @@
 import PortfolioGallery from "@/components/portfolio/PortfolioGallery";
-import { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Mobina Moghadam | Portfolio",
+export const metadata = createPageMetadata({
+  title: "Portfolio",
   description: "UI/UX Designer Portfolio - Mobina Moghadam",
-  openGraph: {
-    title: "Mobina Moghadam | Portfolio",
-    description: "Discover the creative UI/UX designs by Mobina Moghadam.",
-    url: "https://www.mobinamoghadam.art/portfolio",
-    type: "website",
-    images: [
-      {
-        url: "https://www.mobinamoghadam.art/mobi.png",
-        width: 1200,
-        height: 630,
-        alt: "Mobina Moghadam Portfolio",
-      },
-    ],
-  },
-};
+  path: "/portfolio",
+  openGraphDescription:
+    "Discover the creative UI/UX designs by Mobina Moghadam.",
+});
 
 export default function Gallery() {
   return <PortfolioGallery />;

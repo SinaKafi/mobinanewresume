@@ -1,5 +1,13 @@
 import PortfolioDetailLayout from "@/components/portfolio/PortfolioDetailLayout";
+import { createPageMetadata } from "@/lib/metadata";
 import { DESIGNED } from "@/utils/datas";
+
+export const metadata = createPageMetadata({
+  title: "Alyajosh Task Manager App",
+  description:
+    "UI/UX case study for Aria Joush organizational task manager app with internal chat.",
+  path: "/portfolio/Alyajosh",
+});
 
 export default function Page() {
   const project = DESIGNED.find((item) => item.id === 3);
