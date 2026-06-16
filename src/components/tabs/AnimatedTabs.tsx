@@ -100,12 +100,14 @@ interface TabsTriggerProps {
   value: string;
   children: ReactNode;
   className?: string;
+  onTabChange?: VoidFunction;
 }
 
 export function TabsTrigger({
   value,
   children,
   className = '',
+  onTabChange = () => {},
 }: TabsTriggerProps) {
   const { activeTab, setActiveTab, layoutId, reducedMotion } = useTabsContext();
   const isActive = activeTab === value;
@@ -117,7 +119,10 @@ export function TabsTrigger({
       aria-selected={isActive}
       aria-controls={`panel-${value}`}
       id={`tab-${value}`}
-      onClick={() => setActiveTab(value)}
+      onClick={() => {
+        setActiveTab(value);
+        onTabChange?.();
+      }}
       className={`relative pb-3 text-sm md:text-base font-light transition-colors duration-300 w-fit ${
         isActive ? 'text-foreground opacity-100' : 'text-gray1 opacity-60'
       } hover:opacity-100 ${className}`.trim()}

@@ -16,7 +16,7 @@ export default function AboutMeContent() {
       />
 
       <div className="flex flex-col gap-20 md:px-8 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <AboutMeImage />
 
           <div

@@ -11,6 +11,6 @@ export const CASE_STUDIES = [
     value: 'TALASI',
     label: 'TALASI',
     alt: 'Talasi case study',
-    src: '/TractorAppCaseStudy.png',
+    src: '/talasi_caseStudy.jpg',
   },
 ] as const;

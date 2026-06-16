@@ -25,7 +25,16 @@ export default function CaseStudyContent() {
         createPortal(
           <TabsList aria-label="Case studies">
             {CASE_STUDIES.map(({ value, label }) => (
-              <TabsTrigger key={value} value={value}>
+              <TabsTrigger
+                key={value}
+                value={value}
+                onTabChange={() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
+                }}
+              >
                 {label}
               </TabsTrigger>
             ))}
@@ -38,11 +47,12 @@ export default function CaseStudyContent() {
             <Image
               alt={alt}
               src={src}
-              className="object-cover !mx-auto w-full h-full"
-              width={1000}
-              height={1000}
+              className="rounded-lg object-cover !mx-auto w-full h-full"
+              width={10000}
+              height={10000}
               sizes="100vw"
-              priority={value === 'TRACTOR'}
+              priority
+              fetchPriority="high"
             />
           </TabsContent>
         ))}

@@ -14,17 +14,12 @@
     "format:check": "prettier . --check"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.2.3",
-    "@emotion/react": "^11.14.0",
-    "@react-pdf/renderer": "^4.3.0",
     "@types/react-slick": "^0.23.13",
     "aos": "^2.3.4",
     "framer-motion": "^12.40.0",
     "next": "15.5.19",
-    "pdfjs-dist": "^5.1.91",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-pdf": "^9.2.1",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1"
   },

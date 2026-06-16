@@ -44,7 +44,7 @@ const ImageSlider = ({
       {array?.map((image, index) => (
         <div className="w-full !appearance-none p-2 outline-none" key={image}>
           <m.div
-            className="max-w-[23rem] max-h-[23rem] relative aspect-square w-full mx-auto bg-gray-200 overflow-hidden rounded-lg"
+            className="max-w-[23rem] max-h-[23rem] relative aspect-square w-full mx-auto overflow-hidden rounded-lg"
             initial={reducedMotion ? false : { opacity: 0, scale: 0.96 }}
             animate={reducedMotion ? undefined : { opacity: 1, scale: 1 }}
             transition={{
@@ -61,7 +61,7 @@ const ImageSlider = ({
                   ? `${title} — screen ${index + 1}`
                   : `Portfolio screen ${index + 1}`
               }
-              className="object-cover !mx-auto w-full h-full"
+              className="object-contain !mx-auto w-full h-full"
               fill
               sizes={SLIDE_SIZES}
               priority={index === 0}

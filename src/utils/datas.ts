@@ -78,19 +78,30 @@ export const EXPERIENCE = [
 export const DESIGNED: {
   title: string;
   cover: string;
-  id: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  id: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
   route: string;
   images: Required<string[]>;
 }[] = [
+  {
+    title: 'Rastin Website Redesign',
+    cover: '/designed/RastinWebsiteRedesign.png',
+    id: 11,
+    route: 'rastinWebsiteRedesign',
+    images: [
+      '/designed/RastinWebsiteRedesign.png',
+      '/works/rasting web/RastinWebsiteRedesign1.png',
+      '/works/rasting web/RastinWebsiteRedesign2.png',
+    ],
+  },
   {
     title: 'Rastin App',
     cover: '/designed/RastinApp.png',
     id: 10,
     route: 'rastinApp',
     images: [
-      '/works/rasting app/1425 1.png',
-      '/works/rasting app/152 1.png',
-      '/works/rasting app/151 1.png',
+      '/designed/rastinApp.png',
+      '/works/rasting app/rastinApp1.png',
+      '/works/rasting app/rastinApp2.png',
     ],
   },
   {
