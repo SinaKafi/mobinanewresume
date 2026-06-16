@@ -80,6 +80,7 @@ export default function RootLayout({
       <body className="antialiased min-h-screen bg-background flex flex-col">
         <MotionProvider>
           <AOSInit />
+          <div className="bg-white/70 backdrop-saturate-150 hidden md:block md:w-full md:h-14 xl:h-20" />
           <Header />
           <main className="container flex-1 my-11">{children}</main>
           <Footer />
