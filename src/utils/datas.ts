@@ -1,5 +1,18 @@
 export const EXPERIENCE = [
   {
+    name: 'Raastin Company',
+    role: 'PRODUCT DESIGNER',
+    description: `At Rastin, I am responsible for designing and improving the user experience of digital
+    asset trading products. My main focus is identifying and solving real user problems, 
+    optimizing trading flows, and creating clear, efficient, and scalable interfaces. I actively
+    contribute to building and developing design systems for web and mobile platforms,
+    and I closely collaborate with product and engineering teams across the entire design process — 
+    from research and data analysis to testing and evaluation.`,
+    fromDate: '2025',
+    toDate: 'NOW',
+    id: 7,
+  },
+  {
     name: 'DARIC HOLDING',
     role: 'PRODUCT DESIGNER',
     description: `As the Senior UI/UX Designer at Daric Holding, which includes subsidiaries such as Tara Safar Airlines and Tractor Sports Club, I have been responsible for:
@@ -9,7 +22,7 @@ export const EXPERIENCE = [
         Through this role, I have gained significant insights into understanding football fans, identifying user needs for supporting a sports team, analyzing ticket sales processes, and creating seamless user journeys to meet the expectations of app and website users.
       `,
     fromDate: '2024',
-    toDate: 'NOW',
+    toDate: '2025',
     id: 6,
   },
   {
