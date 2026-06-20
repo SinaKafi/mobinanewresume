@@ -31,7 +31,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
             width={400}
             height={400}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
-            className="block rounded-lg"
+            className="block rounded-lg aspect-square"
             priority={priority}
           />
         </div>
