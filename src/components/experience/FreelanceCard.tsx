@@ -2,7 +2,7 @@
 
 import { m } from '@/lib/motion';
 import Image from 'next/image';
-import React, { useCallback } from 'react';
+import React from 'react';
 import SVGArrowUp from '../SVGS/SVGArrowUp';
 import MobileAccordionPanel from './MobileAccordionPanel';
 
@@ -23,7 +23,7 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
   Icon,
   id,
 }) => {
-  const scrollToCard = useCallback(() => {
+  const scrollToCard = () => {
     const element = document.getElementById(id);
     if (!element) return;
 
@@ -31,9 +31,9 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
     const top =
       element.getBoundingClientRect().top + window.scrollY - headerOffset;
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-  }, [id]);
+  };
 
-  const handleClick = useCallback(() => {
+  const handleClick = () => {
     if (isOpen) {
       setIsOpen('');
       return;
@@ -41,7 +41,7 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
 
     setIsOpen(id);
     requestAnimationFrame(() => scrollToCard());
-  }, [isOpen, id, scrollToCard, setIsOpen]);
+  };
 
   return (
     <div className="freelanceCard py-4">
@@ -105,7 +105,7 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
           aria-label={isOpen ? 'Collapse details' : 'Expand details'}
         >
           <m.span
-            animate={{ rotate: isOpen ? 180 : 0 }}
+            animate={{ rotate: isOpen ? 0 : 180 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex"
           >

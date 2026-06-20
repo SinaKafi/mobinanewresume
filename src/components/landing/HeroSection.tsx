@@ -140,10 +140,11 @@ function HeroAnimated() {
             className="flex flex-wrap gap-4 pt-2"
           >
             <Link
-              href="/portfolio"
+              download={'MobinaMoghadamCV.pdf'}
+              href={'/MobinaMoghadamCV.pdf'}
               className="bg-foreground text-background px-8 py-3 rounded text-sm font-light hover:opacity-90 transition-opacity"
             >
-              View Work
+              Download CV →
             </Link>
             <Link
               href="/contact"
