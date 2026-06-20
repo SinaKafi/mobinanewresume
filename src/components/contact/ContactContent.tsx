@@ -123,8 +123,6 @@ export default function ContactContent() {
                 {CONTACT_LINKS.map((item, index) => (
                   <div
                     key={item.key}
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
                     className="flex flex-wrap gap-2 items-center border-b border-neutral-100 pb-6 last:border-0 last:pb-0"
                   >
                     <p className="designTitleBold w-full sm:w-auto">
