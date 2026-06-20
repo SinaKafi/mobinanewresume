@@ -25,7 +25,7 @@ export default function AboutPreview() {
   return (
     <section
       ref={ref}
-      className="py-24 md:py-32 border-t border-neutral-100 relative overflow-hidden"
+      className="py-16 md:py-20 border-t border-neutral-100 relative overflow-hidden"
     >
       <m.div
         style={{ x: bgX }}

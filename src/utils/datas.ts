@@ -6,8 +6,8 @@ export const EXPERIENCE = [
     asset trading products. My main focus is identifying and solving real user problems, 
     optimizing trading flows, and creating clear, efficient, and scalable interfaces. I actively
     contribute to building and developing design systems for web and mobile platforms,
-    and I closely collaborate with product and engineering teams across the entire design process — 
-    from research and data analysis to testing and evaluation.`,
+    and I closely collaborate with product and engineering teams across the entire design 
+    process from research and data analysis to testing and evaluation.`,
     fromDate: '2025',
     toDate: 'NOW',
     id: 7,

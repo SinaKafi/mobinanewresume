@@ -22,7 +22,7 @@ function CvDownloadLink({ className }: { className?: string }) {
       type="application/pdf"
       className={className}
     >
-      Download CV →
+      Download CV
     </a>
   );
 }
