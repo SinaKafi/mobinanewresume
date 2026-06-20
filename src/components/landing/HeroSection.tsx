@@ -11,6 +11,22 @@ import {
 import { m } from '@/lib/motion';
 import { useRef } from 'react';
 
+const CV_FILENAME = 'MobinaMoghadamCV.pdf';
+const CV_HREF = `/${CV_FILENAME}`;
+
+function CvDownloadLink({ className }: { className?: string }) {
+  return (
+    <a
+      href={CV_HREF}
+      download={CV_FILENAME}
+      type="application/pdf"
+      className={className}
+    >
+      Download CV →
+    </a>
+  );
+}
+
 function HeroStatic() {
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pb-28 sm:pb-36 md:pb-44">
@@ -33,15 +49,10 @@ function HeroStatic() {
             center—across apps, websites, and product ecosystems.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <Link
-              href="/portfolio"
-              className="bg-foreground text-background px-8 py-3 rounded text-sm font-light hover:opacity-90 transition-opacity"
-            >
-              View Work
-            </Link>
+            <CvDownloadLink className="bg-foreground text-background px-8 py-3 rounded text-sm font-light hover:opacity-90 transition-opacity w-full sm:w-auto text-center" />
             <Link
               href="/contact"
-              className="border border-foreground/20 px-8 py-3 rounded text-sm font-light hover:border-foreground/50 transition-colors"
+              className="border border-foreground/20 px-8 py-3 rounded text-sm font-light hover:border-foreground/50 transition-colors w-full sm:w-auto text-center"
             >
               Contact Me
             </Link>
@@ -139,16 +150,10 @@ function HeroAnimated() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="flex flex-wrap gap-4 pt-2"
           >
-            <Link
-              download={'MobinaMoghadamCV.pdf'}
-              href={'/MobinaMoghadamCV.pdf'}
-              className="bg-foreground text-background px-8 py-3 rounded text-sm font-light hover:opacity-90 transition-opacity"
-            >
-              Download CV →
-            </Link>
+            <CvDownloadLink className="bg-foreground text-background px-8 py-3 rounded text-sm font-light hover:opacity-90 transition-opacity w-full sm:w-auto text-center" />
             <Link
               href="/contact"
-              className="border border-foreground/20 px-8 py-3 rounded text-sm font-light hover:border-foreground/50 transition-colors"
+              className="border border-foreground/20 px-8 py-3 rounded text-sm font-light hover:border-foreground/50 transition-colors w-full sm:w-auto text-center"
             >
               Contact Me
             </Link>

@@ -220,6 +220,11 @@ const Header = () => {
               >
                 {[
                   {
+                    href: '/',
+                    label: 'HOME',
+                    active: path === '/',
+                  },
+                  {
                     href: '/portfolio',
                     label: 'WORK',
                     active: path.includes('portfolio'),
@@ -244,6 +249,7 @@ const Header = () => {
                     label: 'CASE STUDY',
                     active: path === '/caseStudy',
                   },
+
                   {
                     href: '/contact',
                     label: 'CONTACT',

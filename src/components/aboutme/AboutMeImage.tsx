@@ -5,8 +5,10 @@ import { useReducedMotion } from 'framer-motion';
 import { m } from '@/lib/motion';
 import { useRef } from 'react';
 import { useScroll, useSpring, useTransform } from 'framer-motion';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function AboutMeImage() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const reducedMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -14,7 +16,11 @@ export default function AboutMeImage() {
     offset: ['start start', 'end start'],
   });
 
-  const imageYRaw = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const imageYRaw = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, isMobile ? 50 : 140]
+  );
   const imageY = useSpring(imageYRaw, {
     stiffness: 120,
     damping: 30,

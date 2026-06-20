@@ -9,7 +9,7 @@ import { useRef } from 'react';
 const STATS = [
   { value: '10+', label: 'Years in Design' },
   { value: '5+', label: 'Years in UI/UX' },
-  { value: '40+', label: 'Projects Delivered' },
+  { value: '20+', label: 'Projects Delivered' },
 ];
 
 export default function AboutPreview() {
@@ -38,14 +38,14 @@ export default function AboutPreview() {
         <m.div style={{ y: imageY }} className="relative">
           <div
             data-aos="fade-right"
-            className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 overflow-hidden rounded-2xl"
+            className="relative aspect-[4/5] max-w-lg mx-auto lg:mx-0 overflow-hidden rounded-2xl"
           >
             <Image
-              src="/vector.svg"
+              src="/empathy.png"
               alt="Mobina Moghadam logo"
-              width={400}
-              height={400}
-              className="w-full h-full object-contain p-16 bg-neutral-50"
+              width={600}
+              height={600}
+              className="w-full h-full object-contain p-4 md:p-10"
             />
           </div>
         </m.div>
@@ -56,12 +56,13 @@ export default function AboutPreview() {
               About
             </p>
             <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-6">
-              Designing with empathy
+              Designing with Empathy
             </h2>
             <p className="text-base md:text-lg font-light text-gray1 leading-relaxed">
               I believe great product design starts with understanding people.
-              From automotive e-commerce to healthcare apps, I create interfaces
-              that feel natural, engaging, and built around real user needs.
+              From automotive e-commerce to healthcare and fintech products, I
+              design interfaces that feel simple, natural, and built around real
+              user needs.
             </p>
           </div>
 

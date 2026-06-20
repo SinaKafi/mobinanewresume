@@ -196,7 +196,7 @@ export const DESIGNED: {
 // export const PROJECTS = [
 //   {
 //     id: 6,
-//     title: `WoloWork Healthcare and Social Services Application and Website`,
+//     title: `wellowork Healthcare and Social Services Application and Website`,
 //     description: `This project was recognized as one of the top-performing initiatives at the prestigious <b>Plug and Play</b> event, showcasing its innovative approach and impact. Currently, it is under review for further development and potential collaboration opportunities, emphasizing its relevance and value in the industry.`,
 //   },
 //   {
@@ -231,7 +231,7 @@ export const PROJECTS = [
     Icon: '/freelance/freelanceIconHelth.svg',
 
     id: 6,
-    title: `WoloWork Healthcare and Social Services Application and Website`,
+    title: `wellowork Healthcare and Social Services Application and Website`,
     description: `This project was recognized as one of the top-performing initiatives at the prestigious <b className="!font-semibold">Plug and Play</b> event, showcasing its innovative approach and impact. Currently, it is under review for further development and potential collaboration opportunities, emphasizing its relevance and value in the industry.`,
   },
   {
