@@ -12,6 +12,49 @@ import { useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CASE_STUDIES, CASE_STUDY_SUBNAV_ID } from './constants';
 
+function CaseStudyImage({
+  alt,
+  src,
+  width,
+  height,
+  priority = false,
+}: {
+  alt: string;
+  src: string;
+  width: number;
+  height: number;
+  priority?: boolean;
+}) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div
+      className="relative mx-auto w-full"
+      style={{ aspectRatio: `${width} / ${height}` }}
+    >
+      {!isLoaded && (
+        <div
+          className="absolute inset-0 rounded-lg bg-neutral-100 animate-pulse"
+          aria-hidden
+        />
+      )}
+      <Image
+        alt={alt}
+        src={src}
+        width={10000}
+        height={10000}
+        sizes="100vw"
+        priority={priority}
+        fetchPriority={priority ? 'high' : 'auto'}
+        onLoad={() => setIsLoaded(true)}
+        className={`rounded-lg object-cover mx-auto h-full w-full transition-opacity duration-500 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    </div>
+  );
+}
+
 export default function CaseStudyContent() {
   const [subnavRoot, setSubnavRoot] = useState<HTMLElement | null>(null);
 
@@ -42,17 +85,14 @@ export default function CaseStudyContent() {
           subnavRoot
         )}
       <TabsPanels>
-        {CASE_STUDIES.map(({ value, alt, src }) => (
+        {CASE_STUDIES.map(({ value, alt, src, width, height }, index) => (
           <TabsContent key={value} value={value}>
-            <Image
+            <CaseStudyImage
               alt={alt}
               src={src}
-              className="rounded-lg object-cover !mx-auto w-full h-full"
-              width={10000}
-              height={10000}
-              sizes="100vw"
-              priority
-              fetchPriority="high"
+              width={width}
+              height={height}
+              priority={index === 0}
             />
           </TabsContent>
         ))}
