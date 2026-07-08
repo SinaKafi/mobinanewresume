@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://www.mobinamoghadam.art';
+export const SITE_URL = 'https://www.mobinamoghadam.ir';
 export const SITE_NAME = 'Mobina Moghadam';
 
 export const DEFAULT_DESCRIPTION = 'UI/UX Designer Portfolio - Mobina Moghadam';

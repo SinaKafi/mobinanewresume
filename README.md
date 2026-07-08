@@ -2,7 +2,7 @@
 
 A UI/UX designer portfolio built with [Next.js 15](https://nextjs.org) (App Router), TypeScript, Chakra UI, Framer Motion, and Tailwind CSS.
 
-Live site: [mobinamoghadam.art](https://www.mobinamoghadam.art/)
+Live site: [mobinamoghadam.ir](https://www.mobinamoghadam.ir/)
 
 ## Tech stack
 
@@ -49,23 +49,23 @@ public/                   # Static assets (images, fonts, sitemap, robots)
 
 ## Deployment
 
-This repo is ready to deploy from GitHub. Two platforms are pre-configured:
+This repo deploys to **GitHub Pages** with a custom domain (`www.mobinamoghadam.ir`). The Next.js build is a static export (`output: 'export'` in `next.config.ts`), and a GitHub Actions workflow builds and publishes the `out/` folder on every push to `main`.
 
-### Vercel (recommended)
+### One-time setup
 
-1. Push the repo to GitHub.
-2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
-3. Vercel auto-detects Next.js. The included `vercel.json` pins the build to `npm run build` and output to `.next`.
-4. Click **Deploy**.
+1. **Enable Pages:** Repo Settings → Pages → **Build and deployment → Source: GitHub Actions**.
+2. **Custom domain DNS:** Point `www.mobinamoghadam.ir` at GitHub Pages (CNAME to `SinaKafi.github.io`, or A records per [GitHub's docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
+3. **Bind the domain:** Repo Settings → Pages → Custom domain → enter `www.mobinamoghadam.ir` → **Enforce HTTPS**. The committed `public/CNAME` file auto-fills this on first deploy.
 
-### Netlify
+### Deploy flow
 
-1. Push the repo to GitHub.
-2. Go to [app.netlify.com/start](https://app.netlify.com/start) and import the repo.
-3. The included `netlify.toml` configures the build command, publish directory, and installs the official `@netlify/plugin-nextjs` plugin.
-4. Click **Deploy site**.
+1. Push to `main`.
+2. The `.github/workflows/deploy.yml` action runs `npm ci` → `npm run build` → uploads `out/` → deploys to Pages.
+3. Watch the run in the Actions tab. First deploy after enabling Pages can take a few minutes.
 
-Both platforms read the Node version from `package.json` / `.nvmrc` automatically.
+### Fallback platforms
+
+`vercel.json` and `netlify.toml` are kept in the repo so you can fall back to either platform without git archaeology — just disable the Pages workflow and import the repo on Vercel/Netlify. Both detect Next.js automatically. Note: neither fallback uses the static export; they run the full Next.js server.
 
 ## SEO
 
