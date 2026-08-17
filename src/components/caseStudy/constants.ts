@@ -9,12 +9,4 @@ export const CASE_STUDIES = [
     width: 2160,
     height: 18989,
   },
-  {
-    value: 'TALASI',
-    label: 'TALASI',
-    alt: 'Talasi case study',
-    src: '/talasi_caseStudy.jpg',
-    width: 1280,
-    height: 8887,
-  },
 ] as const;
