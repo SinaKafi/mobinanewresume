@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useScroll, useTransform } from 'framer-motion';
 import { m } from '@/lib/motion';
 import { useRef } from 'react';
+import { asset } from '@/lib/assets';
 
 const STATS = [
   { value: '10+', label: 'Years in Design' },
@@ -41,7 +42,7 @@ export default function AboutPreview() {
             className="relative aspect-[4/5] max-w-lg mx-auto lg:mx-0 overflow-hidden rounded-2xl"
           >
             <Image
-              src="/empathy.png"
+              src={asset('/empathy.png')}
               alt="Mobina Moghadam logo"
               width={600}
               height={600}

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React from 'react';
 import SVGArrowUp from '../SVGS/SVGArrowUp';
 import MobileAccordionPanel from './MobileAccordionPanel';
+import { asset } from '@/lib/assets';
 
 interface IFreelanceCard {
   name: string;
@@ -49,7 +50,7 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
       <div className="hidden md:flex  flex-col gap-2">
         <div className="col-span-1 flex items-center justify-start gap-2">
           <Image
-            src={Icon}
+            src={asset(Icon)}
             alt=""
             aria-hidden
             className="!inline-flex"
@@ -77,7 +78,7 @@ const FreelanceCard: React.FC<IFreelanceCard> = ({
           aria-expanded={isOpen}
         >
           <Image
-            src={Icon}
+            src={asset(Icon)}
             alt=""
             aria-hidden
             width={28}

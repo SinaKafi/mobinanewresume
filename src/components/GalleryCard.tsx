@@ -1,3 +1,4 @@
+import { asset } from '@/lib/assets';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -26,7 +27,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
         {/* Image Container */}
         <div className="overflow-hidden transition-shadow designedShadow p-4">
           <Image
-            src={cover}
+            src={asset(cover)}
             alt={`Cover image for ${title}`}
             width={400}
             height={400}

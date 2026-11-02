@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { CASE_STUDY_SUBNAV_ID } from '@/components/caseStudy/constants';
 import React, { useState } from 'react';
+import { asset } from '@/lib/assets';
 
 const SIDEBAR_EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -28,7 +29,7 @@ const Header = () => {
         >
           <div>
             <Image
-              src={'/vector.svg'}
+              src={asset('/vector.svg')}
               alt=""
               width={50}
               height={50}
@@ -116,7 +117,7 @@ const Header = () => {
         >
           <div>
             <Image
-              src={'/vector.svg'}
+              src={asset('/vector.svg')}
               alt=""
               width={50}
               height={50}

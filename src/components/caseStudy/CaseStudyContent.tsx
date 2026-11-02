@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CASE_STUDIES, CASE_STUDY_SUBNAV_ID } from './constants';
+import { asset } from '@/lib/assets';
 
 function CaseStudyImage({
   alt,
@@ -40,7 +41,7 @@ function CaseStudyImage({
       )}
       <Image
         alt={alt}
-        src={src}
+        src={asset(src)}
         width={10000}
         height={10000}
         sizes="100vw"
@@ -89,7 +90,7 @@ export default function CaseStudyContent() {
           <TabsContent key={value} value={value}>
             <CaseStudyImage
               alt={alt}
-              src={src}
+              src={asset(src)}
               width={width}
               height={height}
               priority={index === 0}

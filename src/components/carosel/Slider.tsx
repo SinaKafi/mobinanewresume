@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ComponentType } from 'react';
 import Slider from 'react-slick';
 import { Settings } from 'react-slick'; // Import the Settings type
+import { asset } from '@/lib/assets';
 
 const SLIDE_SIZES =
   '(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1024px) 40vw, 23rem';
@@ -55,7 +56,7 @@ const ImageSlider = ({
             whileHover={reducedMotion ? undefined : { scale: 1.02 }}
           >
             <Image
-              src={image}
+              src={asset(image)}
               alt={
                 title
                   ? `${title} — screen ${index + 1}`

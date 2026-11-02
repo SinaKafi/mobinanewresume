@@ -6,6 +6,7 @@ import { m } from '@/lib/motion';
 import { useRef } from 'react';
 import { useScroll, useSpring, useTransform } from 'framer-motion';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { asset } from '@/lib/assets';
 
 export default function AboutMeImage() {
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -41,7 +42,7 @@ export default function AboutMeImage() {
     >
       <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
       <Image
-        src="/mobi.png"
+        src={asset('/mobi.png')}
         alt="Mobina Moghadam - UI/UX Designer"
         width={1000}
         height={1000}

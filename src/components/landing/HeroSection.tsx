@@ -10,6 +10,7 @@ import {
 } from 'framer-motion';
 import { m } from '@/lib/motion';
 import { useRef } from 'react';
+import { asset } from '@/lib/assets';
 
 const CV_FILENAME = 'MobinaMoghadamCV.pdf';
 const CV_HREF = `/${CV_FILENAME}`;
@@ -63,7 +64,7 @@ function HeroStatic() {
           <div className="relative w-full max-w-[420px] aspect-square">
             <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
             <Image
-              src="/mobi.png"
+              src={asset('/mobi.png')}
               alt="Mobina Moghadam"
               width={800}
               height={800}
@@ -176,7 +177,7 @@ function HeroAnimated() {
             >
               <div className="absolute inset-0 rounded-2xl bg-neutral-100 -rotate-3 scale-[1.02]" />
               <Image
-                src="/mobi.png"
+                src={asset('/mobi.png')}
                 alt="Mobina Moghadam"
                 width={800}
                 height={800}
