@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start -p 3020",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "format": "prettier . --write",
     "format:check": "prettier . --check"
   },
