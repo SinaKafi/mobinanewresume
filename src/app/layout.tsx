@@ -13,6 +13,7 @@ import {
 import './globals.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import localFont from 'next/font/local';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -70,6 +71,14 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
+const montserrat = localFont({
+  src: '../../public/fonts/Montserrat-VariableFont_wght.ttf',
+  variable: '--font-montserrat',
+  weight: '100 900',
+  style: 'normal',
+  display: 'swap',
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -77,7 +86,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen bg-background flex flex-col">
+      <body
+        className={`${montserrat.variable} antialiased min-h-screen bg-background flex flex-col`}
+      >
         <MotionProvider>
           <AOSInit />
           <div className="bg-white/70 backdrop-saturate-150 hidden md:block md:w-full md:h-14 xl:h-20" />

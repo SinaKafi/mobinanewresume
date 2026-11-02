@@ -33,14 +33,15 @@ p {
   color: var(--gray2);
   @apply text-base font-light;
 }
+
 *,
 *::after,
 *::before {
   box-sizing: border-box;
   margin: 0;
-  font-family: 'Montserrat';
   padding: 0;
 }
+
 .container {
   width: 100%;
   @apply max-w-[108rem] mx-auto px-[1.5rem] md:px-[2rem] lg:px-[4rem] xl:px-[10rem] 2xl:px-[12rem];
@@ -49,9 +50,10 @@ p {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
   direction: ltr;
 }
+
 .ExperienceCard h3::after,
 .header a::after,
 .mobileHeader a::after {
