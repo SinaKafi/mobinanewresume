@@ -101,6 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PAGES_ENABLEMENT_TOKEN: ${{ secrets.PAGES_ENABLEMENT_TOKEN }}
+      NEXT_PUBLIC_BASE_PATH: /mobinanewresume
     steps:
       - name: Checkout
         uses: actions/checkout@v6
