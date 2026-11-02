@@ -1,10 +1,9 @@
 'use client';
 
-import ExperienceCard from '@/components/GalleryCard';
 import Link from 'next/link';
-import { useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { m } from '@/lib/motion';
-import { useRef } from 'react';
+import { useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import ExperienceCard from '../GalleryCard';
 
 type WorkItem = {
   title: string;
@@ -14,63 +13,127 @@ type WorkItem = {
 };
 
 export default function FeaturedWork({ items }: { items: WorkItem[] }) {
-  const ref = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [trackWidth, setTrackWidth] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(0);
   const reducedMotion = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
+  useEffect(() => {
+    const calculate = () => {
+      if (trackRef.current) setTrackWidth(trackRef.current.scrollWidth);
+      setViewportWidth(window.innerWidth);
+    };
+    calculate();
+    window.addEventListener('resize', calculate);
+    return () => window.removeEventListener('resize', calculate);
+  }, [items.length]);
 
-  const labelX = useTransform(scrollYProgress, [0, 1], ['-8%', '12%']);
-  const labelY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const scrollableDistance =
+        containerRef.current.offsetHeight - window.innerHeight;
+      if (scrollableDistance <= 0) {
+        setScrollProgress(0);
+        return;
+      }
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollableDistance));
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [trackWidth, viewportWidth]);
+
+  const horizontalScrollAmount = Math.max(0, trackWidth - viewportWidth);
+  const translateX = -scrollProgress * horizontalScrollAmount;
+  const sectionHeight = Math.max(
+    300,
+    horizontalScrollAmount * 0.5 + viewportWidth * 0.6
+  );
 
   return (
-    <section ref={ref} className="py-16 sm:py-24 md:py-32 relative">
-      {reducedMotion ? (
-        <div
-          className="absolute -top-4 left-0 text-[clamp(4rem,12vw,10rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none"
-          aria-hidden
-        >
-          WORK
-        </div>
-      ) : (
-        <m.div
-          style={{ x: labelX, y: labelY }}
-          className="absolute -top-4 left-0 text-[clamp(4rem,12vw,10rem)] font-medium text-neutral-100 select-none pointer-events-none leading-none will-change-transform [backface-visibility:hidden]"
-          aria-hidden
-        >
-          WORK
-        </m.div>
-      )}
-
-      <div className="relative z-10">
-        <div
-          data-aos="fade-up"
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20"
-        >
-          <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-gray1 font-light mb-3">
-              Selected Projects
-            </p>
-            <h2 className="text-3xl md:text-4xl font-medium text-foreground">
-              Featured Work
-            </h2>
-          </div>
+    <section
+      ref={containerRef}
+      className="relative w-full"
+      style={{ height: `${sectionHeight}px` }}
+      aria-label={`Featured work gallery, ${items.length} projects`}
+      role="region"
+    >
+      <div className="sticky top-0 h-dvh w-full overflow-hidden bg-background">
+        <div className="absolute left-6 top-8 z-20 md:left-12">
+          <p className="text-xs tracking-[0.3em] uppercase text-gray1 font-light mb-2">
+            Selected Projects
+          </p>
+          <h2 className="text-3xl md:text-4xl font-medium text-foreground">
+            Featured Work
+          </h2>
           <Link
             href="/portfolio"
-            className="text-sm font-light text-gray1 hover:text-foreground transition-colors underline-offset-4 hover:underline"
+            className="inline-block mt-3 text-sm font-light text-gray1 hover:text-foreground transition-colors underline-offset-4 hover:underline"
           >
-            View all projects →
+            View all projects -&gt;
           </Link>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
-          {items.map((item, index) => (
-            <div key={item.id} data-aos="fade-up" data-aos-delay={index * 120}>
-              <ExperienceCard {...item} priority={index === 0} />
-            </div>
-          ))}
+        <div
+          ref={trackRef}
+          className="featured-track h-full flex items-center pl-24 md:pl-36 lg:pl-44 pr-20"
+          style={{
+            transform: `translateX(${translateX}px)`,
+            transition: reducedMotion ? 'none' : 'transform 0.1s ease-out',
+            willChange: 'transform',
+            paddingTop: '40px',
+            paddingBottom: '40px',
+          }}
+        >
+          {items.map((item, index) => {
+            return (
+              <Link
+                key={item.id}
+                href={`/portfolio/${item.route}`}
+                className="featured-item flex-shrink-0 relative group cursor-pointer block"
+                style={{ marginRight: '40px' }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <ExperienceCard {...item} priority={index === 0} />
+              </Link>
+            );
+          })}
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-foreground/5">
+          <div
+            className="h-full bg-foreground/20"
+            style={{
+              width: `${scrollProgress * 100}%`,
+              transition: reducedMotion ? 'none' : 'width 0.1s ease-out',
+            }}
+          />
+        </div>
+        <div
+          className="absolute bottom-8 right-8 flex items-center gap-2 text-gray1 transition-opacity duration-500"
+          style={{ opacity: scrollProgress < 0.1 ? 1 : 0 }}
+        >
+          <span className="text-xs tracking-wide">Scroll to explore</span>
+          <svg
+            width="20"
+            height="12"
+            viewBox="0 0 20 12"
+            fill="none"
+            className="animate-pulse"
+          >
+            <path
+              d="M1 6H19M19 6L14 1M19 6L14 11"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
       </div>
     </section>

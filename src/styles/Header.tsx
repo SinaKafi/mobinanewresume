@@ -249,12 +249,6 @@ const Header = () => {
                     label: 'CASE STUDY',
                     active: path === '/caseStudy',
                   },
-
-                  {
-                    href: '/contact',
-                    label: 'CONTACT',
-                    active: path === '/contact',
-                  },
                 ].map((item) => (
                   <m.div
                     key={item.href}

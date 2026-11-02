@@ -190,6 +190,33 @@ li {
   overflow-x: clip;
 }
 
+.featured-item {
+  width: 220px;
+}
+.featured-item .ExperienceCard > div > div {
+  padding: 0.5rem;
+}
+.featured-item .ExperienceCard img {
+  width: 100% !important;
+  height: auto !important;
+}
+.featured-item .ExperienceCard h3 {
+  font-size: 0.8rem;
+}
+@media (min-width: 480px) {
+  .featured-item {
+    width: 280px;
+  }
+}
+@media (min-width: 768px) {
+  .featured-item {
+    width: 360px;
+  }
+  .featured-item .ExperienceCard h3 {
+    font-size: 1.125rem;
+  }
+}
+
 .glass-layer {
   pointer-events: none;
   position: absolute;

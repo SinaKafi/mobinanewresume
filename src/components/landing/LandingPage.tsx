@@ -19,8 +19,8 @@ export default function LandingPage({ featured }: { featured: WorkItem[] }) {
         <HeroSection />
 
         <div className="relative z-10 -mt-24 sm:-mt-32 md:-mt-40 bg-background rounded-t-[1.75rem] sm:rounded-t-[2rem] md:rounded-t-[2.5rem] shadow-[0_-24px_48px_rgba(0,0,0,0.04)]">
+          <FeaturedWork items={featured} />
           <div className="container">
-            <FeaturedWork items={featured} />
             <AboutPreview />
             <CTASection />
           </div>

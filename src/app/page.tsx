@@ -16,7 +16,5 @@ export const metadata = {
 };
 
 export default function Home() {
-  const featured = DESIGNED.slice(0, 3);
-
-  return <LandingPage featured={featured} />;
+  return <LandingPage featured={DESIGNED} />;
 }
