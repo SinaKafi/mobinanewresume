@@ -92,16 +92,15 @@ export default function FeaturedWork({ items }: { items: WorkItem[] }) {
         >
           {items.map((item, index) => {
             return (
-              <Link
+              <div
                 key={item.id}
-                href={`/portfolio/${item.route}`}
                 className="featured-item flex-shrink-0 relative group cursor-pointer block"
                 style={{ marginRight: '40px' }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <ExperienceCard {...item} priority={index === 0} />
-              </Link>
+              </div>
             );
           })}
         </div>
