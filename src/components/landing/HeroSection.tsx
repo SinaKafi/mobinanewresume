@@ -13,7 +13,7 @@ import { useRef } from 'react';
 import { asset } from '@/lib/assets';
 
 const CV_FILENAME = 'MobinaMoghadamCV.pdf';
-const CV_HREF = `/${CV_FILENAME}`;
+const CV_HREF = asset(`/${CV_FILENAME}`);
 
 function CvDownloadLink({ className }: { className?: string }) {
   return (

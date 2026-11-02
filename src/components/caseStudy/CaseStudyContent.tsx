@@ -90,7 +90,7 @@ export default function CaseStudyContent() {
           <TabsContent key={value} value={value}>
             <CaseStudyImage
               alt={alt}
-              src={asset(src)}
+              src={src}
               width={width}
               height={height}
               priority={index === 0}

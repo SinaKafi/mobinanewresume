@@ -14,6 +14,7 @@ import './globals.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import localFont from 'next/font/local';
+import { asset } from '@/lib/assets';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/vector.svg',
+    icon: asset('/vector.svg'),
   },
   appleWebApp: {
     capable: true,

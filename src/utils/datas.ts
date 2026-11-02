@@ -112,9 +112,9 @@ export const DESIGNED: {
     id: 10,
     route: 'rastinApp',
     images: [
-      '/designed/rastinApp.png',
-      '/works/rasting app/rastinApp1.png',
-      '/works/rasting app/rastinApp2.png',
+      '/designed/RastinApp.png',
+      '/works/rasting app/RastinApp1.png',
+      '/works/rasting app/RastinApp2.png',
     ],
   },
   {

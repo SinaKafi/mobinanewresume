@@ -14,12 +14,6 @@
     --site-header-height: 6rem;
   }
 }
-@font-face {
-  font-family: 'Montserrat';
-  font-weight: 100 900; /* Supports variable weights from 100 to 900 */
-  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-display: swap; /* Improves performance by swapping the font */
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
