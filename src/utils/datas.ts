@@ -1,5 +1,19 @@
 export const EXPERIENCE = [
   {
+    name: 'Sadad Design Studio',
+    role: 'SENIOR PRODUCT DESIGNER',
+    description: `At Sadad Design Studio, I work as a Senior Product Designer, focusing on designing and 
+                  improving user experiences across digital products. 
+                  I have contributed to the design and development of Firuze and Bale, working on intuitive, 
+                  scalable, and user-centered solutions. My responsibilities include identifying user needs,
+                  optimizing product flows, developing design systems, and collaborating closely with product 
+                  and engineering teams throughout the entire design process, 
+                  from research and ideation to prototyping, testing, and evaluation.`,
+    fromDate: '2026',
+    toDate: 'NOW',
+    id: 8,
+  },
+  {
     name: 'Raastin Company',
     role: 'PRODUCT DESIGNER',
     description: `At Rastin, I am responsible for designing and improving the user experience of digital
